@@ -64,12 +64,12 @@ const links = [
             <div class="flex items-center gap-8 text-sm">
               <div class="text-center">
                 <div class="text-base font-medium">226</div>
-                <div class="text-gray-500 text-xs">Customers</div>
+                <div class="text-gray-700 text-xs">Customers</div> <!-- Updated color -->
               </div>
               <div class="h-8 w-px bg-gray-200"></div>
               <div class="text-center">
                 <div class="text-base font-medium">259</div>
-                <div class="text-gray-500 text-xs">Transactions</div>
+                <div class="text-gray-700 text-xs">Transactions</div> <!-- Updated color -->
               </div>
             </div>
           </div>
@@ -122,12 +122,12 @@ const links = [
                   )}
                 </div>
                 <div class="p-3 sm:p-4">
-                  <h3 class="font-semibold text-gray-900 text-sm sm:text-base mb-1.5 sm:mb-2 line-clamp-2">{product.title}</h3>
+                  <h2 class="font-semibold text-gray-900 text-sm sm:text-base mb-1.5 sm:mb-2 line-clamp-2">{product.title}</h2>
                   
                   <div class="flex items-baseline gap-1.5 sm:gap-2">
                     <span class="text-[#3b82f6] text-base sm:text-lg font-bold">{product.price}</span>
                     {product.originalPrice && (
-                      <span class="text-xs sm:text-sm text-gray-400 line-through">{product.originalPrice}</span>
+                      <span class="text-gray-600 text-xs sm:text-sm line-through">{product.originalPrice}</span>
                     )}
                   </div>
                 </div>
