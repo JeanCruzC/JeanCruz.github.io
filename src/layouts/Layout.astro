@@ -15,6 +15,14 @@ const { title = "Aji Pratama" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/blue.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0KYTSD92T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-G0KYTSD92T');
+    </script>
   </head>
   <body class="bg-gray-100">
     <main>
