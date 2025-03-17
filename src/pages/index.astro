@@ -49,10 +49,10 @@ const links = [
 ---
 
 <Layout>
-  <div class="max-w-7xl mx-auto min-h-screen bg-gray-100">
+  <main class="max-w-7xl mx-auto min-h-screen bg-gray-100">
     <div class="flex flex-col md:flex-row">
       <!-- Left Column - Bio & Links -->
-      <div class="w-full md:w-80 p-6 md:min-h-screen">
+      <aside class="w-full md:w-80 p-6 md:min-h-screen">
         <div class="sticky top-8">
           <div class="flex flex-col items-center space-y-4">
             <img src="/blue.png" alt="Aji Pratama" class="w-20 h-20 rounded-full" />
@@ -104,17 +104,17 @@ const links = [
             ))}
           </div>
         </div>
-      </div>
+      </aside>
 
       <!-- Right Column - Products -->
-      <div class="flex-1 p-6 md:p-8">
+      <section class="flex-1 p-6 md:p-8">
         <!-- Products Grid -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map(product => (
             <a href={product.url} class="block cursor-pointer" target="_blank">
               <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-all duration-200 hover:scale-[1.01]">
                 <div class="relative">
-                  <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" />
+                  <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" loading="lazy" />
                   {product.discount && (
                     <span class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#3b82f6] text-white px-2 py-0.5 rounded-md text-xs sm:text-sm font-medium shadow-sm">
                       {product.discount}
@@ -135,8 +135,7 @@ const links = [
             </a>
           ))}
         </div>
-      </div>
+      </section>
     </div>
-
-  </div>
+  </main>
 </Layout>
