@@ -33,8 +33,8 @@ const products = [
   },
   {
     title: "Template Bio - Astro",
-    price: "Rp 50.000",
-    url: "https://utas.me/ajipratama/template-bio---high-performance-ti8ipla0",
+    // price: "Rp 50.000",
+    url: "/bio-template",
     image: "/products/template-bio.png",
   },
 
@@ -111,7 +111,11 @@ const links = [
         <!-- Products Grid -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map(product => (
-            <a href={product.url} class="block cursor-pointer" target="_blank">
+            <a 
+              href={product.url} 
+              class="block cursor-pointer" 
+              target={product.url.startsWith('http') ? '_blank' : undefined}
+            >
               <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-all duration-200 hover:scale-[1.01]">
                 <div class="relative">
                   <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" loading="lazy" />

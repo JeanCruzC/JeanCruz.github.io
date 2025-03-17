@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const product = {
+  title: "Template Bio - High Performance",
+  price: "Rp 50.000",
+  description: `
+    Template Bio – Personal Branding Maksimal dengan Performa Tinggi 🚀
+
+    Bangun halaman bio digital yang clean, profesional, dan super cepat dengan template ini. Dibangun dengan Astro untuk performa optimal, memastikan akses instan dan pengalaman pengguna yang mulus.
+  `,
+  features: [
+    "Desain minimalis & profesional",
+    "Link ke media sosial, portofolio, dan produk",
+    "Performa tinggi dengan Astro – cepat, ringan, dan SEO-friendly",
+    "Mudah disesuaikan tanpa coding ribet"
+  ],
+  cta: {
+    label: "Download Sekarang",
+    url: "https://utas.me/ajipratama/template-bio---high-performance-ti8ipla0"
+  },
+  images: [
+    "/products/template-bio-performance.png"
+  ]
+};
+---
+
+<Layout>
+  <main class="max-w-4xl mx-auto p-6">
+    <!-- Navigation Back -->
+    <div class="mb-4">
+      <a href="/" class="text-blue-500 hover:underline">← Back</a>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-4xl font-bold mb-6 text-gray-900">{product.title}</h1>
+
+    <!-- Carousel -->
+    <div class="carousel mb-6">
+      {product.images.map((image, index) => (
+        <img src={image} alt={`Template Bio Image ${index + 1}`} class="w-full h-auto mb-4 rounded-lg shadow-md" />
+      ))}
+    </div>
+
+    <!-- Content -->
+    <article class="text-gray-700 leading-relaxed mb-6">
+      <p class="mb-4">{product.description}</p>
+      
+      <h2 class="text-2xl font-semibold mb-4 text-gray-900">✨ Fitur Utama:</h2>
+      <ul class="list-disc list-inside mb-4">
+        {product.features.map(feature => (
+          <li class="mb-2">{feature}</li>
+        ))}
+      </ul>
+
+      <h2 class="text-2xl font-semibold mb-4 text-gray-900 mb-3">Kenapa Memilih Template Ini?</h2>
+      <p class="mb-4">Template ini dirancang untuk memberikan performa terbaik dengan Astro, memastikan halaman Anda cepat dan responsif. Gratis digunakan, hanya butuh domain Anda sendiri!</p>
+    </article>
+
+    <!-- CTA -->
+    <div class="text-center mt-6 pt-6">
+      <a href={product.cta.url} class="bg-blue-500 text-white px-8 py-4 rounded-lg hover:bg-blue-600 text-lg shadow-md transition-transform transform hover:scale-105">
+        {product.cta.label}
+      </a>
+    </div>
+  </main>
+</Layout>
