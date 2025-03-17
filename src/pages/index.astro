@@ -1,11 +1,148 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const products = [
+  {
+    title: "[Pre-order] Panduan Kerja Remote",
+    price: "Rp 178.200",
+    originalPrice: "Rp 297.000",
+    // discount: "40%",
+    image: "/blue.png",
+    sales: {
+      // percentage: "75%",
+      // label: "Sales"
+    }
+  },
+  {
+    title: "Notion Template Job Hunting Tracker",
+    price: "Rp 0",
+    originalPrice: "Rp 17.845",
+    discount: "100%",
+    image: "/blue.png",
+    sales: {
+      percentage: "75%",
+      label: "Sales"
+    }
+  },
+  {
+    title: "Kurasi & Roadmap Software Engineer Remote",
+    price: "Rp 25.000",
+    originalPrice: "Rp 45.000",
+    discount: "44%",
+    image: "/blue.png",
+    sales: {
+      percentage: "75%",
+      label: "Sales"
+    }
+  },
+  {
+    title: "[Pre-order] Personal Management Hacks with Trello",
+    price: "Rp 47.000",
+    // originalPrice: "Rp 79.000",
+    discount: "41%",
+    image: "/blue.png",
+    sales: {
+      percentage: "75%",
+      label: "Sales"
+    }
+  }
+];
+
+const links = [
+  { title: "Instagram", url: "#", border: "border-pink-500" },
+  { title: "Threads", url: "#", border: "border-black" },
+  { title: "LinkedIn", url: "#", border: "border-[#0077B5]" }
+];
 ---
 
 <Layout>
-	<Welcome />
+  <div class="max-w-7xl mx-auto min-h-screen bg-gray-100">
+    <div class="flex flex-col md:flex-row">
+      <!-- Left Column - Bio & Links -->
+      <div class="w-full md:w-80 p-6 md:min-h-screen">
+        <div class="sticky top-8">
+          <div class="flex flex-col items-center space-y-4">
+            <img src="/blue.png" alt="Aji Pratama" class="w-20 h-20 rounded-full" />
+            <h1 class="text-xl font-bold">Aji Pratama</h1>
+            <p class="text-sm text-gray-600 text-center">
+              #kerjadaridesa #remotework #freelance #ai #productivity #techindustry
+            </p>
+            
+            <div class="flex items-center gap-8 text-sm">
+              <div class="text-center">
+                <div class="text-base font-medium">226</div>
+                <div class="text-gray-500 text-xs">Customers</div>
+              </div>
+              <div class="h-8 w-px bg-gray-200"></div>
+              <div class="text-center">
+                <div class="text-base font-medium">259</div>
+                <div class="text-gray-500 text-xs">Transactions</div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Email Subscription -->
+          <div class="mt-8">
+            <div class="relative">
+              <input 
+                type="email" 
+                placeholder="Email address" 
+                class="w-full px-4 py-3 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 border-1 border-gray-300" 
+              />
+              <button class="absolute right-2 top-2 bg-[#3b82f6] text-white px-4 py-2 rounded-lg text-sm font-medium">
+                Subscribe
+              </button>
+            </div>
+          </div>
+      
+          <!-- Links -->
+          <div class="mt-6 space-y-3">
+            {links.map(link => (
+              <a 
+                href={link.url} 
+                class={`block w-full p-3 rounded-xl border-2 text-center font-semibold text-gray-800 bg-white transition-all duration-200
+                        shadow-md hover:shadow-xl hover:scale-[1.02] ${link.border}`}
+              >
+                {link.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Products -->
+      <div class="flex-1 p-6 md:p-8">
+        <!-- Products Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {products.map(product => (
+            <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-shadow shadow-lg">
+              <div class="relative">
+                <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" />
+                {product.discount && (
+                  <span class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#3b82f6] text-white px-2 py-0.5 rounded-md text-xs sm:text-sm font-medium shadow-sm">
+                    {product.discount}
+                  </span>
+                )}
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 class="font-semibold text-gray-900 text-sm sm:text-base mb-1.5 sm:mb-2 line-clamp-2">{product.title}</h3>
+                
+                <div class="flex items-baseline gap-1.5 sm:gap-2">
+                  <span class="text-[#3b82f6] text-base sm:text-lg font-bold">{product.price}</span>
+                  {product.originalPrice && (
+                    <span class="text-xs sm:text-sm text-gray-400 line-through">{product.originalPrice}</span>
+                  )}
+                </div>
+                
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center text-xs text-gray-500 py-4 border-t border-gray-200">
+      <a href="https://beehiiv.com" class="hover:text-blue-600">Built with Astro</a>
+    </div>
+  </div>
 </Layout>
