@@ -6,45 +6,45 @@ const products = [
     title: "[Pre-order] Panduan Kerja Remote",
     price: "Rp 178.200",
     originalPrice: "Rp 297.000",
-    // discount: "40%",
-    image: "/blue.png",
-    sales: {
-      // percentage: "75%",
-      // label: "Sales"
-    }
+    url: "https://utas.me/ajipratama/panduan-kerja-remote--4r2n5tiy",
+    image: "/products/panduan-kerja-remote.jpg",
   },
   {
     title: "Notion Template Job Hunting Tracker",
     price: "Rp 0",
     originalPrice: "Rp 17.845",
     // discount: "100%",
-    image: "/blue.png",
-    sales: {
-      percentage: "75%",
-      label: "Sales"
-    }
+    url: "https://utas.me/ajipratama/notion-template-job-hunting-tracker-xsqaefys",
+    image: "/products/notion-job-hunt.jpg",
   },
   {
     title: "Kurasi & Roadmap Software Engineer Remote",
     price: "Rp 25.000",
+    url: "https://utas.me/ajipratama/pre-order-kurasi--roadmap-software-engineer-remote-heanezpy",
     originalPrice: "Rp 45.000",
     discount: "44%",
-    image: "/blue.png",
+    image: "/products/kurasi-roadmap-swe.jpg",
   },
   {
     title: "[Pre-order] Personal Management Hacks with Trello",
     price: "Rp 47.000",
-    // originalPrice: "Rp 79.000",
-    // discount: "41%",
-    image: "/blue.png",
-  }
+    url: "https://utas.me/ajipratama/pre-order-personal-management-hacks-with-trello-hmn30emx",
+    image: "/products/trello.jpg",
+  },
+  {
+    title: "Template Bio - Astro",
+    price: "Rp 50.000",
+    url: "https://utas.me/ajipratama/template-bio---high-performance-ti8ipla0",
+    image: "/products/template-bio.png",
+  },
+
 ];
 
 const links = [
-  { title: "Instagram", url: "https://www.instagram.com/ajipratamacom", border: "border-pink-600" },
+  { title: "Instagram", url: "https://www.instagram.com/ajipratamacom", border: "border-pink-800" },
   { title: "Threads", url: "https://www.threads.net/@ajipratamacom", border: "border-black" },
-  { title: "LinkedIn", url: "https://www.linkedin.com/in/aji-pratama-net/", border: "border-[#0077B5]" },
-  { title: "Medium.com", url: "https://medium.com/@ajipratama", border: "border-[#00875F]" }
+  { title: "LinkedIn", url: "https://www.linkedin.com/in/aji-pratama-net/", border: "border-[#0057B5]" },
+  { title: "Medium.com", url: "https://medium.com/@ajipratama", border: "border-[#00675F]" }
 ];
 ---
 
@@ -77,6 +77,7 @@ const links = [
           <!-- Email Subscription -->
           <div class="mt-8">
             <div class="relative">
+              <form action="https://tally.so/r/wzL4b8" method="POST" target="_blank">
               <input 
                 type="email" 
                 placeholder="Email address" 
@@ -85,9 +86,10 @@ const links = [
               <button class="absolute right-2 top-2 bg-[#3b82f6] text-white px-4 py-2 rounded-lg text-sm font-medium">
                 Subscribe
               </button>
+              </form>
             </div>
           </div>
-      
+
           <!-- Links -->
           <div class="mt-6 space-y-3">
             {links.map(link => (
@@ -109,27 +111,28 @@ const links = [
         <!-- Products Grid -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map(product => (
-            <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-all duration-200 hover:scale-[1.01]">
-              <div class="relative">
-                <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" />
-                {product.discount && (
-                  <span class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#3b82f6] text-white px-2 py-0.5 rounded-md text-xs sm:text-sm font-medium shadow-sm">
-                    {product.discount}
-                  </span>
-                )}
-              </div>
-              <div class="p-3 sm:p-4">
-                <h3 class="font-semibold text-gray-900 text-sm sm:text-base mb-1.5 sm:mb-2 line-clamp-2">{product.title}</h3>
-                
-                <div class="flex items-baseline gap-1.5 sm:gap-2">
-                  <span class="text-[#3b82f6] text-base sm:text-lg font-bold">{product.price}</span>
-                  {product.originalPrice && (
-                    <span class="text-xs sm:text-sm text-gray-400 line-through">{product.originalPrice}</span>
+            <a href={product.url} class="block cursor-pointer" target="_blank">
+              <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-all duration-200 hover:scale-[1.01]">
+                <div class="relative">
+                  <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" />
+                  {product.discount && (
+                    <span class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#3b82f6] text-white px-2 py-0.5 rounded-md text-xs sm:text-sm font-medium shadow-sm">
+                      {product.discount}
+                    </span>
                   )}
                 </div>
-                
+                <div class="p-3 sm:p-4">
+                  <h3 class="font-semibold text-gray-900 text-sm sm:text-base mb-1.5 sm:mb-2 line-clamp-2">{product.title}</h3>
+                  
+                  <div class="flex items-baseline gap-1.5 sm:gap-2">
+                    <span class="text-[#3b82f6] text-base sm:text-lg font-bold">{product.price}</span>
+                    {product.originalPrice && (
+                      <span class="text-xs sm:text-sm text-gray-400 line-through">{product.originalPrice}</span>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
