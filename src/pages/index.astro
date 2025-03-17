@@ -17,7 +17,7 @@ const products = [
     title: "Notion Template Job Hunting Tracker",
     price: "Rp 0",
     originalPrice: "Rp 17.845",
-    discount: "100%",
+    // discount: "100%",
     image: "/blue.png",
     sales: {
       percentage: "75%",
@@ -30,28 +30,21 @@ const products = [
     originalPrice: "Rp 45.000",
     discount: "44%",
     image: "/blue.png",
-    sales: {
-      percentage: "75%",
-      label: "Sales"
-    }
   },
   {
     title: "[Pre-order] Personal Management Hacks with Trello",
     price: "Rp 47.000",
     // originalPrice: "Rp 79.000",
-    discount: "41%",
+    // discount: "41%",
     image: "/blue.png",
-    sales: {
-      percentage: "75%",
-      label: "Sales"
-    }
   }
 ];
 
 const links = [
-  { title: "Instagram", url: "#", border: "border-pink-500" },
-  { title: "Threads", url: "#", border: "border-black" },
-  { title: "LinkedIn", url: "#", border: "border-[#0077B5]" }
+  { title: "Instagram", url: "https://www.instagram.com/ajipratamacom", border: "border-pink-600" },
+  { title: "Threads", url: "https://www.threads.net/@ajipratamacom", border: "border-black" },
+  { title: "LinkedIn", url: "https://www.linkedin.com/in/aji-pratama-net/", border: "border-[#0077B5]" },
+  { title: "Medium.com", url: "https://medium.com/@ajipratama", border: "border-[#00875F]" }
 ];
 ---
 
@@ -99,8 +92,9 @@ const links = [
           <div class="mt-6 space-y-3">
             {links.map(link => (
               <a 
+                target="_blank"
                 href={link.url} 
-                class={`block w-full p-3 rounded-xl border-2 text-center font-semibold text-gray-800 bg-white transition-all duration-200
+                class={`block w-full p-2 rounded-xl border-2 text-center font-semibold text-gray-800 bg-white transition-all duration-200
                         shadow-md hover:shadow-xl hover:scale-[1.02] ${link.border}`}
               >
                 {link.title}
@@ -115,7 +109,7 @@ const links = [
         <!-- Products Grid -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map(product => (
-            <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-shadow shadow-lg">
+            <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-all duration-200 hover:scale-[1.01]">
               <div class="relative">
                 <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" />
                 {product.discount && (
@@ -140,9 +134,6 @@ const links = [
         </div>
       </div>
     </div>
-    
-    <div class="text-center text-xs text-gray-500 py-4 border-t border-gray-200">
-      <a href="https://beehiiv.com" class="hover:text-blue-600">Built with Astro</a>
-    </div>
+
   </div>
 </Layout>
