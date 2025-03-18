@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-12">
+    <h1 class="text-xl font-bold text-center mb-6">🌐 Landing Page Reviewer</h1>
+    
+    <input 
+      type="text" 
+      id="pageUrl"
+      class="w-full p-3 border rounded mb-4"
+      placeholder="Enter page URL"
+    />
+    
+    <button id="scrapeBtn" class="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      Scrape
+    </button>
+
+    <div id="response" class="mt-6 p-4 bg-gray-100 rounded text-sm hidden"></div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrapeBtn = document.getElementById("scrapeBtn");
+      const responseDiv = document.getElementById("response");
+      
+      scrapeBtn.addEventListener("click", async () => {
+        const url = document.getElementById("pageUrl").value;
+
+        if (!url) {
+          responseDiv.classList.add("hidden");
+          return;
+        }
+
+        responseDiv.classList.remove("hidden");
+        responseDiv.innerText = "Fetching...";
+
+        try {
+          const res = await fetch("http://localhost:5678/webhook/landing", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ page_url: url })
+          });
+
+          const data = await res.json();
+          responseDiv.innerText = data[0]?.output || "No output found";
+
+        //   responseDiv.innerText = JSON.stringify(data, null, 2);
+        } catch {
+          responseDiv.innerText = "Failed to fetch data.";
+        }
+      });
+    });
+  </script>
+</Layout>
