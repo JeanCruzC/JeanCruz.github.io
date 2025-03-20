@@ -4,36 +4,36 @@ import Layout from '../layouts/Layout.astro';
 const products = [
   {
     title: "[Pre-order] Panduan Kerja Remote",
-    price: "Rp 178.200",
-    originalPrice: "Rp 297.000",
+    price: "Rp178.200",
+    originalPrice: "Rp297.000",
     url: "https://utas.me/ajipratama/panduan-kerja-remote--4r2n5tiy",
     image: "/products/panduan-kerja-remote.jpg",
   },
   {
     title: "Notion Template Job Hunting Tracker",
-    price: "Rp 0",
-    originalPrice: "Rp 17.845",
+    price: "Rp0",
+    originalPrice: "Rp17.845",
     // discount: "100%",
     url: "https://utas.me/ajipratama/notion-template-job-hunting-tracker-xsqaefys",
     image: "/products/notion-job-hunt.jpg",
   },
   {
     title: "Kurasi & Roadmap Software Engineer Remote",
-    price: "Rp 25.000",
+    price: "Rp25.000",
     url: "https://utas.me/ajipratama/pre-order-kurasi--roadmap-software-engineer-remote-heanezpy",
-    originalPrice: "Rp 45.000",
+    originalPrice: "Rp45.000",
     discount: "44%",
     image: "/products/kurasi-roadmap-swe.jpg",
   },
   {
     title: "[Pre-order] Personal Management Hacks with Trello",
-    price: "Rp 47.000",
+    price: "Rp47.000",
     url: "https://utas.me/ajipratama/pre-order-personal-management-hacks-with-trello-hmn30emx",
     image: "/products/trello.jpg",
   },
   {
     title: "Template Bio - Astro",
-    // price: "Rp 50.000",
+    // price: "Rp50.000",
     url: "/bio-template",
     image: "/products/template-bio.png",
   },
@@ -67,6 +67,7 @@ const links = [
               #kerjadaridesa #remotework #freelance #ai #productivity #techindustry
             </p>
             
+            <a href="https://utas.me/ajipratama" target="_blank">
             <div class="flex items-center gap-8 text-sm">
               <div class="text-center">
                 <div class="text-base font-medium">236</div>
@@ -78,6 +79,7 @@ const links = [
                 <div class="text-gray-700 text-xs">Transactions</div> <!-- Updated color -->
               </div>
             </div>
+            </a>
           </div>
       
           <!-- Email Subscription -->
@@ -93,13 +95,14 @@ const links = [
               <a 
                 target="_blank"
                 href={link.url} 
-                class={`block w-full p-2 rounded-xl border-2 text-center font-semibold text-gray-800 bg-white transition-all duration-200
+                class={`block w-full p-2 rounded-md border-2 text-center font-semibold text-gray-800 bg-white transition-all duration-200
                         shadow-md hover:shadow-xl hover:scale-[1.02] ${link.border}`}
               >
                 {link.title}
               </a>
             ))}
           </div>
+
         </div>
       </aside>
 
@@ -113,7 +116,7 @@ const links = [
               class="block cursor-pointer" 
               target={product.url.startsWith('http') ? '_blank' : undefined}
             >
-              <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-lg transition-all duration-200 hover:scale-[1.01]">
+              <div class="border-2 border-gray-600 bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-200 hover:scale-[1.01]">
                 <div class="relative">
                   <img src={product.image} alt={product.title} class="w-full h-32 sm:h-40 object-cover bg-[#3b82f6]" loading="lazy" />
                   {product.discount && (
@@ -123,10 +126,10 @@ const links = [
                   )}
                 </div>
                 <div class="p-3 sm:p-4">
-                  <h2 class="font-semibold text-gray-900 text-sm sm:text-base mb-1.5 sm:mb-2 line-clamp-2">{product.title}</h2>
+                  <h2 class="text-gray-900 text-sm sm:text-base mb-1.5 sm:mb-2 line-clamp-2">{product.title}</h2>
                   
                   <div class="flex items-baseline gap-1.5 sm:gap-2">
-                    <span class="text-[#3b82f6] text-base sm:text-lg font-bold">{product.price}</span>
+                    <span class="text-[#3b82f6] text-base sm:text-lg font-semibold">{product.price}</span>
                     {product.originalPrice && (
                       <span class="text-gray-600 text-xs sm:text-sm line-through">{product.originalPrice}</span>
                     )}
