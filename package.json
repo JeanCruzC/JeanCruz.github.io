@@ -11,7 +11,8 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.14",
     "astro": "^5.5.2",
-    "install": "^0.13.0"
+    "install": "^0.13.0",
+    "preline": "^3.0.1"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",
