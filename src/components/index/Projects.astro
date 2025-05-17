@@ -8,41 +8,23 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Project 1",
-    description: "Deskripsi project 1",
-    imageUrl: "https://images.unsplash.com/photo-1656618724305-a4257e46e847?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "#"
+    title: "AIPedia.pro",
+    description: "ChatGPT Alternative for Indonesian",
+    link: "https://aipedia.pro/",
+    imageUrl: "" // tambahkan property yang required
   },
   {
-    title: "Project 2",
-    description: "Deskripsi project 2",
-    imageUrl: "https://images.unsplash.com/photo-1616427592793-67b858804534?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "#"
+    title: "KerjaRemote.net",
+    description: "KerjaRemote.net is a website that provides a platform for remote workers to find job opportunities.",
+    link: "https://kerjaremote.net/",
+    imageUrl: "" // tambahkan property yang required
   },
   {
-    title: "Project 3",
-    description: "Deskripsi project 3",
-    imageUrl: "https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "#"
+    title: "LandingBook",
+    description: "LandingBook is a landing page for ebook.",
+    link: "https://utas.me/ajipratama/landingbook---high-performance-landing-page-for-ebook-cela9wzd",
+    imageUrl: "" // tambahkan property yang required
   },
-  {
-    title: "Project 4",
-    description: "Deskripsi project 4",
-    imageUrl: "https://images.unsplash.com/photo-1707760696486-2a2cd7e0b6a6?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "#"
-  },
-  {
-    title: "Project 5",
-    description: "Deskripsi project 5",
-    imageUrl: "https://images.unsplash.com/photo-1585159812596-fac104f2f069?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "#"
-  },
-  {
-    title: "Project 6",
-    description: "Deskripsi project 6",
-    imageUrl: "https://images.unsplash.com/photo-1654131300276-db70adf4f85d?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "#"
-  }
 ];
 ---
 
@@ -53,21 +35,26 @@ const projects: Project[] = [
   </h2>
 
   <!-- Image Grid -->
-  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-    {projects.map((project) => (
-      <a class="group block relative overflow-hidden rounded-lg" href={project.link}>
-        <img 
-          class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" 
-          src={project.imageUrl} 
-          alt={project.title}
-        />
-        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
-          <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    {projects.map((project, index) => (
+      <a 
+        class="group block relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.02]" 
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div 
+          class="w-full p-6 rounded-xl transition-all duration-300 group-hover:shadow-xl flex justify-between items-center"
+          style={{
+            backgroundColor: `hsl(${(index * 120) % 360}, 85%, 90%)`
+          }}
+        >
+          <h3 class="font-semibold text-gray-900 dark:text-neutral-100 text-lg group-hover:translate-x-2 transition-transform duration-300">{project.title}</h3>
+          
+          <div class="inline-flex items-center gap-x-1.5 py-1.5 px-3 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900/90 dark:border-neutral-700 dark:text-neutral-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-2 group-hover:translate-x-0">
             <svg 
-              class="shrink-0 size-3" 
+              class="size-4" 
               xmlns="http://www.w3.org/2000/svg" 
-              width="24" 
-              height="24" 
               viewBox="0 0 24 24" 
               fill="none" 
               stroke="currentColor" 
@@ -75,10 +62,9 @@ const projects: Project[] = [
               stroke-linecap="round" 
               stroke-linejoin="round"
             >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
             </svg>
-            <span class="text-xs">View</span>
           </div>
         </div>
       </a>
