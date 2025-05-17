@@ -1,5 +1,6 @@
 ---
-import '../styles/base.css';
+// import '../styles/base.css';
+import '../styles/preline.min.css';
 
 interface Props {
   title?: string;
@@ -20,25 +21,18 @@ const { title = "Aji Pratama" } = Astro.props;
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-G0KYTSD92T');
     </script>
   </head>
-  <body class="bg-neutral-900">
+  <body>
     <main>
       <slot />
     </main>
   </body>
+  <script is:inline>
+    const html = document.querySelector('html');
+    localStorage.setItem('hs_theme', 'light');
+    html.classList.remove('dark');
+    html.classList.add('light');
+  </script>
 </html>
-
-<script>
-  // Handle mobile toggle
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.querySelector('[data-toggle-products]');
-    const productsGrid = document.querySelector('[data-products-grid]');
-
-    toggleBtn?.addEventListener('click', () => {
-      productsGrid?.classList.toggle('hidden');
-    });
-  });
-</script>
