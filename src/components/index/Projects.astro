@@ -15,7 +15,7 @@ const projects: Project[] = [
   },
   {
     title: "AIPedia.pro",
-    description: "Multimodal ChatGPT Alternative (Temporary sleep)",
+    description: "Multimodel ChatGPT Alternative (Temporary sleep)",
     link: "https://aipedia.pro/",
     imageUrl: ""
   },
@@ -47,15 +47,15 @@ const projects: Project[] = [
         rel="noopener noreferrer"
       >
         <div 
-          class="w-full py-2 px-4 rounded transition-all duration-300 group-hover:shadow-xl flex justify-between items-center bg-gradient-to-br border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg"
+          class="w-full py-1.5 px-4 rounded transition-all duration-300 group-hover:shadow-xl flex justify-between items-center bg-gradient-to-br border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg"
           style={{
             background: `linear-gradient(135deg, 
-              hsl(${(index * 137) % 360}, 85%, 90%) 0%,
-              hsl(${((index * 137) + 40) % 360}, 85%, 85%) 100%
+              hsl(${(index * 137) % 360}, 90%, 80%) 0%,
+              hsl(${((index * 137) + 40) % 360}, 85%, 65%) 100%
             )`
           }}
         >
-          <h3 class="text-gray-900 dark:text-neutral-100 text-md group-hover:translate-x-2 transition-transform duration-300">{project.title} - {project.description}</h3>
+          <h3 class="text-gray-900 dark:text-neutral-100 text-md group-hover:translate-x-2 transition-transform duration-300"><b>{project.title}</b> - {project.description}</h3>
           
           <div class="inline-flex items-center gap-x-1.5 py-1.5 px-3 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900/90 dark:border-neutral-700 dark:text-neutral-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-2 group-hover:translate-x-0">
             <svg 
