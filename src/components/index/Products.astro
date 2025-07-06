@@ -2,7 +2,7 @@
 interface Product {
   title: string;
   description: string;
-  type: 'CHEATSHEET' | 'E-BOOK';
+  type: 'CHEATSHEET' | 'E-BOOK' | 'TEMPLATE';
   price: number;
   originalPrice?: number;
   thumbnail?: string;
@@ -11,19 +11,58 @@ interface Product {
 
 const products: Product[] = [
   {
-    title: 'SQL Cheatsheet',
-    description: 'Kumpulan perintah SQL yang Data Analis wajib tau',
-    type: 'CHEATSHEET',
-    price: 0,
-    originalPrice: 20000,
-    link: '#'
+    title: '[Pre-order] Panduan Kerja Remote',
+    description: 'Panduan komprehensif kerja remote: cari kerja, atur work-life balance, hingga produktivitas.',
+    type: 'E-BOOK',
+    price: 178200,
+    originalPrice: 297000,
+    thumbnail: 'https://files.utas.io/image/53502cd8829589c59136ae9d8cc45a935e9be.jpg',
+    link: 'https://utas.me/ajipratama/panduan-kerja-remote--4r2n5tiy'
   },
   {
-    title: '50 SQL Problem & Solusi untuk Analisa Data',
-    description: 'Kuasai SQL lewat 50 problem dan solusi praktis dalam analisa data.',
+    title: 'LandingBook - High performance Landing Page for Ebook',
+    description: 'Template landing page cepat, ringan, dan SEO-friendly berbasis Astro untuk produk digital.',
+    type: 'TEMPLATE',
+    price: 142000,
+    originalPrice: 142000,
+    thumbnail: 'https://image.utas.co/image/749129f6d207633734b26c0d15986ceb3ac55.jpg',
+    link: 'https://utas.me/ajipratama/landingbook---high-performance-landing-page-for-ebook-cela9wzd'
+  },
+  {
+    title: 'Template bio - High performance',
+    description: 'Template bio digital cepat dan profesional berbasis Astro untuk personal branding.',
+    type: 'TEMPLATE',
+    price: 25000,
+    originalPrice: 25000,
+    thumbnail: 'https://image.utas.co/image/74805dedcbd26d32203336bf83dc0f41b4b80.jpg',
+    link: 'https://utas.me/ajipratama/template-bio---high-performance-ti8ipla0'
+  },
+  {
+    title: 'Notion Template Job Hunting Tracker',
+    description: 'Template Notion gratis untuk melacak proses cari kerja, perusahaan incaran, dan tipe pekerjaan.',
+    type: 'TEMPLATE',
+    price: 0,
+    originalPrice: 17845,
+    thumbnail: 'https://files.utas.io/image/564627e4890b182541574244191eb4386ce57.jpg',
+    link: 'https://utas.me/ajipratama/notion-template-job-hunting-tracker-xsqaefys'
+  },
+  {
+    title: 'Kurasi & Roadmap Software Engineer Remote',
+    description: 'Panduan roadmap dan kurasi resource untuk software engineer yang ingin kerja remote.',
     type: 'E-BOOK',
-    price: 97000,
-    link: '#'
+    price: 25000,
+    originalPrice: 45000,
+    thumbnail: 'https://files.utas.io/image/53584c48ca14c57dc1f331e99775f8649314b.jpg',
+    link: 'https://utas.me/ajipratama/pre-order-kurasi--roadmap-software-engineer-remote-heanezpy'
+  },
+  {
+    title: '[Pre-order] Personal Management Hacks with Trello',
+    description: 'Panduan praktis mengatur tugas dan waktu dengan Trello untuk produktivitas personal.',
+    type: 'E-BOOK',
+    price: 47000,
+    originalPrice: 79000,
+    thumbnail: 'https://files.utas.io/image/5358395b688156e1f9376357bf01dfc9b7cf3.jpg',
+    link: 'https://utas.me/ajipratama/pre-order-personal-management-hacks-with-trello-hmn30emx'
   }
 ];
 
@@ -39,7 +78,7 @@ function formatPrice(price: number) {
 
 <div class="my-10">
   <div class="flex items-center gap-2 mb-4">
-    <h2 class="text-xl font-bold">Produk Unggulan</h2>
+    <h2 class="text-xl font-bold">Products</h2>
     <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800">HOT</span>
   </div>
   <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Paling banyak di download dan pelajari</p>
@@ -51,12 +90,12 @@ function formatPrice(price: number) {
           {product.thumbnail ? (
             <img src={product.thumbnail} alt={product.title} class="w-full h-32 object-cover rounded-t-lg" />
           ) : (
-            <div class={`${getRandomColor()} w-full h-32 rounded-t-lg flex items-center justify-center bg-opacity-90`}>
-              <span class="text-lg font-bold text-white">{product.title}</span>
+            <div class="w-full h-32 rounded-t-lg flex items-center justify-center bg-white">
+              <span class="text-lg font-bold text-black">{product.title}</span>
             </div>
           )}
           <div class="absolute top-2 left-2">
-            <span class="bg-blue-600 backdrop-blur rounded px-2 py-1 text-xs font-medium text-white">{product.type}</span>
+            <span class="border-2 border-blue-600 text-blue-600 bg-white/90 rounded px-2 py-1 text-xs font-medium">{product.type}</span>
           </div>
         </div>
         <div class="p-3">
