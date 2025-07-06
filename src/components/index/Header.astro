@@ -5,26 +5,17 @@ interface NavItem {
   isActive?: boolean;
 }
 
+const pathname = new URL(Astro.request.url).pathname;
 const navItems: NavItem[] = [
   {
     label: "Home",
-    href: "#",
-    isActive: true
+    href: "/",
+    isActive: pathname === "/"
   },
   {
-    label: "Projects",
-    href: "#",
-    isActive: false
-  },
-  {
-    label: "Work",
-    href: "#",
-    isActive: false
-  },
-  {
-    label: "Articles",
-    href: "#",
-    isActive: false
+    label: "CV",
+    href: "/cv",
+    isActive: pathname === "/cv"
   }
 ];
 ---
@@ -35,8 +26,7 @@ const navItems: NavItem[] = [
     <div class="px-4 md:px-0 flex justify-between items-center">
       <div class="flex items-center">
         <!-- Logo -->
-
-        <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="https://preline.co/templates/personal/index.html" aria-label="Preline">
+        <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="/" aria-label="Aji Pratama">
           <img src="/blue.png" alt="Aji Pratama" class="w-8 h-8 rounded-full object-cover" />
         </a>
         <!-- End Logo -->

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Skills from '../components/index/Skills.astro';
+import WorkExperiences from '../components/index/WorkExperiences.astro';
+import Education from '../components/index/Education.astro';
+import Header from '../components/index/Header.astro';
+---
+<Layout title="CV - Aji Pratama">
+  <!-- ========== MAIN CONTENT ========== -->
+  <Header />
+  <main id="content">
+    <div class="w-full max-w-2xl mx-auto py-10 md:py-10 px-4 sm:px-6 lg:px-8">
+      <Skills />
+      <WorkExperiences />
+      <Education />
+    </div>
+  </main>
+</Layout>
