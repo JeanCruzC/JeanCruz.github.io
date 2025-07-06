@@ -8,10 +8,16 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "AIPEDIA.ID - AI Newsletter Indonesia",
+    description: "AI Newsletter Indonesia",
+    link: "https://aipedia.id/",
+    imageUrl: ""
+  },
+  {
     title: "AIPedia.pro",
     description: "ChatGPT Alternative for Indonesian",
     link: "https://aipedia.pro/",
-    imageUrl: "" // tambahkan property yang required
+    imageUrl: ""
   },
   {
     title: "KRN",
@@ -23,8 +29,8 @@ const projects: Project[] = [
     title: "LandingBook",
     description: "LandingBook is a landing page for ebook.",
     link: "https://utas.me/ajipratama/landingbook---high-performance-landing-page-for-ebook-cela9wzd",
-    imageUrl: "" // tambahkan property yang required
-  },
+    imageUrl: ""
+  }
 ];
 ---
 
@@ -32,7 +38,7 @@ const projects: Project[] = [
 <div class="mt-6 sm:mt-13">
 
   <!-- Image Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  <div class="grid grid-cols-1 gap-3">
     {projects.map((project, index) => (
       <a 
         class="group block relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.02]" 
@@ -41,12 +47,15 @@ const projects: Project[] = [
         rel="noopener noreferrer"
       >
         <div 
-          class="w-full p-6 rounded-xl transition-all duration-300 group-hover:shadow-xl flex justify-between items-center"
+          class="w-full p-3 rounded-xl transition-all duration-300 group-hover:shadow-xl flex justify-between items-center bg-gradient-to-br"
           style={{
-            backgroundColor: `hsl(${(index * 120) % 360}, 85%, 90%)`
+            background: `linear-gradient(135deg, 
+              hsl(${(index * 137) % 360}, 85%, 90%) 0%,
+              hsl(${((index * 137) + 40) % 360}, 85%, 85%) 100%
+            )`
           }}
         >
-          <h3 class="font-semibold text-gray-900 dark:text-neutral-100 text-lg group-hover:translate-x-2 transition-transform duration-300">{project.title}</h3>
+          <h3 class="text-gray-900 dark:text-neutral-100 text-lg group-hover:translate-x-2 transition-transform duration-300">{project.title}</h3>
           
           <div class="inline-flex items-center gap-x-1.5 py-1.5 px-3 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900/90 dark:border-neutral-700 dark:text-neutral-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-2 group-hover:translate-x-0">
             <svg 
