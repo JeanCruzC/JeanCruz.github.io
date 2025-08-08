@@ -82,7 +82,7 @@ const types = ['ALL', ...new Set(products.map(p => p.type))];
     {types.map(type => (
       <button
         data-type={type}
-        class="px-3 py-1 rounded-full text-xs font-medium transition-colors text-white bg-[#4868e0] hover:bg-[#3a54c4]"
+        class="px-3 py-1 rounded-full text-sm font-medium transition-colors text-white bg-[#4868e0] hover:bg-[#3a54c4]"
       >
         {type}
       </button>
@@ -112,7 +112,7 @@ const types = ['ALL', ...new Set(products.map(p => p.type))];
           )}
           <div class="absolute top-3 left-3">
             <span 
-              class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium shadow-sm backdrop-blur-sm"
+              class="inline-flex p-0.5 rounded-full text-[10px] font-medium"
               style={{
                 background: product.type === 'E-BOOK' ? 'linear-gradient(to right, #3b82f6, #60a5fa)' : 
                           product.type === 'TEMPLATE' ? 'linear-gradient(to right, #8b5cf6, #a78bfa)' : 
@@ -129,16 +129,16 @@ const types = ['ALL', ...new Set(products.map(p => p.type))];
             <h3 class="text-base font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition duration-300">
               {product.title}
             </h3>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 hidden md:block">
               {product.description}
             </p>
             <div class="mt-2 flex items-center gap-2"> <!-- Margin dikurangi dari mt-3 menjadi mt-2 -->
               {product.originalPrice && product.originalPrice > product.price && (
-                <span class="text-xs text-gray-500 line-through dark:text-gray-400">
+                <span class="text-sm text-gray-500 line-through dark:text-gray-400">
                   IDR {product.originalPrice.toLocaleString('id-ID')}
                 </span>
               )}
-              <span class={`inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-semibold
+              <span class={`inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-sm font-semibold
                 ${product.price === 0
                   ? 'bg-green-100 text-green-800'
                   : 'bg-[#4868e0] text-black'}`}>
