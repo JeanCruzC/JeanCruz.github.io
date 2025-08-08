@@ -124,18 +124,22 @@ function formatPrice(price: number) {
                   IDR {product.originalPrice.toLocaleString('id-ID')}
                 </span>
               )}
-              <span class={`inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-semibold ${product.price === 0 ? 'bg-green-100 text-green-800' : 'bg-[#4868e0] text-white'}`}>
+              <span class={`inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-semibold
+                ${product.price === 0
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-[#4868e0] text-black'}`}>
                 {product.price === 0 ? 'GRATIS' : `IDR ${product.price.toLocaleString('id-ID')}`}
               </span>
-              {product.originalPrice && product.originalPrice > product.price && (
-                <span class="text-xs font-medium text-green-600 dark:text-green-400">
-                  {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF
-                </span>
-              )}
             </div>
           </div>
-          <a 
-            class={`mt-3 py-2 px-3 inline-flex justify-center items-center gap-2 rounded-lg border font-medium ${product.price === 0 ? 'bg-green-600 text-white hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 dark:border-green-700' : 'bg-[#4868e0] text-white hover:bg-[#3a54c4] border-[#4868e0] dark:bg-[#3650ab] dark:hover:bg-[#2a4290] dark:border-[#3650ab]'} shadow-sm align-middle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-[#4868e0] transition-all text-sm dark:text-white dark:hover:text-white dark:focus:ring-offset-gray-800 w-full`}
+          <a
+            class={`mt-3 py-2 px-3 inline-flex justify-center items-center gap-2 rounded-lg border font-medium
+              ${product.price === 0
+                ? 'bg-green-600 text-white hover:bg-green-700'
+                : '!bg-[#4868e0] !text-white hover:!bg-[#3a54c4] !border-[#4868e0] !opacity-100 !border-solid'}
+              shadow-sm align-middle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-[#4868e0]
+              transition-all text-sm w-full`}
+            style={product.price !== 0 ? { backgroundColor: '#4868e0', borderColor: '#4868e0', color: '#fff' } : {}}
             href={product.link}
             target="_blank"
             rel="noopener noreferrer"
