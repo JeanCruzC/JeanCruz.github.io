@@ -69,18 +69,32 @@ const products: Product[] = [
 function formatPrice(price: number) {
   return price === 0 ? 'GRATIS' : `IDR ${price.toLocaleString('id-ID')}`;
 }
+
+const types = ['ALL', ...new Set(products.map(p => p.type))];
 ---
 
 <div class="my-10">
   <div class="flex items-center gap-2 mb-4">
     <h2 class="text-xl font-bold">Products</h2>
-    <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800">HOT</span>
   </div>
-  <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Paling banyak di download</p>
 
-  <div class="grid grid-cols-2 gap-3">  <!-- Spacing dikurangi dari gap-5 menjadi gap-3 -->
+  <div class="flex gap-2 mb-4" id="type-filters">
+    {types.map(type => (
+      <button
+        data-type={type}
+        class="px-3 py-1 rounded-full text-xs font-medium transition-colors text-white bg-[#4868e0] hover:bg-[#3a54c4]"
+      >
+        {type}
+      </button>
+    ))}
+  </div>
+
+  <div class="grid grid-cols-2 gap-3" id="products-grid">
     {products.map((product) => (
-      <div class="group flex flex-col h-full glass bg-white/60 backdrop-blur-md rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-200 transition duration-300 dark:bg-slate-900/60 dark:border-gray-700 overflow-hidden bg-gradient-to-r from-white/80 to-white/40 dark:from-slate-900/80 dark:to-slate-900/40 ring-1 ring-white/50 dark:ring-white/10 shadow-[#4868e0]/10">
+      <div 
+        class="product-card group flex flex-col h-full glass bg-white/60 backdrop-blur-md rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-200 transition duration-300 dark:bg-slate-900/60 dark:border-gray-700 overflow-hidden bg-gradient-to-r from-white/80 to-white/40 dark:from-slate-900/80 dark:to-slate-900/40 ring-1 ring-white/50 dark:ring-white/10 shadow-[#4868e0]/10"
+        data-type={product.type}
+      >
         <div class="relative overflow-hidden">
           {product.thumbnail ? (
             <div class="overflow-hidden">
@@ -151,3 +165,36 @@ function formatPrice(price: number) {
     ))}
   </div>
 </div>
+
+<script is:inline>
+  const filterButtons = document.querySelectorAll('#type-filters button');
+  const productCards = document.querySelectorAll('.product-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-gray-100', 'text-gray-600');
+      });
+
+      // Add active class to clicked button
+      button.classList.add('bg-blue-600', 'text-white');
+      button.classList.remove('bg-gray-100', 'text-gray-600');
+
+      const selectedType = button.dataset.type;
+
+      // Filter products
+      productCards.forEach(card => {
+        if (selectedType === 'ALL' || card.dataset.type === selectedType) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Set ALL as default active filter
+  filterButtons[0]?.click();
+</script>
