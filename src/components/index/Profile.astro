@@ -10,7 +10,9 @@ const profile = {
   role: "Digital Creator, Software Engineer",
   avatar: "/profile.png",
   bio: [
-    "Ex-software engineer, now turning into solopreneur and digital creators, I help solopreneurs move fast with AI tools, systems, and 1-on-1 execution support."
+    "I craft and experiment with AI tools to help solopreneurs and business owner move faster",
+    "Oh... Hi, I'm Aji, software engineer turned solopreneur, that's it 👋",
+    "Check out my latest project, AI-powered something, maybe you need it?",
   ]
 };
 
@@ -54,7 +56,7 @@ const socialLinks: SocialLink[] = [
 ---
 
 <!-- Profile -->
-<div class="flex items-center gap-x-3">
+<div class="flex items-center gap-x-2">
   <div class="shrink-0">
     <img class="shrink-0 size-16 rounded-full" src={profile.avatar} alt={profile.name}>
   </div>
@@ -71,9 +73,9 @@ const socialLinks: SocialLink[] = [
 <!-- End Profile -->
 
 <!-- About -->
-<div class="mt-8">
+<div class="mt-6">
   {profile.bio.map((paragraph) => (
-    <p class="text-sm text-gray-600 dark:text-neutral-400 mt-3 first:mt-0">
+    <p class="text-sm text-gray-600 dark:text-neutral-400 mt-2">
       {paragraph}
     </p>
   ))}
