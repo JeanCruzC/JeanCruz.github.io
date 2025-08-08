@@ -8,14 +8,20 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "TradeGPT",
+    description: "Asisten AI: Trading Crypto (97k)",
+    link: "https://tradegpt.aipedia.id/",
+    imageUrl: ""
+  },
+  {
     title: "AIPEDIA.ID",
-    description: "AI Newsletter Indonesia",
+    description: "AI Newsletter Indonesia (free)",
     link: "https://aipedia.id/",
     imageUrl: ""
   },
   {
-    title: "Meta Ads GPT",
-    description: "Asisten beriklan di Meta",
+    title: "MetaAdsGPT",
+    description: "Asisten AI beriklan di Meta (free)",
     link: "https://utas.to/t3gh6w",
     imageUrl: ""
   },
@@ -33,16 +39,24 @@ const projects: Project[] = [
   // },
   {
     title: "LandingBook",
-    description: "Fast website for ebook.",
+    description: "Fast performance web for ebook",
     link: "https://utas.me/ajipratama/landingbook---high-performance-landing-page-for-ebook-cela9wzd",
     imageUrl: ""
   }
 ];
 ---
 
+<style>
+  @keyframes shaky {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(1px, 1px) rotate(0.85deg); }
+    50% { transform: translate(-1px, -1px) rotate(-0.85deg); }
+    75% { transform: translate(-1px, 1px) rotate(0.85deg); }
+  }
+</style>
+
 <!-- Projects -->
 <div class="mt-6 sm:mt-13">
-
   <!-- Image Grid -->
   <div class="grid grid-cols-1 gap-3">
     {projects.map((project, index) => (
@@ -51,6 +65,9 @@ const projects: Project[] = [
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
+        style={{
+          animation: `shaky 1s ease-in-out ${index * 0.1}s infinite`
+        }}
       >
         <div 
           class="w-full py-1.5 px-4 rounded transition-all duration-300 group-hover:shadow-xl flex justify-between items-center bg-gradient-to-br border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg"
@@ -61,7 +78,7 @@ const projects: Project[] = [
             )`
           }}
         >
-          <h3 class="text-gray-900 dark:text-neutral-100 text-md group-hover:translate-x-2 transition-transform duration-300"><b>{project.title}</b> - {project.description}</h3>
+          <h3 class="text-gray-900 dark:text-neutral-100 text-md group-hover:translate-x-2 transition-transform duration-300"><b>{project.title}</b> • {project.description}</h3>
           
           <div class="inline-flex items-center gap-x-1.5 py-1.5 px-3 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900/90 dark:border-neutral-700 dark:text-neutral-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-2 group-hover:translate-x-0">
             <svg 
@@ -82,6 +99,5 @@ const projects: Project[] = [
       </a>
     ))}
   </div>
-  <!-- End Image Grid -->
 </div>
 <!-- End Projects -->
