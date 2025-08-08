@@ -21,50 +21,32 @@ const navItems: NavItem[] = [
 ---
 
 <!-- ========== HEADER ========== -->
-<header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
-  <nav class="mt-4 relative max-w-2xl w-full bg-white border border-gray-200 rounded-full mx-2 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto dark:bg-neutral-900 dark:border-neutral-700">
-    <div class="px-4 md:px-0 flex justify-between items-center">
-      <div class="flex items-center">
-        <!-- Logo -->
-        <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="/" aria-label="Aji Pratama">
-          <img src="/blue.png" alt="Aji Pratama" class="w-8 h-8 rounded-full object-cover" />
-        </a>
-        <!-- End Logo -->
-      </div>
-
-      <div class="md:hidden">
-        <!-- Toggle Button -->
-        <button type="button" class="hs-collapse-toggle flex justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-navbar-header-floating-collapse" aria-expanded="false" aria-controls="hs-navbar-header-floating" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-header-floating">
-          <svg class="hs-collapse-open:hidden shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" x2="21" y1="6" y2="6" />
-            <line x1="3" x2="21" y1="12" y2="12" />
-            <line x1="3" x2="21" y1="18" y2="18" />
-          </svg>
-          <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 6 6 18" />
-            <path d="m6 6 12 12" />
-          </svg>
-        </button>
-        <!-- End Toggle Button -->
-      </div>
+<header class="sticky top-0 inset-x-0 flex flex-wrap justify-center z-50 w-full text-sm">
+  <nav class="mt-4 relative max-w-2xl w-full glass bg-white/60 backdrop-blur-md border border-[#4868e0]/20 rounded-full mx-2 py-2 px-4 flex items-center justify-between md:mx-auto dark:bg-neutral-900/60 dark:border-[#4868e0]/25 shadow-lg shadow-[#4868e0]/15 dark:shadow-[#4868e0]/20">
+    <div class="flex items-center">
+      <!-- Logo -->
+      <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="/" aria-label="Aji Pratama">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#8a55ff] via-[#4868e0] to-[#4095ff] flex items-center justify-center shadow-md shadow-[#4868e0]/30 dark:shadow-[#4868e0]/40">
+          <img src="/blue.png" alt="Aji Pratama" class="w-7 h-7 rounded-full object-cover" />
+        </div>
+      </a>
+      <!-- End Logo -->
     </div>
 
-    <div id="hs-navbar-header-floating" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-header-floating-collapse">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
-        {navItems.map((item) => (
-          <a 
-            class={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${
-              item.isActive 
-                ? "border-gray-800 font-medium text-gray-800 dark:border-neutral-200 dark:text-neutral-200" 
-                : "border-transparent text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-            } focus:outline-hidden`} 
-            href={item.href}
-            aria-current={item.isActive ? "page" : undefined}
-          >
-            {item.label}
-          </a>
-        ))}
-      </div>
+    <div class="flex items-center gap-3">
+      {navItems.map((item) => (
+        <a 
+          class={`py-1.5 px-3 rounded-full transition-all duration-200 hover:scale-105 ${
+            item.isActive 
+              ? "bg-[#4868e0]/10 font-medium text-[#4868e0] dark:bg-[#4868e0]/20 dark:text-[#4868e0]" 
+              : "text-gray-500 hover:bg-[#4868e0]/5 hover:text-[#4868e0] dark:text-neutral-400 dark:hover:text-[#4868e0] dark:hover:bg-[#4868e0]/10"
+          } focus:outline-hidden`} 
+          href={item.href}
+          aria-current={item.isActive ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
     </div>
   </nav>
 </header>
