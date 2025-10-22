@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+const { title = "Jean Cruz — Data Analyst", description = "Análisis de datos, BI y automatización orientados a impacto de negocio." } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="/">Jean Cruz</a>
+      <nav>
+        <a href="#about">Sobre mí</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#cv">CV</a>
+        <a class="cta" href="#contact">Contactar</a>
+      </nav>
+    </header>
+
+    <main><slot /></main>
+
+    <footer class="footer">
+      <p>© {new Date().getFullYear()} Jean Cruz — Disponible en Lima/Remoto</p>
+      <div class="social">
+        <a href="mailto:tu_correo@ejemplo.com" aria-label="Email">Email</a>
+        <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/JeanCruzC" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ once: true, duration: 600 });
+      });
+    </script>
+  </body>
+</html>
