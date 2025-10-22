@@ -121,6 +121,7 @@ const socialCardUrl = `data:image/svg+xml,${encodeURIComponent(socialCardStyle)}
             <a
               href={item.href}
               class="group inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-slate-900/90 hover:text-white"
+              data-nav-link
             >
               <span class="size-1.5 rounded-full bg-slate-300 transition group-hover:bg-white"></span>
               {item.label}
@@ -136,8 +137,43 @@ const socialCardUrl = `data:image/svg+xml,${encodeURIComponent(socialCardStyle)}
         </a>
       </nav>
     </header>
-    <main class="pt-32 md:pt-36">
+    <main class="pt-40 md:pt-44">
       <slot />
     </main>
+    <script>
+      const navLinks = document.querySelectorAll('[data-nav-link]');
+      const sections = Array.from(navLinks)
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const setActiveLink = (hash) => {
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute('href') === hash;
+          link.classList.toggle('bg-slate-900/90', isActive);
+          link.classList.toggle('text-white', isActive);
+          link.querySelector('span')?.classList.toggle('bg-white', isActive);
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible) {
+            setActiveLink(`#${visible.target.id}`);
+          }
+        },
+        {
+          rootMargin: '-40% 0px -40% 0px',
+          threshold: [0.2, 0.5, 0.75]
+        }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      window.addEventListener('hashchange', () => setActiveLink(location.hash));
+      if (location.hash) setActiveLink(location.hash);
+    </script>
   </body>
 </html>
