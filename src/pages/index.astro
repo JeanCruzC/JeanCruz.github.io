@@ -1,63 +1,96 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const quickLinks = [
+  { href: '#dashboards', label: 'Dashboards' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#contacto', label: 'Contacto' }
+];
 ---
 <Layout
   title="Jean Cruz | Portafolio de Analítica y Datos"
   description="Explora dashboards interactivos, proyectos de automatización y reportes creados con Looker Studio, Power BI, Google Sheets, Excel y Streamlit."
 >
   <div class="max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-24">
-    <header class="glass rounded-3xl p-10 md:p-14 shadow-xl relative overflow-hidden">
-      <div class="absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-br from-indigo-500/30 to-teal-400/30 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-48 h-48 bg-gradient-to-br from-blue-500/20 to-violet-400/20 rounded-full blur-3xl"></div>
-      <div class="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
-        <div class="space-y-6">
-          <p class="uppercase tracking-[0.35em] text-sm text-indigo-500 font-semibold">Portafolio Profesional</p>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-slate-900">
-            Jean Cruz — Analista de Datos · Planificador de Demanda · Administrador
+    <header id="inicio" class="relative overflow-hidden rounded-[36px] bg-white/85 p-10 md:p-16 shadow-[0_30px_60px_-30px_rgba(15,23,42,0.45)] ring-1 ring-slate-900/10">
+      <div class="absolute -top-24 left-12 h-64 w-64 rounded-full bg-gradient-to-br from-indigo-500/20 via-indigo-400/10 to-transparent blur-3xl"></div>
+      <div class="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-gradient-to-br from-teal-400/25 via-emerald-300/10 to-transparent blur-[110px]"></div>
+      <div class="relative grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start">
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-indigo-500">
+            Portafolio Profesional
+          </div>
+          <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl lg:text-[3.4rem] lg:leading-[1.05]">
+            Jean Cruz
+            <span class="block text-[1.9rem] font-normal tracking-tight text-slate-600 md:text-[2.15rem]">
+              Analista de Datos · Planificador de Demanda · Administrador
+            </span>
           </h1>
-          <p class="text-lg text-slate-600 leading-relaxed">
+          <p class="max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
             Profesional bilingüe con más de 6 años de experiencia en gestión de Workforce, planificación operativa y análisis de datos. Transformo información en planes de staffing que equilibran la experiencia del cliente, los costos y la productividad en entornos multicanal.
           </p>
-          <div class="flex flex-wrap gap-4 pt-4">
-            <a
-              href="#cv"
-              class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-semibold shadow-lg shadow-indigo-500/20 transition hover:-translate-y-1 hover:bg-indigo-600"
-            >
-              Descargar CV
-            </a>
-            <a
-              href="#contacto"
-              class="inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-1 hover:border-indigo-500/60 hover:text-indigo-600"
-            >
-              Agenda una reunión
-            </a>
+          <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="#cv"
+                class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_rgba(79,70,229,0.25)] transition hover:-translate-y-1 hover:bg-indigo-600"
+              >
+                Descargar CV
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href="#contacto"
+                class="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-1 hover:border-indigo-400 hover:text-indigo-600"
+              >
+                Agenda una reunión
+              </a>
+            </div>
+            <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
+              <span class="text-slate-500">Ir directo a</span>
+              {quickLinks.map((item) => (
+                <a
+                  href={item.href}
+                  class="group inline-flex items-center gap-1 rounded-full border border-slate-200 px-3 py-1.5 text-[0.65rem] tracking-widest text-slate-500 transition hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+                >
+                  <span class="size-1.5 rounded-full bg-slate-300 transition group-hover:bg-white"></span>
+                  {item.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-        <div class="glass rounded-3xl p-8 lg:p-10 space-y-6 border border-white/60 shadow-2xl">
-          <h2 class="text-xl font-semibold text-slate-900">Indicadores rápidos</h2>
-          <div class="grid grid-cols-2 gap-4 text-sm">
-            <div class="rounded-2xl bg-gradient-to-br from-indigo-500/90 to-indigo-400/80 text-white p-5">
-              <p class="uppercase tracking-wide text-xs text-white/80">Años de experiencia</p>
-              <p class="text-3xl font-semibold mt-2">6+</p>
-            </div>
-            <div class="rounded-2xl bg-gradient-to-br from-teal-500/90 to-emerald-400/80 text-white p-5">
-              <p class="uppercase tracking-wide text-xs text-white/80">Proyectos de optimización</p>
-              <p class="text-3xl font-semibold mt-2">25+</p>
-            </div>
-            <div class="rounded-2xl bg-white/80 border border-slate-200/80 text-slate-900 p-5">
-              <p class="uppercase tracking-wide text-xs text-slate-500">Herramientas clave</p>
-              <p class="text-base font-medium mt-2">Power BI · Python · SQL · IEX · Genesys Cloud</p>
-            </div>
-            <div class="rounded-2xl bg-white/80 border border-slate-200/80 text-slate-900 p-5">
-              <p class="uppercase tracking-wide text-xs text-slate-500">Áreas de impacto</p>
-              <p class="text-base font-medium mt-2">Workforce Management · CX · Automatización · Analytics</p>
+        <div class="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/85 p-8 shadow-xl">
+          <div class="absolute -top-24 right-6 h-40 w-40 rounded-full bg-indigo-400/20 blur-3xl"></div>
+          <div class="absolute -bottom-28 left-0 h-48 w-48 rounded-full bg-emerald-300/15 blur-3xl"></div>
+          <div class="relative space-y-6">
+            <h2 class="text-xl font-semibold text-slate-900">Indicadores rápidos</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-indigo-100 bg-indigo-50/80 p-5 text-slate-900">
+                <p class="text-xs font-semibold uppercase tracking-widest text-indigo-500">Años de experiencia</p>
+                <p class="mt-3 text-3xl font-semibold">6+</p>
+                <p class="mt-1 text-xs text-slate-500">Liderando equipos de planificación y analítica.</p>
+              </div>
+              <div class="rounded-2xl border border-emerald-100 bg-emerald-50/80 p-5 text-slate-900">
+                <p class="text-xs font-semibold uppercase tracking-widest text-emerald-500">Proyectos de optimización</p>
+                <p class="mt-3 text-3xl font-semibold">25+</p>
+                <p class="mt-1 text-xs text-slate-500">Automatizaciones, dashboards y modelos predictivos.</p>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white/90 p-5 text-slate-900">
+                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Herramientas clave</p>
+                <p class="mt-3 text-sm font-medium leading-relaxed">Power BI · Python · SQL · IEX · Genesys Cloud</p>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white/90 p-5 text-slate-900">
+                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Áreas de impacto</p>
+                <p class="mt-3 text-sm font-medium leading-relaxed">Workforce Management · CX · Automatización · Analytics</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <section id="sobre-mi" class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start">
+    <section id="sobre-mi" class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start scroll-mt-32">
       <div class="space-y-6">
         <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Sobre mí</p>
         <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Presentación personal</h2>
@@ -89,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <section id="dashboards" class="space-y-12">
+    <section id="dashboards" class="space-y-12 scroll-mt-32">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div class="space-y-4 max-w-2xl">
           <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Dashboards &amp; Reportes</p>
@@ -160,7 +193,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <section id="proyectos" class="space-y-12">
+    <section id="proyectos" class="space-y-12 scroll-mt-32">
       <div class="space-y-4 max-w-3xl">
         <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Aplicaciones interactivas</p>
         <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Proyectos creados con Streamlit y Python</h2>
@@ -205,7 +238,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <section id="servicios" class="glass rounded-[32px] border border-white/60 shadow-xl p-10 md:p-14 space-y-10">
+    <section id="servicios" class="glass rounded-[32px] border border-white/60 shadow-xl p-10 md:p-14 space-y-10 scroll-mt-32">
       <div class="space-y-4 max-w-3xl">
         <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Cómo puedo ayudarte</p>
         <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Servicios y propuestas de colaboración</h2>
@@ -228,7 +261,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <section id="cv" class="grid gap-10 lg:grid-cols-[1fr_1fr] items-center">
+    <section id="cv" class="grid gap-10 lg:grid-cols-[1fr_1fr] items-center scroll-mt-32">
       <div class="space-y-6">
         <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Currículum Vitae</p>
         <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Comparte tu trayectoria en detalle</h2>
@@ -262,7 +295,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <section id="contacto" class="space-y-8">
+    <section id="contacto" class="space-y-8 scroll-mt-32">
       <div class="glass rounded-3xl p-10 md:p-14 border border-white/60 shadow-xl">
         <div class="space-y-6 text-center max-w-3xl mx-auto">
           <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Contacto</p>
