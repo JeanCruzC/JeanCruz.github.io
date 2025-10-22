@@ -1,10 +1,11 @@
 // astro.config.mjs
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: 'https://jeancruz.github.io', // ← tu URL de GitHub Pages
-  integrations: [
-    tailwind({ applyBaseStyles: false }),
-  ],
+  site: "https://jeancruzc.github.io",   // ← tu URL de GitHub Pages
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
+
