@@ -1,60 +1,293 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/index/Header.astro';
-import Profile from '../components/index/Profile.astro';
-import Projects from '../components/index/Projects.astro';
-import Products from '../components/index/Products.astro';
-
-import Articles from '../components/index/Articles.astro';
 ---
-<Layout>
-  <Header />
-  <!-- ========== MAIN CONTENT ========== -->
-  <main id="content">
-    <div class="w-full max-w-2xl mx-auto pt-8 md:pt-14 px-4 sm:px-6 lg:px-8">
-      <Profile />
-      <Projects />
-      <Products />
-      <!-- <Testimonials /> -->
-      <!-- <Articles /> -->
-
-      <!-- Subscribe -->
-      <div class="my-10 sm:my-14 w-full">
-        <iframe src="https://embeds.beehiiv.com/ed733618-a529-4639-9f48-278954569eb1?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;" class="w-full"></iframe>
+<Layout
+  title="Jean Cruz | Portafolio de Analítica y Datos"
+  description="Explora dashboards interactivos, proyectos de automatización y reportes creados con Looker Studio, Power BI, Google Sheets, Excel y Streamlit."
+>
+  <div class="max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-24">
+    <header class="glass rounded-3xl p-10 md:p-14 shadow-xl relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-br from-indigo-500/30 to-teal-400/30 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-48 h-48 bg-gradient-to-br from-blue-500/20 to-violet-400/20 rounded-full blur-3xl"></div>
+      <div class="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
+        <div class="space-y-6">
+          <p class="uppercase tracking-[0.35em] text-sm text-indigo-500 font-semibold">Portafolio Profesional</p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-slate-900">
+            Jean Cruz — Especialista en Datos &amp; Inteligencia de Negocio
+          </h1>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Utiliza este espacio para resumir tu propuesta de valor: qué problemas resuelves, con qué herramientas trabajas y qué impacto generas en las organizaciones.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a
+              href="#cv"
+              class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-semibold shadow-lg shadow-indigo-500/20 transition hover:-translate-y-1 hover:bg-indigo-600"
+            >
+              Descargar CV
+            </a>
+            <a
+              href="#contacto"
+              class="inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-1 hover:border-indigo-500/60 hover:text-indigo-600"
+            >
+              Agenda una reunión
+            </a>
+          </div>
+        </div>
+        <div class="glass rounded-3xl p-8 lg:p-10 space-y-6 border border-white/60 shadow-2xl">
+          <h2 class="text-xl font-semibold text-slate-900">Indicadores rápidos</h2>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div class="rounded-2xl bg-gradient-to-br from-indigo-500/90 to-indigo-400/80 text-white p-5">
+              <p class="uppercase tracking-wide text-xs text-white/80">Años de experiencia</p>
+              <p class="text-3xl font-semibold mt-2">00</p>
+            </div>
+            <div class="rounded-2xl bg-gradient-to-br from-teal-500/90 to-emerald-400/80 text-white p-5">
+              <p class="uppercase tracking-wide text-xs text-white/80">Proyectos entregados</p>
+              <p class="text-3xl font-semibold mt-2">00</p>
+            </div>
+            <div class="rounded-2xl bg-white/80 border border-slate-200/80 text-slate-900 p-5">
+              <p class="uppercase tracking-wide text-xs text-slate-500">Herramientas clave</p>
+              <p class="text-base font-medium mt-2">Power BI · Looker Studio · Python · SQL · Excel</p>
+            </div>
+            <div class="rounded-2xl bg-white/80 border border-slate-200/80 text-slate-900 p-5">
+              <p class="uppercase tracking-wide text-xs text-slate-500">Áreas de impacto</p>
+              <p class="text-base font-medium mt-2">BI · Automatización · Analítica Financiera · Growth</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- End Subscribe -->
-    </div>
-  </main>
-  <!-- ========== END MAIN CONTENT ========== -->
+    </header>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="w-full max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="py-6 border-t border-gray-200 dark:border-neutral-700">
-      <div class="flex flex-wrap justify-between items-center gap-2">
-        <div>
-          <p class="text-sm text-gray-600 dark:text-neutral-400">
-            © 2025 AjiPratama.com
+    <section id="sobre-mi" class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start">
+      <div class="space-y-6">
+        <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Sobre mí</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Presentación personal</h2>
+        <div class="space-y-4 text-base text-slate-600 leading-relaxed">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Describe aquí tu trayectoria profesional, los sectores en los que has trabajado y las habilidades que más te representan.
+          </p>
+          <p>
+            Utiliza este párrafo para profundizar en tus logros: ¿qué resultados cuantificables has alcanzado?, ¿qué herramientas dominas?, ¿cómo te mantienes actualizado/a en analítica y ciencia de datos?
+          </p>
+          <p>
+            Cierra esta sección con una invitación clara: menciona el tipo de proyectos que te entusiasman y las oportunidades que estás buscando.
           </p>
         </div>
-
-        <!-- List -->
-        <ul class="flex flex-wrap items-center">
-          <li class="inline-block relative pe-4 text-sm last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-1.5 before:-translate-y-1/2 before:size-[3px] before:rounded-full before:bg-gray-400 dark:text-neutral-500 dark:before:bg-neutral-600">
-            <a class="text-sm text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400" href="https://x.com">
-              X (Twitter)
-            </a>
-          </li>
-          <li class="inline-block pe-4 text-sm">
-            <a class="text-sm text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400" href="https://github.com/aji-pratama">
-              Github
-            </a>
-          </li>
-        </ul>
-        <!-- End List -->
       </div>
-    </div>
-  </footer>
+      <div class="glass rounded-3xl p-8 space-y-6 border border-white/60 shadow-xl">
+        <h3 class="text-xl font-semibold text-slate-900">Highlight profesional</h3>
+        <div class="space-y-3 text-sm text-slate-600">
+          <p><strong class="text-slate-900">Rol actual:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p><strong class="text-slate-900">Industria:</strong> Tecnología · Retail · Consultoría</p>
+          <p><strong class="text-slate-900">Ubicación:</strong> Ciudad, País (disponible para trabajo remoto/híbrido)</p>
+        </div>
+        <div class="grid grid-cols-2 gap-3 text-xs font-medium text-slate-500 uppercase tracking-widest">
+          <span class="rounded-full bg-slate-900/5 px-4 py-2 text-center">Data Storytelling</span>
+          <span class="rounded-full bg-slate-900/5 px-4 py-2 text-center">KPIs &amp; OKRs</span>
+          <span class="rounded-full bg-slate-900/5 px-4 py-2 text-center">Automatización</span>
+          <span class="rounded-full bg-slate-900/5 px-4 py-2 text-center">Experimentación</span>
+        </div>
+      </div>
+    </section>
 
-  <!-- Required plugins -->
-  <script src="https://cdn.jsdelivr.net/npm/preline/dist/index.js"></script>
+    <section id="dashboards" class="space-y-12">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div class="space-y-4 max-w-2xl">
+          <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Dashboards &amp; Reportes</p>
+          <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Galería de tableros interactivos</h2>
+          <p class="text-base text-slate-600 leading-relaxed">
+            Añade los enlaces o incrustaciones de Looker Studio, Power BI, Google Sheets o Excel que mejor representen tu trabajo. Puedes incluir capturas, descripciones cortas y métricas clave para cada proyecto.
+          </p>
+        </div>
+        <a href="#contacto" class="text-sm font-semibold text-indigo-600 hover:text-indigo-700">Solicitar una demo personalizada →</a>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {[
+          {
+            title: 'Reporte Comercial en Looker Studio',
+            description: 'Explica el objetivo del tablero, las métricas clave y cómo impulsa la toma de decisiones.',
+            cta: 'Añadir enlace de Looker Studio',
+            tag: 'Looker Studio'
+          },
+          {
+            title: 'Dashboard Financiero en Power BI',
+            description: 'Resume las visualizaciones principales, el stack de datos y el impacto obtenido.',
+            cta: 'Añadir enlace de Power BI',
+            tag: 'Power BI'
+          },
+          {
+            title: 'Seguimiento de operaciones en Google Sheets',
+            description: 'Describe las automatizaciones, alertas y colaboraciones que habilita este archivo.',
+            cta: 'Añadir enlace de Google Sheets',
+            tag: 'Google Sheets'
+          },
+          {
+            title: 'Modelo de proyecciones en Excel',
+            description: 'Detalla supuestos, escenarios y cómo se actualiza el modelo.',
+            cta: 'Añadir enlace de Excel Online',
+            tag: 'Excel'
+          },
+          {
+            title: 'Panel de crecimiento con métricas de marketing',
+            description: 'Incluye indicadores de adquisición, retención y revenue por canal.',
+            cta: 'Añadir enlace o iframe',
+            tag: 'Marketing Analytics'
+          },
+          {
+            title: 'Analítica de productos digitales',
+            description: 'Comparte funnels, cohorts y datos de comportamiento de usuarios.',
+            cta: 'Añadir enlace o iframe',
+            tag: 'Producto'
+          }
+        ].map((item) => (
+          <article class="glass rounded-3xl p-8 space-y-4 border border-white/60 shadow-lg flex flex-col justify-between">
+            <div class="space-y-3">
+              <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-indigo-500">
+                <span class="size-2 rounded-full bg-indigo-500"></span>
+                {item.tag}
+              </span>
+              <h3 class="text-2xl font-semibold text-slate-900">{item.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{item.description}</p>
+            </div>
+            <a
+              href="#"
+              class="inline-flex items-center justify-between gap-2 rounded-2xl border border-indigo-100 bg-white/80 px-4 py-3 text-xs font-semibold text-indigo-600 transition hover:border-indigo-400 hover:text-indigo-700"
+            >
+              {item.cta}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="proyectos" class="space-y-12">
+      <div class="space-y-4 max-w-3xl">
+        <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Aplicaciones interactivas</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Proyectos creados con Streamlit y Python</h2>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Utiliza estas tarjetas para describir tus aplicaciones más destacadas. Indica el problema que resuelven, la pila tecnológica y agrega un enlace al despliegue en Streamlit o a su repositorio.
+        </p>
+      </div>
+      <div class="grid gap-8 lg:grid-cols-2">
+        {[
+          {
+            title: 'Streamlit App · Análisis de Ventas',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Explica qué hace la app, qué datasets usa y qué hallazgos permite obtener.',
+            stack: ['Streamlit', 'Python', 'Pandas'],
+            cta: 'Añadir enlace a la aplicación'
+          },
+          {
+            title: 'Streamlit App · Modelo de Predicción',
+            description: 'Describe las variables del modelo, la técnica utilizada y cómo se visualizan los resultados.',
+            stack: ['Streamlit', 'scikit-learn', 'Plotly'],
+            cta: 'Añadir enlace a la aplicación'
+          }
+        ].map((project) => (
+          <article class="glass rounded-3xl p-8 space-y-6 border border-white/60 shadow-lg">
+            <div class="space-y-3">
+              <h3 class="text-2xl font-semibold text-slate-900">{project.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{project.description}</p>
+            </div>
+            <ul class="flex flex-wrap gap-2 text-xs font-semibold text-indigo-600 uppercase tracking-widest">
+              {project.stack.map((tech) => (
+                <li class="rounded-full bg-indigo-50 text-indigo-600 px-3 py-1">{tech}</li>
+              ))}
+            </ul>
+            <a
+              href="#"
+              class="inline-flex items-center justify-between gap-2 rounded-2xl border border-indigo-100 bg-white/80 px-4 py-3 text-xs font-semibold text-indigo-600 transition hover:border-indigo-400 hover:text-indigo-700"
+            >
+              {project.cta}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="servicios" class="glass rounded-[32px] border border-white/60 shadow-xl p-10 md:p-14 space-y-10">
+      <div class="space-y-4 max-w-3xl">
+        <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Cómo puedo ayudarte</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Servicios y propuestas de colaboración</h2>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Enumera los servicios que ofreces, modalidades de trabajo (consultoría, proyectos llave en mano, acompañamiento de equipos) y resultados esperados. Añade ejemplos concretos o casos de éxito cuando actualices este contenido.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        {["Implementación de dashboards end-to-end", "Automatización de reportes y alertas", "Capacitaciones y workshops a medida"].map((service) => (
+          <div class="rounded-3xl bg-white/80 border border-slate-200/80 p-8 space-y-4">
+            <span class="inline-flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/90 to-blue-500/90 text-white text-xl font-semibold">
+              •
+            </span>
+            <p class="text-base font-medium text-slate-900">{service}</p>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              Describe el alcance, entregables y el tipo de cliente ideal para este servicio.
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="cv" class="grid gap-10 lg:grid-cols-[1fr_1fr] items-center">
+      <div class="space-y-6">
+        <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Currículum Vitae</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Comparte tu trayectoria en detalle</h2>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Utiliza esta sección para enlazar tu CV actualizado. Puedes subirlo a Google Drive, Notion o incluirlo como PDF directo. Añade un resumen de tus logros más relevantes y destaca certificaciones clave.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="#"
+            class="inline-flex items-center gap-2 rounded-full bg-indigo-600 text-white px-6 py-3 text-sm font-semibold shadow-lg shadow-indigo-500/30 transition hover:-translate-y-1 hover:bg-indigo-700"
+          >
+            Descargar CV en PDF
+          </a>
+          <a
+            href="/cv"
+            class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/70 px-6 py-3 text-sm font-semibold text-indigo-600 transition hover:-translate-y-1 hover:border-indigo-400 hover:text-indigo-700"
+          >
+            Ver CV versión web
+          </a>
+        </div>
+      </div>
+      <div class="glass rounded-3xl p-8 space-y-4 border border-white/60 shadow-xl">
+        <h3 class="text-xl font-semibold text-slate-900">Checklist para tu CV</h3>
+        <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
+          <li>• Resumen profesional con impacto medible.</li>
+          <li>• Experiencia laboral organizada por logros y KPIs.</li>
+          <li>• Habilidades técnicas y herramientas priorizadas.</li>
+          <li>• Formación académica y certificaciones relevantes.</li>
+          <li>• Enlaces a proyectos, dashboards y publicaciones destacadas.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto" class="space-y-8">
+      <div class="glass rounded-3xl p-10 md:p-14 border border-white/60 shadow-xl">
+        <div class="space-y-6 text-center max-w-3xl mx-auto">
+          <p class="uppercase tracking-[0.25em] text-xs text-indigo-500 font-semibold">Contacto</p>
+          <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Hablemos sobre tu próximo proyecto</h2>
+          <p class="text-base text-slate-600 leading-relaxed">
+            Especifica la forma de contacto que prefieras (correo, LinkedIn, formulario, Calendly). También puedes agregar horarios disponibles o un mensaje de bienvenida personalizado.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="mailto:tucorreo@dominio.com"
+              class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-semibold shadow-lg shadow-slate-900/20 transition hover:-translate-y-1 hover:bg-indigo-600"
+            >
+              Enviar correo
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              class="inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-1 hover:border-indigo-500/60 hover:text-indigo-600"
+            >
+              Conectar en LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-xs text-slate-500">© {new Date().getFullYear()} Jean Cruz · Diseñado para destacar tu talento en datos.</p>
+    </section>
+  </div>
 </Layout>
