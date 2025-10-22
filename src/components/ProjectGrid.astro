@@ -1,0 +1,23 @@
+---
+import type { Project } from "../data/projects";
+import { projects } from "../data/projects";
+const safe = (s:string) => s; // placeholder para sanitizado si lo necesitas
+---
+<section id="projects" class="section" data-aos="fade-up">
+  <h2 class="h2">Proyectos</h2>
+  <div class="grid grid-3">
+    {projects.map((p) => (
+      <article class="card">
+        {p.image && <img src={p.image} alt={p.title} loading="lazy" width="1280" height="720" style="border-radius:12px;margin-bottom:10px" />}
+        <h3>{p.title}</h3>
+        <p>{safe(p.summary)}</p>
+        <ul class="tags">
+          {p.tags.map((t) => <li class="tag">{t}</li>)}
+        </ul>
+        <div class="links">
+          {p.links.map((l) => <a href={l.href} target="_blank" rel="noopener">{l.label} ↗</a>)}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
