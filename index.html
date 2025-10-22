@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jean Cruz – Workforce &amp; AI for CX</title>
+  <meta name="description" content="Portafolio de Jean Cruz: Workforce Intelligence, Forecasting, Automatización y CX Analytics. Consultorías y proyectos en LATAM &amp; Norteamérica." />
+  <meta name="theme-color" content="#f6f8fb" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preload" href="assets/css/style.css" as="style">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="dot"></span> <span id="brand-name">Jean Cruz</span></div>
+      <nav>
+        <ul>
+          <li><a href="#inicio" data-i18n="nav.home" aria-current="page">Inicio</a></li>
+          <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="#cv" data-i18n="nav.cv">CV</a></li>
+          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <button id="lang-toggle" class="btn icon" aria-label="Change language">ES/EN</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero container reveal">
+      <div class="hero-wrap">
+        <div>
+          <div class="kicker" data-i18n="hero.kicker">Workforce &amp; IA para CX</div>
+          <h1 data-i18n="hero.title">Estrategias y automatizaciones que elevan la experiencia del cliente y el rendimiento operativo</h1>
+          <p class="muted" data-i18n="hero.subtitle">Disponible para proyectos remotos e híbridos en LATAM y Norteamérica.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="assets/cv/JeanCruzCV.pdf" data-i18n="cta.resume" target="_blank" rel="noopener">Descargar CV</a>
+            <a class="btn" href="#contacto" data-i18n="cta.meeting">Agendar una reunión</a>
+          </div>
+        </div>
+        <figure class="hero-visual card pad" aria-hidden="true">
+          <svg viewBox="0 0 320 240" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>Visualización de tableros y automatizaciones</title>
+            <rect width="320" height="240" rx="18" fill="#eef2ff" />
+            <g fill="none" stroke="#2563eb" stroke-width="2">
+              <rect x="24" y="32" width="124" height="64" rx="12" fill="#ffffff" />
+              <polyline points="180,54 208,70 236,46 268,86" stroke="#38bdf8" />
+              <rect x="180" y="110" width="116" height="72" rx="12" fill="#ffffff" />
+            </g>
+            <g font-family="'Inter',sans-serif" font-size="12" fill="#0f172a">
+              <text x="40" y="60">Excel</text>
+              <text x="40" y="82">Streamlit</text>
+              <text x="196" y="140">Looker Studio</text>
+              <text x="196" y="164">Power BI</text>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <!-- MÉTRICAS -->
+    <section class="metrics container reveal">
+      <ul class="grid">
+        <li class="card metric">
+          <div><h3>6+</h3><p class="muted" data-i18n="m.years">Años liderando WFM</p></div>
+        </li>
+        <li class="card metric">
+          <div><h3>25+</h3><p class="muted" data-i18n="m.projects">Proyectos de optimización</p></div>
+        </li>
+        <li class="card metric">
+          <div><h3>98%</h3><p class="muted" data-i18n="m.sla">SLA de cumplimiento</p></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="features container reveal">
+      <h2 data-i18n="sec.services">Qué puedo aportar</h2>
+      <div class="grid">
+        <article class="card feature">
+          <span class="pill">Dashboards</span>
+          <h4>Excel · Looker Studio · Power BI</h4>
+          <p class="muted" data-i18n="feat.dash">Indicadores accionables y storytelling visual para equipos no técnicos.</p>
+        </article>
+        <article class="card feature">
+          <span class="pill">Automatizaciones</span>
+          <h4>Python · RPA · Streamlit</h4>
+          <p class="muted" data-i18n="feat.auto">Bots y flujos que reducen tiempos operativos y errores.</p>
+        </article>
+        <article class="card feature">
+          <span class="pill">Forecasting</span>
+          <h4>Time Series · ML</h4>
+          <p class="muted" data-i18n="feat.forecast">Pronósticos claros con supuestos explícitos para tomar decisiones.</p>
+        </article>
+        <article class="card feature">
+          <span class="pill">CX Analytics</span>
+          <h4>WFM · SLA · QA</h4>
+          <p class="muted" data-i18n="feat.cx">Modelos de cobertura y calidad enfocados en impacto de negocio.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS (render via JS) -->
+    <section class="container reveal">
+      <div class="filters">
+        <button data-filter="all" class="btn" data-i18n="filter.all">Todos</button>
+        <button data-filter="AI/ML" class="btn">AI/ML</button>
+        <button data-filter="Full-Stack" class="btn">Full-Stack</button>
+        <button data-filter="Dashboards" class="btn">Dashboards</button>
+      </div>
+      <section id="projects" class="grid"></section>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="container reveal" style="padding:24px 0;">
+      <div class="card pad">
+        <h2 data-i18n="sec.cv">Currículum</h2>
+        <p class="muted" data-i18n="cv.text">Descarga mi CV actualizado y conoce experiencia, formación y herramientas.</p>
+        <a class="btn primary" href="assets/cv/JeanCruzCV.pdf" target="_blank" rel="noopener" data-i18n="cta.resume">Descargar CV</a>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact container reveal">
+      <div class="card pad">
+        <h2 data-i18n="sec.contact">Conectemos</h2>
+        <p class="muted">jeancruzc@gmail.com · Lima, Perú (GMT-5)</p>
+        <div class="cta-row">
+          <a class="btn" href="https://www.linkedin.com/in/workforceleadjean/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://calendly.com/" target="_blank" rel="noopener" data-i18n="cta.meeting">Agendar una reunión</a>
+        </div>
+      </div>
+      <div class="card pad">
+        <form action="mailto:jeancruzc@gmail.com" method="post" enctype="text/plain">
+          <div class="field"><label data-i18n="form.name">Nombre</label><input required name="name" /></div>
+          <div class="field"><label>Email</label><input required type="email" name="email" /></div>
+          <div class="field"><label data-i18n="form.msg">Mensaje</label><textarea required rows="4" name="message"></textarea></div>
+          <button class="btn primary" type="submit" data-i18n="form.send">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>© <span id="year"></span> Jean Cruz</div>
+      <div class="muted">Workforce Intelligence · Forecasting · Automatización · CX Analytics</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
