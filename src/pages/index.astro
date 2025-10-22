@@ -1,497 +1,752 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-const heroMetrics = [
+const projects = [
   {
-    value: '6+',
-    label: 'años liderando WFM',
-    description: 'Operaciones multicanal en LATAM y Norteamérica.'
-  },
-  {
-    value: '25+',
-    label: 'proyectos de optimización',
-    description: 'Dashboards ejecutivos, automatización y forecast.'
-  },
-  {
-    value: '98%',
-    label: 'SLA de cumplimiento',
-    description: 'Planes accionables que balancean CX y productividad.'
-  }
-];
-
-const heroBadges = [
-  { title: 'Looker Studio', subtitle: 'Historias ejecutivas en tiempo real', tone: 'from-sky-200/80 to-sky-100/60', icon: '📊' },
-  { title: 'Power BI', subtitle: 'Modelos semánticos listos para escalar', tone: 'from-amber-200/80 to-yellow-100/60', icon: '⚡' },
-  { title: 'Streamlit', subtitle: 'Apps internas con IA y Python', tone: 'from-violet-200/80 to-fuchsia-100/60', icon: '🤖' },
-  { title: 'Excel · Google Sheets', subtitle: 'Plantillas vivas para equipos no técnicos', tone: 'from-emerald-200/80 to-lime-100/60', icon: '📈' }
-];
-
-const presentationHighlights = [
-  'Diseño programas de Workforce Intelligence que alinean forecast, planificación y reporting ejecutivo.',
-  'Integro datos operativos, experiencia de cliente y señales de negocio en tableros accionables.',
-  'Automatizo reportes, alertas y flujos con Python, RPA y conectores low-code.',
-  'Acompaño a equipos de CX en la adopción de soluciones con talleres y playbooks prácticos.'
-];
-
-const dashboardShowcase = [
-  {
-    tag: 'Looker Studio',
-    title: 'SLA y NPS en una sola vista',
-    description: 'KPIs ejecutivos conectados a BigQuery con actualizaciones cada 15 minutos y storytelling en capas.',
-    cta: 'Solicitar acceso demo'
-  },
-  {
-    tag: 'Power BI',
-    title: 'Suite de experiencia del cliente',
-    description: 'Dashboards que cruzan satisfacción digital, costos operativos y productividad por sitio y canal.',
-    cta: 'Ver tablero interactivo'
-  },
-  {
-    tag: 'Excel · VBA',
-    title: 'Escenarios de staffing en segundos',
-    description: 'Modelo what-if para dimensionar headcount, turnos y presupuesto con supuestos editables.',
-    cta: 'Probar el modelo'
-  },
-  {
-    tag: 'Streamlit + IA',
-    title: 'Asistente de performance diario',
-    description: 'Aplicación que resume insights, genera alertas y propone acciones utilizando modelos generativos.',
-    cta: 'Explorar prototipo'
-  }
-];
-
-const successCases = [
-  {
-    title: 'Workforce AI Forecaster',
-    description: 'Pronósticos de demanda combinando series temporales, clima laboral y estacionalidad para ajustar staffing.',
-    impact: 'Reducción de 8% en sobrecostos · Cobertura +3pts',
-    stack: ['Python', 'Prophet', 'Power BI', 'Azure ML'],
-    category: 'AI/ML'
-  },
-  {
-    title: 'Command Center Automation Suite',
-    description: 'Bots que consolidan datos en tiempo real, disparan alertas y generan briefings diarios en minutos.',
-    impact: '36 horas ahorradas/semana · Alertas 100% oportunas',
-    stack: ['Python', 'Airflow', 'Slack API', 'BigQuery'],
-    category: 'Automatización'
-  },
-  {
-    title: 'CX Executive Dashboard Suite',
-    description: 'Visualizaciones para directores regionales que conectan NPS, costos y productividad en una sola vista.',
-    impact: 'Time-to-insight < 5 min · Adopción ejecutiva 90%',
-    stack: ['Power BI', 'DAX', 'Azure Synapse'],
-    category: 'Dashboards'
-  }
-];
-
-const services = [
-  {
-    title: 'Implementación de tableros end-to-end',
-    bullets: [
-      'Descubrimiento, arquitectura semántica y diseño UI',
-      'Conectores a BigQuery, Synapse o SQL Server',
-      'Acompañamiento en adopción ejecutiva y OKRs'
+    title: 'AI-Powered Career Toolkit',
+    cat: 'AI/ML',
+    year: 2024,
+    status: 'Completed',
+    summary: 'Plataforma full‑stack para CVs e entrevistas con IA.',
+    stack: ['React', 'Django', 'OpenAI API'],
+    ctas: [
+      { label: 'Live', href: '#' },
+      { label: 'Code', href: '#' }
     ]
   },
   {
-    title: 'Automatización y analítica operativa',
-    bullets: [
-      'Bots y pipelines en Python, Apps Script o Power Automate',
-      'Alertas con IA generativa y envío multicanal',
-      'Documentación y traspaso a equipos internos'
-    ]
+    title: 'WFM Scheduling Optimizer',
+    cat: 'Full-Stack',
+    year: 2025,
+    status: 'Completed',
+    summary: 'Generador de turnos con validación de cobertura y metaheurísticas.',
+    stack: ['Python', 'OR-Tools', 'Streamlit'],
+    ctas: [{ label: 'Demo', href: '#' }]
   },
   {
-    title: 'Mentoría para equipos de Workforce & CX',
-    bullets: [
-      'Playbooks de forecast, planificación y monitoreo',
-      'Sesiones 1:1 y workshops prácticos',
-      'Evaluación de madurez y roadmap trimestral'
-    ]
-  }
-];
-
-const cvHighlights = [
-  'Liderazgo de equipos de planificación para 220+ asesores en telecomunicaciones y retail.',
-  'Certificaciones en Workforce Management, analytics y mejora continua.',
-  'Experiencia con IEX, Verint, Genesys Cloud, NICE, Tableau y Power Platform.',
-  'MBA candidate · Especialización en ciencia de datos aplicada a CX.'
-];
-
-const contactChannels = [
-  {
-    label: 'Calendly',
-    description: 'Agenda una consultoría exploratoria de 30 minutos.',
-    href: 'https://calendly.com/',
-    icon: '🗓️'
-  },
-  {
-    label: 'LinkedIn',
-    description: 'Conversemos sobre retos de CX, WFM o automatización.',
-    href: 'https://www.linkedin.com/in/workforceleadjean/',
-    icon: '💼'
-  },
-  {
-    label: 'Email',
-    description: 'jeancruzc@gmail.com · Lima, Perú (GMT-5)',
-    href: 'mailto:jeancruzc@gmail.com',
-    icon: '✉️'
+    title: 'CX KPI Dashboards',
+    cat: 'Dashboards',
+    year: 2024,
+    status: 'In progress',
+    summary: 'Suite de tableros en Looker Studio para SLA y experiencia.',
+    stack: ['Looker Studio', 'BigQuery'],
+    ctas: [{ label: 'View', href: '#' }]
   }
 ];
 ---
-<Layout
-  title="Jean Cruz · Workforce & AI para CX"
-  description="Portafolio con tableros, automatizaciones y proyectos de Workforce Intelligence liderados por Jean Cruz."
->
-  <div class="mx-auto grid w-[min(100%-2.5rem,70rem)] gap-24">
-    <section
-      id="inicio"
-      class="relative overflow-hidden rounded-[44px] bg-white/80 p-10 shadow-[0_60px_120px_-60px_rgba(15,23,42,0.4)] ring-1 ring-white/60 lg:p-16"
-    >
-      <div class="absolute -top-24 left-10 h-64 w-64 rounded-full bg-sky-200/40 blur-3xl"></div>
-      <div class="absolute -bottom-20 right-10 h-72 w-72 rounded-full bg-violet-200/40 blur-3xl"></div>
-      <div class="relative grid gap-16 lg:grid-cols-[1.2fr_1fr]">
-        <div class="space-y-10">
-          <div class="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white/70 px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-slate-600">
-            Workforce · IA · CX
-          </div>
-          <div class="space-y-5">
-            <p class="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">Jean Cruz · Lima, Perú</p>
-            <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">
-              Diseñador de operaciones basado en datos para experiencias memorables
-            </h1>
-            <p class="max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-              Transformo insights en planes de staffing, automatizaciones y tableros ejecutivos que elevan la experiencia del cliente y el rendimiento operativo.
-            </p>
-          </div>
-          <div class="flex flex-col gap-5 lg:flex-row lg:items-center">
-            <div class="flex flex-wrap gap-3">
-              <a
-                href="#contacto"
-                class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_-20px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:bg-indigo-600"
-              >
-                Agenda una reunión
-                <span aria-hidden="true">↗</span>
-              </a>
-              <a
-                href="/assets/cv/JeanCruzCV.pdf"
-                class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:-translate-y-1 hover:border-indigo-300 hover:text-indigo-700"
-              >
-                Descargar CV
-              </a>
-            </div>
-            <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <span>Automatización</span>
-              <span class="size-1 rounded-full bg-slate-300"></span>
-              <span>Forecast</span>
-              <span class="size-1 rounded-full bg-slate-300"></span>
-              <span>Analytics</span>
-            </div>
-          </div>
-          <div class="grid gap-4 sm:grid-cols-3">
-            {heroMetrics.map((metric) => (
-              <div class="rounded-3xl border border-white/60 bg-slate-50/70 p-5 shadow-[0_18px_35px_-28px_rgba(15,23,42,0.45)]">
-                <p class="text-3xl font-semibold text-slate-900">{metric.value}</p>
-                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">{metric.label}</p>
-                <p class="mt-3 text-sm text-slate-500">{metric.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div class="space-y-6">
-          <div class="rounded-[32px] border border-white/70 bg-slate-50/60 p-6 shadow-[0_25px_60px_-40px_rgba(15,23,42,0.55)]">
-            <p class="text-xs font-semibold uppercase tracking-[0.32em] text-slate-500">Tecnologías clave</p>
-            <div class="mt-6 grid gap-4">
-              {heroBadges.map((tool) => (
-                <div class={`flex items-start gap-4 rounded-3xl bg-gradient-to-br ${tool.tone} px-4 py-4 text-slate-700 shadow-[0_12px_30px_-25px_rgba(79,70,229,0.55)]`}>
-                  <span class="text-2xl leading-none">{tool.icon}</span>
-                  <div class="flex-1">
-                    <p class="text-sm font-semibold text-slate-800">{tool.title}</p>
-                    <p class="text-[0.78rem] leading-relaxed text-slate-600">{tool.subtitle}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div class="rounded-[32px] border border-white/70 bg-white/70 p-6 shadow-[0_25px_60px_-45px_rgba(15,23,42,0.45)]">
-            <p class="text-sm font-semibold text-slate-700">Disponibilidad 2024</p>
-            <p class="mt-2 text-sm text-slate-500">Consultorías remotas · Workshops in-company · Implementaciones mixtas.</p>
-            <div class="mt-4 flex flex-wrap gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-slate-400">
-              <span class="rounded-full bg-slate-100 px-4 py-2">LATAM</span>
-              <span class="rounded-full bg-slate-100 px-4 py-2">Norteamérica</span>
-              <span class="rounded-full bg-slate-100 px-4 py-2">Híbrido</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jean Cruz – Workforce & AI for CX</title>
+    <meta
+      name="description"
+      content="Portafolio de Jean Cruz: Workforce Intelligence, Forecasting, Automatización y CX Analytics. Consultorías y proyectos en LATAM & Norteamérica."
+    />
+    <meta name="theme-color" content="#f6f8fb" />
+    <link rel="icon" href="/favicon.png" />
+    <style>
+      /* ======== Design tokens (light, recruiter-friendly) ======== */
+      :root {
+        --bg: #f6f8fb; /* base background */
+        --bg-spot1: #bcd7ff33; /* subtle spotlight 1 */
+        --bg-spot2: #f8d3ff33; /* subtle spotlight 2 */
+        --surface: #ffffff; /* cards/nav */
+        --border: #e5e7eb; /* card borders */
+        --text: #0f172a; /* primary text */
+        --muted: #475569; /* secondary text */
+        --accent: #2563eb; /* primary accent (blue) */
+        --accent-2: #16a34a; /* success */
+        --radius: 16px;
+        --shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+        --nav-h: 72px;
+      }
 
-    <section
-      id="presentacion"
-      class="rounded-[40px] bg-white/80 p-10 shadow-[0_50px_120px_-65px_rgba(15,23,42,0.5)] ring-1 ring-white/70 lg:p-16"
-    >
-      <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        <div class="space-y-6">
-          <div class="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.35em] text-slate-500">
-            Presentación personal
+      /* ======== Reset & base ======== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font: 16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans,
+          'Apple Color Emoji', 'Segoe UI Emoji';
+        color: var(--text);
+        background:
+          radial-gradient(1000px 500px at 20% -5%, var(--bg-spot1), transparent 60%),
+          radial-gradient(1000px 600px at 80% 0%, var(--bg-spot2), transparent 60%),
+          var(--bg);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1100px, 92%);
+        margin-inline: auto;
+      }
+
+      .grid {
+        display: grid;
+        gap: 24px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background: #eef2ff;
+        color: #3730a3;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        color: var(--text);
+        transition: 0.2s transform, 0.2s box-shadow;
+      }
+
+      .btn.primary {
+        background: linear-gradient(180deg, #4f8bff, #2563eb);
+        color: #fff;
+        border-color: #1d4ed8;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 44px rgba(15, 23, 42, 0.12);
+      }
+
+      .btn.icon {
+        padding: 0.55rem 0.8rem;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .card.pad {
+        padding: 20px;
+      }
+
+      /* ======== Navigation (sticky, non-overlapping) ======== */
+      header.site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        backdrop-filter: blur(8px);
+        background: color-mix(in srgb, var(--surface) 86%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-inner {
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 700;
+      }
+
+      .brand .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: #6b8cff;
+        box-shadow: 0 0 0 3px #6b8cff33;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 18px;
+      }
+
+      nav a {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      nav a[aria-current='page'] {
+        color: var(--accent);
+      }
+
+      main {
+        padding-top: 18px; /* header already sticky */
+      }
+
+      [id] {
+        scroll-margin-top: calc(var(--nav-h) + 16px);
+      }
+
+      /* ======== Hero (Z-pattern: headline -> CTAs -> visual side) ======== */
+      .hero {
+        padding: 40px 0 24px;
+      }
+
+      .hero-wrap {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 5.6vw, 56px);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin: 0 0 10px;
+      }
+
+      .kicker {
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #1d4ed8;
+        text-transform: uppercase;
+        font-size: 0.82rem;
+      }
+
+      .hero p {
+        font-size: clamp(16px, 2.2vw, 18px);
+        margin: 10px 0 18px;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero-visual {
+        aspect-ratio: 4 / 3;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        background: linear-gradient(135deg, #f1f5f9, #ffffff 40%, #eef2ff);
+        display: grid;
+        place-items: center;
+      }
+
+      .hero-visual strong {
+        color: #111827;
+      }
+
+      /* ======== Metrics ======== */
+      .metrics {
+        padding: 16px 0 0;
+      }
+
+      .metrics ul {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .metric {
+        padding: 18px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .metric h3 {
+        font-size: clamp(24px, 3.2vw, 32px);
+        margin: 0;
+      }
+
+      .metric p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      /* ======== Services / Focus areas (scannable) ======== */
+      .features {
+        padding: 26px 0;
+      }
+
+      .features .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .feature {
+        padding: 16px;
+      }
+
+      .feature h4 {
+        margin: 4px 0 6px;
+      }
+
+      .feature p {
+        margin: 0;
+      }
+
+      /* ======== Projects (with filters) ======== */
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 4px 0 12px;
+      }
+
+      #projects.grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .project header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .project .year {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .project h3 {
+        margin: 8px 0 6px;
+      }
+
+      .stack {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .stack span {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      /* ======== Contact ======== */
+      .contact {
+        padding: 30px 0 50px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .contact form {
+        display: grid;
+        gap: 12px;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field input,
+      .field textarea {
+        padding: 0.8rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        font: inherit;
+      }
+
+      /* ======== Footer ======== */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 28px 0 38px;
+        color: var(--muted);
+      }
+
+      /* reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: 0.6s ease;
+      }
+
+      .reveal.on {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* responsive */
+      @media (max-width: 960px) {
+        .hero-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .features .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        #projects.grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .metrics ul {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .contact {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        nav ul {
+          display: none;
+        }
+
+        .metrics ul {
+          grid-template-columns: 1fr;
+        }
+
+        .features .grid {
+          grid-template-columns: 1fr;
+        }
+
+        #projects.grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ NAVBAR ============ -->
+    <header class="site-nav">
+      <div class="container nav-inner">
+        <div class="brand"><span class="dot"></span> <span id="brand-name">Jean Cruz</span></div>
+        <nav>
+          <ul>
+            <li><a href="#inicio" data-i18n="nav.home" aria-current="page">Inicio</a></li>
+            <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Proyectos</a></li>
+            <li><a href="#cv" data-i18n="nav.cv">CV</a></li>
+            <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <button id="lang-toggle" class="btn icon" aria-label="Change language">ES/EN</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ HERO ============ -->
+      <section id="inicio" class="hero container reveal">
+        <div class="hero-wrap">
+          <div>
+            <div class="kicker" data-i18n="hero.kicker">Workforce & IA para CX</div>
+            <h1 data-i18n="hero.title">
+              Estrategias y automatizaciones que elevan la experiencia del cliente y el rendimiento operativo
+            </h1>
+            <p class="muted" data-i18n="hero.subtitle">Disponible para proyectos remotos e híbridos en LATAM y Norteamérica.</p>
+            <div class="cta-row">
+              <a class="btn primary" href="/assets/cv/JeanCruzCV.pdf" data-i18n="cta.resume" target="_blank" rel="noopener"
+                >Descargar CV</a
+              >
+              <a class="btn" href="#contacto" data-i18n="cta.meeting">Agendar una reunión</a>
+            </div>
           </div>
-          <h2 class="text-3xl font-semibold text-slate-900 md:text-[2.6rem]">
-            Diseño experiencias memorables combinando datos operativos, automatización e insights de cliente
-          </h2>
-          <p class="text-lg leading-relaxed text-slate-600">
-            Ayudo a organizaciones a traducir su estrategia de CX en tableros accionables, procesos ágiles y equipos empoderados con información en tiempo real.
-          </p>
-          <div class="grid gap-4">
-            {presentationHighlights.map((item) => (
-              <div class="flex items-start gap-3 rounded-3xl border border-slate-200/70 bg-slate-50/80 p-4">
-                <span class="mt-1 text-base text-indigo-500">●</span>
-                <p class="text-sm leading-relaxed text-slate-600">{item}</p>
-              </div>
-            ))}
+          <div class="hero-visual card pad">
+            <strong data-i18n="hero.visual">Dashboards · Forecast · Scheduling · RPA</strong>
           </div>
         </div>
-        <div class="space-y-6 rounded-[32px] border border-white/70 bg-slate-50/80 p-8 shadow-[0_30px_90px_-70px_rgba(15,23,42,0.65)]">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Formato de acompañamiento</p>
-          <div class="space-y-4 text-sm text-slate-600">
-            <p><strong class="text-slate-800">Discovery ágil:</strong> sesiones de entendimiento profundo para mapear KPIs críticos y quick wins.</p>
-            <p><strong class="text-slate-800">Sprints iterativos:</strong> entregables semanales con feedback continuo y documentación clara.</p>
-            <p><strong class="text-slate-800">Adopción guiada:</strong> talleres, playbooks y entrenamiento para asegurar impacto sostenible.</p>
-          </div>
-          <a
-            href="#contacto"
-            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:-translate-y-1 hover:border-indigo-200 hover:text-indigo-700"
-          >
-            Reservar una conversación
-            <span aria-hidden="true">↗</span>
+      </section>
+
+      <!-- ============ METRICS ============ -->
+      <section class="metrics container reveal">
+        <ul class="grid">
+          <li class="card metric">
+            <div>
+              <h3>6+</h3>
+              <p class="muted" data-i18n="m.years">Años liderando WFM</p>
+            </div>
+          </li>
+          <li class="card metric">
+            <div>
+              <h3>25+</h3>
+              <p class="muted" data-i18n="m.projects">Proyectos de optimización</p>
+            </div>
+          </li>
+          <li class="card metric">
+            <div>
+              <h3>98%</h3>
+              <p class="muted" data-i18n="m.sla">SLA de cumplimiento</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ SERVICES / FOCUS ============ -->
+      <section id="servicios" class="features container reveal">
+        <h2 data-i18n="sec.services">Qué puedo aportar</h2>
+        <div class="grid">
+          <article class="card feature">
+            <span class="pill">Dashboards</span>
+            <h4>Looker Studio · Power BI</h4>
+            <p class="muted" data-i18n="feat.dash">
+              Indicadores accionables y storytelling visual para equipos no técnicos.
+            </p>
+          </article>
+          <article class="card feature">
+            <span class="pill">Automatizaciones</span>
+            <h4>Python · RPA · Streamlit</h4>
+            <p class="muted" data-i18n="feat.auto">Bots y flujos que reducen tiempos operativos y errores.</p>
+          </article>
+          <article class="card feature">
+            <span class="pill">Forecasting</span>
+            <h4>Time Series · ML</h4>
+            <p class="muted" data-i18n="feat.forecast">
+              Pronósticos claros con supuestos explícitos para tomar decisiones.
+            </p>
+          </article>
+          <article class="card feature">
+            <span class="pill">CX Analytics</span>
+            <h4>WFM · SLA · QA</h4>
+            <p class="muted" data-i18n="feat.cx">Modelos de cobertura y calidad enfocados en impacto de negocio.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ PROJECTS ============ -->
+      <section class="container reveal">
+        <div class="filters">
+          <button data-filter="all" class="btn" data-i18n="filter.all">Todos</button>
+          <button data-filter="AI/ML" class="btn">AI/ML</button>
+          <button data-filter="Full-Stack" class="btn">Full-Stack</button>
+          <button data-filter="Dashboards" class="btn">Dashboards</button>
+        </div>
+        <section id="projects" class="grid">
+          {projects.map((project) => (
+            <article class="card pad project" data-cat={project.cat}>
+              <header>
+                <span class="pill">{project.cat}</span>
+                <span class="pill">{project.status}</span>
+                <span class="year">{project.year}</span>
+              </header>
+              <h3>{project.title}</h3>
+              <p class="muted">{project.summary}</p>
+              <div class="stack">
+                {project.stack.map((item) => (
+                  <span>{item}</span>
+                ))}
+              </div>
+              <div class="actions">
+                {project.ctas.map((cta) => (
+                  <a class="btn" href={cta.href} target="_blank" rel="noopener">
+                    {cta.label}
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </section>
+      </section>
+
+      <!-- ============ CV ANCHOR ============ -->
+      <section id="cv" class="container reveal" style="padding: 24px 0">
+        <div class="card pad">
+          <h2 data-i18n="sec.cv">Currículum</h2>
+          <p class="muted" data-i18n="cv.text">
+            Descarga mi CV actualizado y conoce experiencia, formación y herramientas.
+          </p>
+          <a class="btn primary" href="/assets/cv/JeanCruzCV.pdf" target="_blank" rel="noopener" data-i18n="cta.resume">
+            Descargar CV
           </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section
-      id="dashboards"
-      class="rounded-[40px] bg-white/80 p-10 shadow-[0_50px_120px_-70px_rgba(15,23,42,0.45)] ring-1 ring-white/60 lg:p-16"
-    >
-      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-slate-500">
-            Galería de tableros interactivos
-          </span>
-          <h2 class="mt-4 text-3xl font-semibold text-slate-900 md:text-[2.6rem]">
-            Narrativas visuales que conectan CX, operaciones y negocio
-          </h2>
-        </div>
-        <p class="max-w-xl text-sm leading-relaxed text-slate-600">
-          Dashboards diseñados para directivos y equipos operativos con capas de detalle, storytelling y alertas integradas.
-        </p>
-      </div>
-      <div class="mt-10 grid gap-6 md:grid-cols-2">
-        {dashboardShowcase.map((item) => (
-          <article class="group relative overflow-hidden rounded-[32px] border border-white/70 bg-gradient-to-br from-white/80 to-slate-50/70 p-6 shadow-[0_35px_90px_-70px_rgba(15,23,42,0.55)]">
-            <div class="absolute -top-20 right-0 h-40 w-40 rounded-full bg-slate-200/30 blur-3xl transition group-hover:scale-110"></div>
-            <div class="relative flex h-full flex-col gap-4">
-              <span class="self-start rounded-full bg-slate-900/90 px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-white">
-                {item.tag}
-              </span>
-              <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
-              <p class="flex-1 text-sm leading-relaxed text-slate-600">{item.description}</p>
-              <button class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:-translate-y-1 hover:border-indigo-200 hover:text-indigo-700">
-                {item.cta}
-                <span aria-hidden="true">↗</span>
-              </button>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section
-      id="casos"
-      class="rounded-[40px] bg-white/80 p-10 shadow-[0_50px_120px_-70px_rgba(15,23,42,0.5)] ring-1 ring-white/65 lg:p-16"
-    >
-      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-        <div>
-          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-slate-500">
-            Casos de éxito con datos, automatización e IA
-          </span>
-          <h2 class="mt-4 text-3xl font-semibold text-slate-900 md:text-[2.6rem]">
-            Impacto tangible en cobertura, experiencia y eficiencia
-          </h2>
-        </div>
-        <p class="max-w-xl text-sm leading-relaxed text-slate-600">
-          Proyectos orientados a resultados con co-creación junto a operaciones, tecnología y finanzas.
-        </p>
-      </div>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        {successCases.map((project) => (
-          <article class="flex h-full flex-col gap-4 rounded-[32px] border border-white/70 bg-white/75 p-6 shadow-[0_40px_100px_-75px_rgba(15,23,42,0.55)]">
-            <div class="inline-flex items-center gap-2 self-start rounded-full bg-slate-900/90 px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-white">
-              {project.category}
-            </div>
-            <h3 class="text-xl font-semibold text-slate-900">{project.title}</h3>
-            <p class="flex-1 text-sm leading-relaxed text-slate-600">{project.description}</p>
-            <p class="rounded-2xl bg-slate-100/80 px-4 py-3 text-sm font-semibold text-slate-700">{project.impact}</p>
-            <div class="flex flex-wrap gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-slate-400">
-              {project.stack.map((item) => (
-                <span class="rounded-full bg-slate-900/5 px-3 py-1 text-slate-500">{item}</span>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section
-      id="servicios"
-      class="rounded-[40px] bg-white/80 p-10 shadow-[0_50px_120px_-70px_rgba(15,23,42,0.5)] ring-1 ring-white/65 lg:p-16"
-    >
-      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-slate-500">
-            Servicios y propuestas de colaboración
-          </span>
-          <h2 class="mt-4 text-3xl font-semibold text-slate-900 md:text-[2.6rem]">
-            Desde discovery hasta adopción, acompañamiento integral
-          </h2>
-        </div>
-        <p class="max-w-xl text-sm leading-relaxed text-slate-600">
-          Diseñamos juntos el roadmap, entregables y mecanismos de transferencia para asegurar resultados sostenibles.
-        </p>
-      </div>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        {services.map((service) => (
-          <article class="flex h-full flex-col gap-5 rounded-[32px] border border-white/70 bg-white/75 p-6 shadow-[0_40px_100px_-70px_rgba(15,23,42,0.5)]">
-            <h3 class="text-xl font-semibold text-slate-900">{service.title}</h3>
-            <ul class="flex-1 space-y-3 text-sm text-slate-600">
-              {service.bullets.map((bullet) => (
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 text-base text-indigo-500">▹</span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#contacto"
-              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:-translate-y-1 hover:border-indigo-200 hover:text-indigo-700"
-            >
-              Explorar propuesta
-              <span aria-hidden="true">↗</span>
+      <!-- ============ CONTACT ============ -->
+      <section id="contacto" class="contact container reveal">
+        <div class="card pad">
+          <h2 data-i18n="sec.contact">Conectemos</h2>
+          <p class="muted">jeancruzc@gmail.com · Lima, Perú (GMT-5)</p>
+          <div class="cta-row">
+            <a class="btn" href="https://www.linkedin.com/in/workforceleadjean/" target="_blank" rel="noopener">
+              LinkedIn
             </a>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section
-      id="cv"
-      class="grid gap-8 rounded-[40px] bg-white/80 p-10 shadow-[0_50px_120px_-75px_rgba(15,23,42,0.5)] ring-1 ring-white/65 lg:grid-cols-[0.75fr_1.25fr] lg:p-16"
-    >
-      <div class="space-y-6">
-        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-slate-500">
-          Comparte tu trayectoria en detalle
-        </span>
-        <h2 class="text-3xl font-semibold text-slate-900 md:text-[2.6rem]">Currículum y logros destacados</h2>
-        <p class="text-sm leading-relaxed text-slate-600">
-          Descarga mi CV actualizado para explorar experiencia, certificaciones y herramientas dominadas en Workforce Management y analítica avanzada.
-        </p>
-        <a
-          href="/assets/cv/JeanCruzCV.pdf"
-          class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_-25px_rgba(15,23,42,0.6)] transition hover:-translate-y-1 hover:bg-indigo-600"
-        >
-          Descargar CV completo
-          <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-      <div class="grid gap-4">
-        {cvHighlights.map((item) => (
-          <div class="rounded-3xl border border-slate-200/70 bg-white/80 p-4 text-sm text-slate-600">
-            {item}
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section
-      id="contacto"
-      class="rounded-[40px] bg-white/80 p-10 shadow-[0_50px_120px_-70px_rgba(15,23,42,0.5)] ring-1 ring-white/60 lg:p-16"
-    >
-      <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-        <div class="space-y-6">
-          <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-slate-500">
-            ¿Listo para llevar tu operación al siguiente nivel?
-          </span>
-          <h2 class="text-3xl font-semibold text-slate-900 md:text-[2.6rem]">
-            Conversemos sobre tus retos de CX, automatización o Workforce
-          </h2>
-          <p class="text-sm leading-relaxed text-slate-600">
-            Escríbeme o agenda una reunión para identificar oportunidades de impacto inmediato y construir un plan a la medida.
-          </p>
-          <div class="grid gap-4 md:grid-cols-3">
-            {contactChannels.map((channel) => (
-              <a
-                href={channel.href}
-                class="group flex h-full flex-col gap-3 rounded-[28px] border border-white/70 bg-white/80 p-5 text-slate-600 shadow-[0_30px_90px_-70px_rgba(15,23,42,0.55)] transition hover:-translate-y-1 hover:border-indigo-200 hover:text-indigo-700"
-                target={channel.href.startsWith('http') ? '_blank' : undefined}
-                rel={channel.href.startsWith('http') ? 'noopener' : undefined}
-              >
-                <span class="text-2xl">{channel.icon}</span>
-                <p class="text-sm font-semibold text-slate-800">{channel.label}</p>
-                <p class="text-[0.82rem] leading-relaxed">{channel.description}</p>
-                <span class="mt-auto text-xs font-semibold uppercase tracking-[0.32em] text-slate-400 transition group-hover:text-indigo-400">
-                  Abrir ↗
-                </span>
-              </a>
-            ))}
+            <a class="btn" href="https://calendly.com/" target="_blank" rel="noopener" data-i18n="cta.meeting">
+              Agendar una reunión
+            </a>
           </div>
         </div>
-        <div class="space-y-5 rounded-[32px] border border-white/70 bg-white/85 p-8 shadow-[0_35px_90px_-70px_rgba(15,23,42,0.55)]">
-          <p class="text-sm font-semibold text-slate-700">También puedo ayudarte con:</p>
-          <ul class="space-y-3 text-sm text-slate-600">
-            <li>✔️ Auditoría de tableros y gobernanza de datos.</li>
-            <li>✔️ Coaching a planners y analistas de command center.</li>
-            <li>✔️ Roadmaps de automatización con impacto financiero.</li>
-            <li>✔️ Integración de IA generativa en procesos de CX.</li>
-          </ul>
-          <form action="mailto:jeancruzc@gmail.com" method="post" enctype="text/plain" class="mt-6 grid gap-4">
-            <div class="grid gap-2">
-              <label class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" for="name">Nombre</label>
-              <input
-                id="name"
-                name="name"
-                required
-                class="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-700 shadow-inner focus:border-indigo-300 focus:outline-none"
-              />
+        <div class="card pad">
+          <form action="mailto:jeancruzc@gmail.com" method="post" enctype="text/plain">
+            <div class="field">
+              <label data-i18n="form.name">Nombre</label>
+              <input required name="name" />
             </div>
-            <div class="grid gap-2">
-              <label class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" for="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                required
-                class="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-700 shadow-inner focus:border-indigo-300 focus:outline-none"
-              />
+            <div class="field">
+              <label>Email</label>
+              <input required type="email" name="email" />
             </div>
-            <div class="grid gap-2">
-              <label class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" for="message">Mensaje</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                class="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-700 shadow-inner focus:border-indigo-300 focus:outline-none"
-              ></textarea>
+            <div class="field">
+              <label data-i18n="form.msg">Mensaje</label>
+              <textarea required rows="4" name="message"></textarea>
             </div>
-            <button
-              type="submit"
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-indigo-600"
-            >
-              Enviar mensaje
-              <span aria-hidden="true">↗</span>
-            </button>
+            <button class="btn primary" type="submit" data-i18n="form.send">Enviar</button>
           </form>
         </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container" style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+        <div>© <span id="year"></span> Jean Cruz</div>
+        <div class="muted">Workforce Intelligence · Forecasting · Automatización · CX Analytics</div>
       </div>
-    </section>
-  </div>
-</Layout>
+    </footer>
+
+    <script>
+      // ======== Reveal on scroll (gentle) ========
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('on');
+          });
+        },
+        { threshold: 0.14 }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+      // ======== Year ========
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // ======== Simple filters ========
+      document.querySelectorAll('.filters [data-filter]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          document.querySelectorAll('.project').forEach((card) => {
+            card.style.display = filter === 'all' || card.dataset.cat === filter ? '' : 'none';
+          });
+        });
+      });
+
+      // ======== i18n minimal (ES/EN) ========
+      const i18n = {
+        es: {
+          'nav.home': 'Inicio',
+          'nav.services': 'Servicios',
+          'nav.projects': 'Proyectos',
+          'nav.cv': 'CV',
+          'nav.contact': 'Contacto',
+          'hero.kicker': 'Workforce & IA para CX',
+          'hero.title': 'Estrategias y automatizaciones que elevan la experiencia del cliente y el rendimiento operativo',
+          'hero.subtitle': 'Disponible para proyectos remotos e híbridos en LATAM y Norteamérica.',
+          'hero.visual': 'Dashboards · Forecast · Scheduling · RPA',
+          'cta.resume': 'Descargar CV',
+          'cta.meeting': 'Agendar una reunión',
+          'm.years': 'Años liderando WFM',
+          'm.projects': 'Proyectos de optimización',
+          'm.sla': 'SLA de cumplimiento',
+          'sec.services': 'Qué puedo aportar',
+          'feat.dash': 'Indicadores accionables y storytelling visual para equipos no técnicos.',
+          'feat.auto': 'Bots y flujos que reducen tiempos operativos y errores.',
+          'feat.forecast': 'Pronósticos claros con supuestos explícitos para tomar decisiones.',
+          'feat.cx': 'Modelos de cobertura y calidad enfocados en impacto de negocio.',
+          'sec.cv': 'Currículum',
+          'cv.text': 'Descarga mi CV actualizado y conoce experiencia, formación y herramientas.',
+          'sec.contact': 'Conectemos',
+          'form.name': 'Nombre',
+          'form.msg': 'Mensaje',
+          'form.send': 'Enviar',
+          'filter.all': 'Todos'
+        },
+        en: {
+          'nav.home': 'Home',
+          'nav.services': 'Services',
+          'nav.projects': 'Projects',
+          'nav.cv': 'Resume',
+          'nav.contact': 'Contact',
+          'hero.kicker': 'Workforce & AI for CX',
+          'hero.title': 'Strategies & automations that elevate customer experience and operational performance',
+          'hero.subtitle': 'Open to remote/hybrid projects in LATAM & North America.',
+          'hero.visual': 'Dashboards · Forecast · Scheduling · RPA',
+          'cta.resume': 'Download Resume',
+          'cta.meeting': 'Schedule a meeting',
+          'm.years': 'Years leading WFM',
+          'm.projects': 'Optimization projects',
+          'm.sla': 'SLA achievement',
+          'sec.services': 'What I bring',
+          'feat.dash': 'Actionable KPIs and visual storytelling for non-technical teams.',
+          'feat.auto': 'Bots and flows that reduce operational time and errors.',
+          'feat.forecast': 'Clear forecasts with explicit assumptions for decisions.',
+          'feat.cx': 'Coverage & quality models focused on business impact.',
+          'sec.cv': 'Resume',
+          'cv.text': 'Download my updated resume with experience, education and tools.',
+          'sec.contact': 'Let’s connect',
+          'form.name': 'Name',
+          'form.msg': 'Message',
+          'form.send': 'Send',
+          'filter.all': 'All'
+        }
+      };
+
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.dataset.i18n;
+          if (i18n[lang][key]) el.textContent = i18n[lang][key];
+        });
+        document.getElementById('brand-name').textContent = lang === 'en' ? 'Jean Cruz' : 'Jean Cruz';
+      }
+
+      setLang(localStorage.getItem('lang') || 'es');
+
+      document.getElementById('lang-toggle').addEventListener('click', () => {
+        const next = document.documentElement.lang === 'es' ? 'en' : 'es';
+        setLang(next);
+      });
+    </script>
+  </body>
+</html>
