@@ -24,14 +24,16 @@ const { projects = [], heading = "Proyectos", anchor = "projects", intro } = Ast
             height="540"
           />
         )}
-        <h3>{p.title}</h3>
-        <p>{p.summary}</p>
+        <div class="project-body">
+          <h3>{p.title}</h3>
+          <p>{p.summary}</p>
+        </div>
         <ul class="tags">
           {p.tags.map((t) => (
             <li class="tag">{t}</li>
           ))}
         </ul>
-        <div class="links">
+        <div class="project-actions">
           {p.links.map((l) => (
             <a href={l.href} target="_blank" rel="noopener" data-analytics-event={`Project ${p.title} ${l.label}`}>
               {l.label} ↗

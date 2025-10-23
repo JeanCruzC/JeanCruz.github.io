@@ -29,7 +29,7 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,6 +55,13 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
       (() => {
         const storageKey = 'theme-preference';
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const applyTheme = (value) => {
+          const theme = value === 'dark' ? 'dark' : 'light';
+          const root = document.documentElement;
+          root.dataset.theme = theme;
+          root.classList.toggle('dark', theme === 'dark');
+          root.style.colorScheme = theme;
+        };
         const getPreference = () => {
           try {
             const stored = localStorage.getItem(storageKey);
@@ -65,10 +72,6 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
             /* storage unavailable */
           }
           return mediaQuery.matches ? 'dark' : 'light';
-        };
-        const applyTheme = (theme) => {
-          document.documentElement.dataset.theme = theme;
-          document.documentElement.style.colorScheme = theme;
         };
         applyTheme(getPreference());
         const onSystemChange = (event) => {
@@ -196,8 +199,10 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
 
         const applyTheme = (value) => {
           const theme = value === 'dark' ? 'dark' : 'light';
-          document.documentElement.dataset.theme = theme;
-          document.documentElement.style.colorScheme = theme;
+          const root = document.documentElement;
+          root.dataset.theme = theme;
+          root.classList.toggle('dark', theme === 'dark');
+          root.style.colorScheme = theme;
           if (themeIcon) {
             themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
           }
