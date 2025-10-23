@@ -1,0 +1,63 @@
+---
+import type { Report } from "../data/reports";
+
+const {
+  reports = [],
+  heading = "Dashboards",
+  intro,
+  lang = "es"
+} = Astro.props as {
+  reports: Report[];
+  heading?: string;
+  intro?: string;
+  lang?: "es" | "en";
+};
+
+const buttonCopy = lang === "en" ? "View in" : "Ver en";
+const analyticsLabel = lang === "en" ? "Report" : "Reporte";
+const thumbnailLabel = lang === "en" ? "thumbnail" : "miniatura";
+---
+<section class="section" data-aos="fade-up">
+  <div class="section-heading">
+    <h2 class="h2">{heading}</h2>
+    {intro && <p class="section-intro">{intro}</p>}
+  </div>
+  <div class="reports-grid">
+    {reports.map((report) => (
+      <article class="card report-card">
+        {report.thumbnail && (
+          <img
+            src={report.thumbnail}
+            alt={`${report.title} ${thumbnailLabel}`}
+            width="640"
+            height="360"
+            loading="lazy"
+          />
+        )}
+        <div class="report-content">
+          <h3>{report.title}</h3>
+          <p>{report.description}</p>
+        </div>
+        <div class="report-meta">
+          <span class="report-platform">{report.platform}</span>
+          {report.tags.length > 0 && (
+            <ul class="tags">
+              {report.tags.map((tag) => (
+                <li class="tag">{tag}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <a
+          class="report-button"
+          href={report.url}
+          target="_blank"
+          rel="noopener"
+          data-analytics-event={`${analyticsLabel} ${report.title} ${report.platform}`}
+        >
+          {buttonCopy} {report.platform} ↗
+        </a>
+      </article>
+    ))}
+  </div>
+</section>
