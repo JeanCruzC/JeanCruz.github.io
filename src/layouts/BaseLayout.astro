@@ -51,6 +51,43 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script defer data-domain="jeancruzc.github.io" src="https://plausible.io/js/script.js"></script>
+    <script is:inline>
+      (() => {
+        const storageKey = 'theme-preference';
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const getPreference = () => {
+          try {
+            const stored = localStorage.getItem(storageKey);
+            if (stored === 'light' || stored === 'dark') {
+              return stored;
+            }
+          } catch (error) {
+            /* storage unavailable */
+          }
+          return mediaQuery.matches ? 'dark' : 'light';
+        };
+        const applyTheme = (theme) => {
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        };
+        applyTheme(getPreference());
+        const onSystemChange = (event) => {
+          try {
+            if (localStorage.getItem(storageKey)) {
+              return;
+            }
+          } catch (error) {
+            /* storage unavailable */
+          }
+          applyTheme(event.matches ? 'dark' : 'light');
+        };
+        if (mediaQuery.addEventListener) {
+          mediaQuery.addEventListener('change', onSystemChange);
+        } else if (mediaQuery.addListener) {
+          mediaQuery.addListener(onSystemChange);
+        }
+      })();
+    </script>
   </head>
   <body>
     <header class="nav" data-nav>
@@ -79,7 +116,18 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
           </div>
         )}
       </nav>
-      <a class="nav-primary" href={primaryCtaHref} data-analytics-event="Nav Primary CTA">{resolvedPrimaryCtaLabel}</a>
+      <div class="nav-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-label={lang === "en" ? "Toggle light or dark theme" : "Cambiar entre modo claro u oscuro"}
+          aria-pressed="false"
+        >
+          <span aria-hidden="true" data-theme-icon>☀️</span>
+        </button>
+        <a class="nav-primary" href={primaryCtaHref} data-analytics-event="Nav Primary CTA">{resolvedPrimaryCtaLabel}</a>
+      </div>
     </header>
 
     <main><slot /></main>
@@ -140,6 +188,71 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
         };
 
         window.addEventListener('resize', handleResize);
+
+        const themeToggle = nav?.querySelector('[data-theme-toggle]');
+        const themeIcon = themeToggle?.querySelector('[data-theme-icon]');
+        const themeStorageKey = 'theme-preference';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const applyTheme = (value) => {
+          const theme = value === 'dark' ? 'dark' : 'light';
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+          if (themeIcon) {
+            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+          }
+          if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+          }
+        };
+
+        const getStoredTheme = () => {
+          try {
+            const stored = localStorage.getItem(themeStorageKey);
+            if (stored === 'light' || stored === 'dark') {
+              return stored;
+            }
+          } catch (error) {
+            return null;
+          }
+          return null;
+        };
+
+        const syncTheme = () => {
+          const stored = getStoredTheme();
+          if (stored) {
+            applyTheme(stored);
+          } else {
+            applyTheme(prefersDark.matches ? 'dark' : 'light');
+          }
+        };
+
+        syncTheme();
+
+        themeToggle?.addEventListener('click', () => {
+          const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+          const next = current === 'dark' ? 'light' : 'dark';
+          try {
+            localStorage.setItem(themeStorageKey, next);
+          } catch (error) {
+            /* storage unavailable */
+          }
+          applyTheme(next);
+        });
+
+        const handleSystemChange = (event) => {
+          const stored = getStoredTheme();
+          if (stored) {
+            return;
+          }
+          applyTheme(event.matches ? 'dark' : 'light');
+        };
+
+        if (prefersDark.addEventListener) {
+          prefersDark.addEventListener('change', handleSystemChange);
+        } else if (prefersDark.addListener) {
+          prefersDark.addListener(handleSystemChange);
+        }
 
         const trackables = document.querySelectorAll('[data-analytics-event]');
         trackables.forEach((el) => {

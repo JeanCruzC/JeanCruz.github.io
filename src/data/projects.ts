@@ -9,10 +9,10 @@ export type Project = {
 
 export const projectsEs: Project[] = [
   {
-    title: "Control Tower WFM LATAM",
+    title: "Control Tower WFM",
     summary:
-      "Tablero en tiempo real que redujo sobretiempos 18% y elevó la adherencia +9 pp al escalar alertas predictivas por canal.",
-    tags: ["Power BI", "Python", "Automation", "WFM"],
+      "Tablero en tiempo real que unifica cobertura, demanda y salud operativa con alertas predictivas por canal.",
+    tags: ["Power BI", "Python", "Automatización", "WFM"],
     links: [
       { label: "Demo", href: "https://app.powerbi.com" },
       { label: "GitHub", href: "https://github.com/JeanCruzC" }
@@ -22,7 +22,7 @@ export const projectsEs: Project[] = [
   {
     title: "Generador de Turnos Inteligente",
     summary:
-      "Optimicé cobertura semanal 96% → 99% simulando 12 mil combinaciones de turnos FT/PT y descansos con validación de SLA.",
+      "Motor de turnos que simula múltiples escenarios FT/PT y descansos para mantener SLA con foco en bienestar del equipo.",
     tags: ["Python", "Streamlit", "Optimización"],
     links: [
       { label: "Demo", href: "https://streamlit.io" },
@@ -33,8 +33,8 @@ export const projectsEs: Project[] = [
   {
     title: "Forecast Walk-Forward Multipaís",
     summary:
-      "Modelo SARIMA + XGBoost que redujo el MAPE 11,3% y entregó escenarios LTF/STF por hora con intervalos de confianza.",
-    tags: ["Python", "Time Series", "XGBoost", "WFM"],
+      "Modelo SARIMA + XGBoost que entrega escenarios LTF/STF por hora con intervalos de confianza para CX multicanal.",
+    tags: ["Python", "Series de tiempo", "XGBoost", "WFM"],
     links: [
       { label: "Notebook", href: "https://github.com/JeanCruzC" },
       { label: "Sheets", href: "https://docs.google.com" }
@@ -44,8 +44,8 @@ export const projectsEs: Project[] = [
   {
     title: "Playbook de Recuperación CX",
     summary:
-      "Panel ejecutivo que prioriza iniciativas y redujo el TMO 7% al combinar NPS, backlog y capacity en un único flujo.",
-    tags: ["Looker Studio", "SQL", "Customer Experience"],
+      "Panel ejecutivo que prioriza iniciativas combinando NPS, backlog y capacity en un único flujo accionable.",
+    tags: ["Looker Studio", "SQL", "Experiencia de cliente"],
     links: [
       { label: "Demo", href: "https://lookerstudio.google.com" },
       { label: "Documentación", href: "https://jeancruzc.notion.site" }
@@ -56,9 +56,9 @@ export const projectsEs: Project[] = [
 
 export const projectsEn: Project[] = [
   {
-    title: "LATAM WFM Control Tower",
+    title: "WFM Control Tower",
     summary:
-      "Real-time control tower that cut overtime by 18% and lifted adherence +9 pp with predictive alerts per channel.",
+      "Real-time control tower that unifies coverage, demand and operational health with predictive alerts per channel.",
     tags: ["Power BI", "Python", "Automation", "WFM"],
     links: [
       { label: "Demo", href: "https://app.powerbi.com" },
@@ -69,7 +69,7 @@ export const projectsEn: Project[] = [
   {
     title: "Smart Shift Generator",
     summary:
-      "Simulated 12K FT/PT schedules to lift coverage from 96% to 99% while keeping SLA on target and automating approvals.",
+      "Shift engine that simulates FT/PT and rest combinations to sustain SLA while protecting team wellbeing.",
     tags: ["Python", "Streamlit", "Optimization"],
     links: [
       { label: "Demo", href: "https://streamlit.io" },
@@ -80,7 +80,7 @@ export const projectsEn: Project[] = [
   {
     title: "Multi-country Walk-Forward Forecast",
     summary:
-      "SARIMA + XGBoost ensemble that lowered MAPE by 11.3% and shipped hourly LTF/STF scenarios with confidence bands.",
+      "SARIMA + XGBoost ensemble delivering hourly LTF/STF scenarios with confidence bands for multichannel CX.",
     tags: ["Python", "Time Series", "XGBoost", "WFM"],
     links: [
       { label: "Notebook", href: "https://github.com/JeanCruzC" },
@@ -91,7 +91,7 @@ export const projectsEn: Project[] = [
   {
     title: "CX Recovery Playbook",
     summary:
-      "Executive dashboard that merged NPS, backlog and capacity to trim AHT by 7% and focus squads on high ROI fixes.",
+      "Executive dashboard that merges NPS, backlog and capacity to focus squads on the highest-impact fixes.",
     tags: ["Looker Studio", "SQL", "Customer Experience"],
     links: [
       { label: "Demo", href: "https://lookerstudio.google.com" },

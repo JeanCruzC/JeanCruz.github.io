@@ -2,14 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectGrid from "../components/ProjectGrid.astro";
 import ContactForm from "../components/ContactForm.astro";
+import ReportShowcase from "../components/ReportShowcase.astro";
 import { projectsEs } from "../data/projects";
+import { reportsEs } from "../data/reports";
 
 const cvUrl = "/cv/JeanCruz_CV.pdf";
 const siteUrl = "https://jeancruzc.github.io";
 ---
 <BaseLayout
   title="Jean Cruz — WFM & BI Lead"
-  description="Lidero analítica WFM y BI que mejora adherencia, SLA y costos operativos en equipos de CX."
+  description="Orquesto datos de WFM y BI para convertir cobertura y demanda en decisiones operativas."
   lang="es"
   canonicalUrl={`${siteUrl}/`}
   alternateLocales={[{ lang: "en", href: `${siteUrl}/en/` }]}
@@ -31,14 +33,13 @@ const siteUrl = "https://jeancruzc.github.io";
       </div>
       <a class="cta hero-primary" href="#contact" data-analytics-event="Hero Contact CTA">Contactar</a>
       <div class="hero-content">
-        <h1>Orquesto datos para que CX cumpla SLA sin quemar presupuesto</h1>
-        <p class="hero-sub">Forecasting, tableros ejecutivos y automatización para operaciones de alto volumen.</p>
+        <h1>Orquesto datos para convertir cobertura y demanda en decisiones operativas.</h1>
+        <p class="hero-sub">Experiencia en WFM, tableros ejecutivos y automatización con Python/SQL/Power BI.</p>
         <ul>
-          <li>+9 pp en adherencia y −18% horas extras en LATAM 2023.</li>
-          <li>SLA chat/voz +3 pp gracias a modelos walk-forward por intervalo.</li>
+          <li>Forecasting que conecta escenarios de staffing con objetivos de servicio.</li>
+          <li>BI accionable con alertas proactivas y rituales de seguimiento para CX.</li>
         </ul>
       </div>
-      <div class="hero-proof card">Dashboards accionables en 5 min: Control Tower regional y alertas predictivas.</div>
       <a
         class="hero-secondary"
         href={cvUrl}
@@ -51,25 +52,32 @@ const siteUrl = "https://jeancruzc.github.io";
     </div>
   </section>
 
+  <ReportShowcase
+    reports={reportsEs}
+    heading="Dashboards accionables"
+    intro="Colección de reportes que activan cobertura por intervalo, alertas proactivas y productividad por canal."
+    lang="es"
+  />
+
   <section id="about" class="section" data-aos="fade-up">
     <h2 class="h2">Sobre mí</h2>
     <p>
-      Lidero analítica WFM para Concentrix/Majorel con foco en convertir cobertura, demanda y staffing en decisiones inmediatas.
-      He escalado modelos de forecasting, tableros ejecutivos y automatización de turnos para operaciones multicanal.
+      Lidero analítica WFM con foco en traducir cobertura, demanda y staffing en decisiones inmediatas.
+      Diseño modelos de forecasting, tableros ejecutivos y automatización de turnos para operaciones multicanal.
     </p>
     <div class="about-highlights">
       <div class="card">
         <h3>Impacto rápido</h3>
         <ul>
-          <li>Recuperé 2,3M USD al alinear capacity vs. demanda con escenarios LTF/STF.</li>
-          <li>Tiempo de respuesta a desvíos bajó de 45 a 12 min con alertas proactivas.</li>
+          <li>Escenarios de capacity planning conectados con metas de experiencia de cliente.</li>
+          <li>Alertas operativas que disparan ajustes antes de afectar al usuario final.</li>
         </ul>
       </div>
       <div class="card">
         <h3>Cómo trabajo</h3>
         <ul>
-          <li>Workshops con operaciones y finanzas para priorizar KPI.</li>
-          <li>Implementación iterativa con métricas de adopción y training.</li>
+          <li>Workshops con operaciones y finanzas para priorizar KPI y data sources.</li>
+          <li>Implementación iterativa con métricas de adopción, training y gobernanza.</li>
         </ul>
       </div>
     </div>
@@ -78,36 +86,60 @@ const siteUrl = "https://jeancruzc.github.io";
   <section id="skills" class="section" data-aos="fade-up">
     <h2 class="h2">Habilidades</h2>
     <div class="grid grid-3">
-      <div class="card"><h3>Lenguajes</h3><p>Python, SQL, DAX, M (Power Query)</p></div>
-      <div class="card"><h3>BI & Data</h3><p>Power BI, Looker Studio, Excel/Sheets, ETL/Modelado</p></div>
-      <div class="card"><h3>WFM & Forecast</h3><p>Erlang, SARIMA/ARIMA, XGBoost, Validación Walk-Forward</p></div>
+      <div class="card">
+        <h3>Lenguajes</h3>
+        <ul class="pill-list">
+          <li>Python</li>
+          <li>SQL</li>
+          <li>DAX</li>
+          <li>M (Power Query)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>BI &amp; Data</h3>
+        <ul class="pill-list">
+          <li>Power BI</li>
+          <li>Looker Studio</li>
+          <li>Excel/Sheets</li>
+          <li>Modelado &amp; ETL</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>WFM &amp; Forecast</h3>
+        <ul class="pill-list">
+          <li>Planificación de cobertura</li>
+          <li>Validación walk-forward</li>
+          <li>Modelos Erlang &amp; SARIMA</li>
+          <li>Automatización con Python/SQL</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <ProjectGrid
     projects={projectsEs}
     heading="Proyectos estrella"
-    intro="3 casos recientes con impacto cuantificado en cobertura, SLA y costos."
+    intro="Casos recientes que conectan forecasting, tableros y automatización en operaciones CX."
   />
 
   <section id="cv" class="section" data-aos="fade-up">
     <h2 class="h2">Experiencia en resumen</h2>
     <div class="card experience">
       <article>
-        <h3>Workforce Lead — Concentrix (2023 – Presente)</h3>
+        <h3>Workforce Lead — Operaciones CX</h3>
         <ul>
-          <li>Forecast semestral + escenarios por cliente: ±2,1% MAPE promedio.</li>
-          <li>Coordiné comités WFM regionales y gobernanza de presupuesto anual.</li>
+          <li>Planificación regional que traduce forecasting en rutas de staffing y presupuesto.</li>
+          <li>Gobernanza de tableros ejecutivos y rituales de seguimiento para liderazgo.</li>
         </ul>
       </article>
       <article>
-        <h3>Planificador Senior CX — Majorel (2021 – 2023)</h3>
+        <h3>Planificador Senior CX — Operaciones Globales</h3>
         <ul>
-          <li>Reduje backlog 27% con automatización de reportes y tableros diarios.</li>
-          <li>Implementé walk-forward forecasting por intervalo con validación continua.</li>
+          <li>Automatización de reportes y tableros diarios con Python/SQL/Power BI.</li>
+          <li>Implementación de forecasting walk-forward y tableros de productividad multicanal.</li>
         </ul>
       </article>
-      <p class="experience-note">Formación: Comunicación &amp; Publicidad (UPN) · Certificaciones en Data/BI y WFM.</p>
+      <p class="experience-note">Formación en Comunicación &amp; Publicidad · Certificaciones en Data/BI y WFM.</p>
       <p>
         <a href={cvUrl} target="_blank" rel="noopener" data-analytics-event="Experience Download CV">Descargar CV completo (PDF)</a>
       </p>
@@ -116,7 +148,7 @@ const siteUrl = "https://jeancruzc.github.io";
 
   <section id="contact" class="section" data-aos="fade-up">
     <h2 class="h2">Contacto</h2>
-    <p class="contact-intro">¿Buscas fortalecer WFM o BI? Agenda una llamada de 15 minutos.</p>
+    <p class="contact-intro">¿Buscas fortalecer WFM o BI? Agenda una llamada breve.</p>
     <ContactForm lang="es" formspreeId="mwkgjqgd" trackEvent="Contact Form ES" />
   </section>
 </BaseLayout>
