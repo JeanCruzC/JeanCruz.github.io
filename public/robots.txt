@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jeancruzc.github.io/sitemap.xml
