@@ -53,8 +53,9 @@ const siteUrl = "https://jeancruzc.github.io";
             target="_blank"
             rel="noopener"
             data-analytics-event="Hero Download CV"
+            data-cv-anchor
           >
-            Descargar CV
+            Ver / Descargar CV
           </a>
         </div>
       </div>
@@ -145,8 +146,51 @@ const siteUrl = "https://jeancruzc.github.io";
       </article>
       <p class="experience-note">Formación en Comunicación &amp; Publicidad · Certificaciones en Data/BI y WFM.</p>
       <p>
-        <a href={cvUrl} target="_blank" rel="noopener" data-analytics-event="Experience Download CV">Descargar CV completo (PDF)</a>
+        <a
+          href={cvUrl}
+          target="_blank"
+          rel="noopener"
+          data-analytics-event="Experience Download CV"
+          data-cv-anchor
+        >
+          Ver / Descargar CV (PDF)
+        </a>
       </p>
+    </div>
+  </section>
+
+  <section id="gestor-cv" class="section" data-aos="fade-up">
+    <h2 class="h2">Gestiona tu CV</h2>
+    <div class="card cv-manager" data-cv-card>
+      <p class="cv-manager__intro">
+        Sube tu CV en PDF para reemplazar el archivo disponible en la página. El documento se guarda de forma local en
+        este navegador.
+      </p>
+      <label class="cv-upload" for="cv-file-input">
+        <span>Seleccionar PDF</span>
+        <input id="cv-file-input" type="file" accept="application/pdf" />
+      </label>
+      <div class="cv-current">
+        <div class="cv-current__info">
+          <span class="cv-filename" data-cv-filename>CV actual: JeanCruz_CV.pdf</span>
+          <button
+            class="cv-action-button"
+            type="button"
+            id="cv-action-button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Ver / Descargar
+          </button>
+          <div class="cv-action-menu" id="cv-action-menu" hidden>
+            <a id="cv-view-link" href={cvUrl} target="_blank" rel="noopener">Ver en nueva pestaña</a>
+            <a id="cv-download-link" href={cvUrl} download>Descargar PDF</a>
+          </div>
+        </div>
+        <button id="cv-reset-button" type="button" class="cv-reset">Usar CV predeterminado</button>
+      </div>
+      <p class="cv-helper">Puedes subir cualquier archivo PDF. Si algo sale mal, vuelve al CV predeterminado.</p>
+      <p class="cv-error" id="cv-error" role="alert" hidden></p>
     </div>
   </section>
 
@@ -156,3 +200,170 @@ const siteUrl = "https://jeancruzc.github.io";
     <ContactForm lang="es" formspreeId="myznqoqj" trackEvent="Contact Form ES" />
   </section>
 </BaseLayout>
+
+<script type="module">
+  const DEFAULT_CV = {
+    url: "/cv/JeanCruz_CV.pdf",
+    name: "JeanCruz_CV.pdf"
+  };
+  const STORAGE_KEY = "jc-custom-cv";
+
+  const fileInput = document.getElementById("cv-file-input");
+  const filenameEl = document.querySelector("[data-cv-filename]");
+  const errorEl = document.getElementById("cv-error");
+  const resetButton = document.getElementById("cv-reset-button");
+  const actionButton = document.getElementById("cv-action-button");
+  const actionMenu = document.getElementById("cv-action-menu");
+  const viewLink = document.getElementById("cv-view-link");
+  const downloadLink = document.getElementById("cv-download-link");
+  const pageAnchors = document.querySelectorAll("[data-cv-anchor]");
+
+  const closeMenu = () => {
+    if (!actionMenu) return;
+    actionMenu.hidden = true;
+    actionButton?.setAttribute("aria-expanded", "false");
+  };
+
+  const setError = (message) => {
+    if (!errorEl) return;
+    if (!message) {
+      errorEl.hidden = true;
+      errorEl.textContent = "";
+      return;
+    }
+    errorEl.hidden = false;
+    errorEl.textContent = message;
+  };
+
+  const applyCv = (cv) => {
+    const safeName = cv.name?.toLowerCase().endsWith(".pdf") ? cv.name : `${cv.name || "cv"}.pdf`;
+    if (filenameEl) {
+      filenameEl.textContent = `CV actual: ${cv.name}`;
+    }
+    if (viewLink) {
+      viewLink.href = cv.url;
+    }
+    if (downloadLink) {
+      downloadLink.href = cv.url;
+      downloadLink.setAttribute("download", safeName);
+    }
+    pageAnchors.forEach((anchor) => {
+      anchor.setAttribute("href", cv.url);
+      anchor.setAttribute("download", safeName);
+    });
+  };
+
+  const loadStoredCv = () => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return DEFAULT_CV;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return DEFAULT_CV;
+      const { name, dataUrl } = parsed;
+      if (typeof dataUrl === "string" && dataUrl.startsWith("data:application/pdf")) {
+        return {
+          url: dataUrl,
+          name: typeof name === "string" && name.trim() ? name.trim() : "CV personalizado.pdf"
+        };
+      }
+    } catch (error) {
+      console.error("No se pudo leer el CV personalizado", error);
+    }
+    return DEFAULT_CV;
+  };
+
+  const persistCv = (cv) => {
+    try {
+      if (cv === DEFAULT_CV) {
+        localStorage.removeItem(STORAGE_KEY);
+        return;
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ name: cv.name, dataUrl: cv.url }));
+    } catch (error) {
+      console.error("No se pudo guardar el CV personalizado", error);
+      setError("No pudimos guardar el archivo de forma local. Verifica el espacio disponible en tu navegador.");
+    }
+  };
+
+  const handleFile = (file) => {
+    if (!file) return;
+    if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+      setError("Selecciona un archivo con formato PDF.");
+      return;
+    }
+    if (file.size > 12 * 1024 * 1024) {
+      setError("El archivo es muy pesado. Usa un PDF de hasta 12MB.");
+      return;
+    }
+
+    setError("");
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const result = event.target?.result;
+      if (typeof result !== "string") {
+        setError("No pudimos leer el archivo. Intenta nuevamente.");
+        return;
+      }
+      const customCv = {
+        url: result,
+        name: file.name
+      };
+      persistCv(customCv);
+      applyCv(customCv);
+    };
+    reader.onerror = () => {
+      setError("Ocurrió un error al leer el PDF. Intenta nuevamente.");
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const init = () => {
+    if (!fileInput || !actionButton || !actionMenu) return;
+    applyCv(loadStoredCv());
+
+    fileInput.addEventListener("change", (event) => {
+      const target = event.target;
+      const file = target?.files?.[0];
+      handleFile(file);
+      target.value = "";
+    });
+
+    actionButton.addEventListener("click", () => {
+      const isHidden = actionMenu.hidden;
+      actionMenu.hidden = !isHidden;
+      actionButton.setAttribute("aria-expanded", String(isHidden));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!actionMenu || actionMenu.hidden) return;
+      if (event.target === actionButton || actionButton.contains(event.target)) return;
+      if (actionMenu.contains(event.target)) return;
+      closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    resetButton?.addEventListener("click", () => {
+      persistCv(DEFAULT_CV);
+      applyCv(DEFAULT_CV);
+      setError("");
+    });
+
+    actionMenu.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof HTMLAnchorElement) {
+        closeMenu();
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    init();
+  }
+</script>
