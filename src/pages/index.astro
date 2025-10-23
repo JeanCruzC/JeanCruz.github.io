@@ -3,8 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectGrid from "../components/ProjectGrid.astro";
 import ContactForm from "../components/ContactForm.astro";
 import ReportShowcase from "../components/ReportShowcase.astro";
+import PhotoCarousel from "../components/PhotoCarousel.astro";
 import { projectsEs } from "../data/projects";
 import { reportsEs } from "../data/reports";
+import { galleryImages } from "../data/gallery";
 
 const cvUrl = "/cv/JeanCruz_CV.pdf";
 const siteUrl = "https://jeancruzc.github.io";
@@ -57,7 +59,7 @@ const siteUrl = "https://jeancruzc.github.io";
         </div>
       </div>
       <div class="hero-media">
-        <img class="hero-avatar" src="/profile.png" alt="Jean Cruz — Analista de datos" width="320" height="320" />
+        <PhotoCarousel images={galleryImages} ariaLabel="Galería personal de Jean Cruz" />
       </div>
     </div>
   </section>
