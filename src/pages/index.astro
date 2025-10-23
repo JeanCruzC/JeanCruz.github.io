@@ -1,29 +1,78 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectGrid from "../components/ProjectGrid.astro";
-const cvUrl = "/cv/JeanCruz_CV.pdf"; // coloca tu PDF real en /public/cv/
+import ContactForm from "../components/ContactForm.astro";
+import { projectsEs } from "../data/projects";
+
+const cvUrl = "/cv/JeanCruz_CV.pdf";
+const siteUrl = "https://jeancruzc.github.io";
 ---
-<BaseLayout title="Jean Cruz — Data Analyst">
+<BaseLayout
+  title="Jean Cruz — WFM & BI Lead"
+  description="Lidero analítica WFM y BI que mejora adherencia, SLA y costos operativos en equipos de CX."
+  lang="es"
+  canonicalUrl={`${siteUrl}/`}
+  alternateLocales={[{ lang: "en", href: `${siteUrl}/en/` }]}
+  navItems={[
+    { href: "#about", label: "Sobre mí" },
+    { href: "#skills", label: "Habilidades" },
+    { href: "#projects", label: "Proyectos" },
+    { href: "#cv", label: "CV" },
+    { href: "#contact", label: "Contacto", isCta: true }
+  ]}
+  primaryCtaHref="#contact"
+  primaryCtaLabel="Contactar"
+>
   <section class="hero" data-aos="fade-up">
-    <div>
-      <span class="pill">Análisis • BI • Automatización</span>
-      <h1>Transformo datos en decisiones que mueven KPI de negocio</h1>
-      <p>Especializado en WFM, pronósticos por intervalo y tableros ejecutivos. Integro Python, Power BI y Sheets para mejorar cobertura, costos y experiencia del cliente.</p>
-      <div class="links" style="margin-top:16px">
-        <a class="cta" href="#projects">Ver proyectos</a>
-        <a href={cvUrl} target="_blank" rel="noopener">Descargar CV</a>
+    <div class="hero-grid">
+      <div class="hero-brand">
+        <span class="brand-pill">Jean Cruz</span>
+        <span class="hero-role">WFM & BI Lead — Lima · Remoto</span>
       </div>
-    </div>
-    <div>
-      <div class="card">✨ Dashboards claros para decisión rápida</div>
-      <div class="card" style="margin-top:12px">⚙️ Automatizo flujos de datos</div>
-      <div class="card" style="margin-top:12px">📈 Forecasts con validación</div>
+      <a class="cta hero-primary" href="#contact" data-analytics-event="Hero Contact CTA">Contactar</a>
+      <div class="hero-content">
+        <h1>Orquesto datos para que CX cumpla SLA sin quemar presupuesto</h1>
+        <p class="hero-sub">Forecasting, tableros ejecutivos y automatización para operaciones de alto volumen.</p>
+        <ul>
+          <li>+9 pp en adherencia y −18% horas extras en LATAM 2023.</li>
+          <li>SLA chat/voz +3 pp gracias a modelos walk-forward por intervalo.</li>
+        </ul>
+      </div>
+      <div class="hero-proof card">Dashboards accionables en 5 min: Control Tower regional y alertas predictivas.</div>
+      <a
+        class="hero-secondary"
+        href={cvUrl}
+        target="_blank"
+        rel="noopener"
+        data-analytics-event="Hero Download CV"
+      >
+        Descargar CV
+      </a>
     </div>
   </section>
 
   <section id="about" class="section" data-aos="fade-up">
     <h2 class="h2">Sobre mí</h2>
-    <p>Soy analista de datos enfocado en <strong>Workforce Management</strong> (Concentrix/Majorel), con 4+ años optimizando cobertura, horarios y pronósticos multicanal (Chat, Voz, Social). Disfruto convertir métricas complejas en historias accionables para negocio.</p>
+    <p>
+      Lidero analítica WFM para Concentrix/Majorel con foco en convertir cobertura, demanda y staffing en decisiones inmediatas.
+      He escalado modelos de forecasting, tableros ejecutivos y automatización de turnos para operaciones multicanal.
+    </p>
+    <div class="about-highlights">
+      <div class="card">
+        <h3>Impacto rápido</h3>
+        <ul>
+          <li>Recuperé 2,3M USD al alinear capacity vs. demanda con escenarios LTF/STF.</li>
+          <li>Tiempo de respuesta a desvíos bajó de 45 a 12 min con alertas proactivas.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Cómo trabajo</h3>
+        <ul>
+          <li>Workshops con operaciones y finanzas para priorizar KPI.</li>
+          <li>Implementación iterativa con métricas de adopción y training.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="skills" class="section" data-aos="fade-up">
@@ -35,33 +84,39 @@ const cvUrl = "/cv/JeanCruz_CV.pdf"; // coloca tu PDF real en /public/cv/
     </div>
   </section>
 
-  <ProjectGrid />
+  <ProjectGrid
+    projects={projectsEs}
+    heading="Proyectos estrella"
+    intro="3 casos recientes con impacto cuantificado en cobertura, SLA y costos."
+  />
 
   <section id="cv" class="section" data-aos="fade-up">
-    <h2 class="h2">Experiencia (resumen)</h2>
-    <div class="card">
-      <h3>Workforce Líder / WF Senior — Concentrix (Nov 2023 – Presente)</h3>
-      <ul>
-        <li>Budget anual y forecast semestral con 100% de cumplimiento de objetivos.</li>
-        <li>Alertas proactivas al SDM/Global SDM; dirección de comités y lineamientos.</li>
-      </ul>
-      <h3>Planificador de Servicios — Chat / Inbound / Social (May 2021 – Nov 2023)</h3>
-      <ul>
-        <li>Forecast por hora e intervalo; gestión de planificaciones y dashboards cliente.</li>
-        <li>Soporte GTR, proyecciones de ingresos/rotación y reportes de productividad.</li>
-      </ul>
-      <p style="margin-top:10px">Formación: Comunicación & Publicidad (UPN). Certificaciones en Data/BI.</p>
-      <p><a href={cvUrl} target="_blank" rel="noopener">Descargar CV completo (PDF)</a></p>
+    <h2 class="h2">Experiencia en resumen</h2>
+    <div class="card experience">
+      <article>
+        <h3>Workforce Lead — Concentrix (2023 – Presente)</h3>
+        <ul>
+          <li>Forecast semestral + escenarios por cliente: ±2,1% MAPE promedio.</li>
+          <li>Coordiné comités WFM regionales y gobernanza de presupuesto anual.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Planificador Senior CX — Majorel (2021 – 2023)</h3>
+        <ul>
+          <li>Reduje backlog 27% con automatización de reportes y tableros diarios.</li>
+          <li>Implementé walk-forward forecasting por intervalo con validación continua.</li>
+        </ul>
+      </article>
+      <p class="experience-note">Formación: Comunicación &amp; Publicidad (UPN) · Certificaciones en Data/BI y WFM.</p>
+      <p>
+        <a href={cvUrl} target="_blank" rel="noopener" data-analytics-event="Experience Download CV">Descargar CV completo (PDF)</a>
+      </p>
     </div>
   </section>
 
   <section id="contact" class="section" data-aos="fade-up">
     <h2 class="h2">Contacto</h2>
-    <p>¿Tienes una propuesta o reto analítico? Conversemos.</p>
-    <div class="links">
-      <a href="mailto:tu_correo@ejemplo.com">Email</a>
-      <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/JeanCruzC" target="_blank" rel="noopener">GitHub</a>
-    </div>
+    <p class="contact-intro">¿Buscas fortalecer WFM o BI? Agenda una llamada de 15 minutos.</p>
+    <ContactForm lang="es" formspreeId="mwkgjqgd" trackEvent="Contact Form ES" />
   </section>
 </BaseLayout>

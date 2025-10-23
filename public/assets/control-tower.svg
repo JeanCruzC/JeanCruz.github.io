@@ -1,0 +1,19 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#67E8F9" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.65" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="36" fill="#121622" />
+  <rect x="48" y="88" width="864" height="364" rx="28" fill="#161C2B" stroke="url(#grad1)" stroke-width="2" />
+  <path d="M160 376C220 292 292 248 360 248C454 248 498 336 592 336C680 336 736 280 800 232" stroke="url(#grad1)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+  <g fill="#67E8F9">
+    <circle cx="160" cy="376" r="14" />
+    <circle cx="360" cy="248" r="14" />
+    <circle cx="592" cy="336" r="14" />
+    <circle cx="800" cy="232" r="14" />
+  </g>
+  <text x="72" y="152" fill="#9AA4B2" font-family="Inter, Arial" font-size="28" font-weight="600">Real-time Control Tower</text>
+  <text x="72" y="188" fill="#5EEAD4" font-family="Inter, Arial" font-size="16">Adherence +9 pp · Overtime -18%</text>
+</svg>

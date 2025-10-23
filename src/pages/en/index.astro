@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectGrid from "../../components/ProjectGrid.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { projectsEn } from "../../data/projects";
+
+const cvUrl = "/cv/JeanCruz_CV_EN.pdf";
+const siteUrl = "https://jeancruzc.github.io";
+---
+<BaseLayout
+  title="Jean Cruz — WFM & BI Lead"
+  description="I design WFM analytics and BI that protect SLA, cost and customer experience for CX operations."
+  lang="en"
+  canonicalUrl={`${siteUrl}/en/`}
+  alternateLocales={[{ lang: "es", href: `${siteUrl}/` }]}
+  navItems={[
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Work" },
+    { href: "#cv", label: "Resume" },
+    { href: "#contact", label: "Contact", isCta: true }
+  ]}
+  primaryCtaHref="#contact"
+  primaryCtaLabel="Contact"
+>
+  <section class="hero" data-aos="fade-up">
+    <div class="hero-grid">
+      <div class="hero-brand">
+        <span class="brand-pill">Jean Cruz</span>
+        <span class="hero-role">WFM & BI Lead — Lima · Remote</span>
+      </div>
+      <a class="cta hero-primary" href="#contact" data-analytics-event="Hero Contact CTA EN">Contact</a>
+      <div class="hero-content">
+        <h1>I turn CX data into coverage, SLA and budget wins</h1>
+        <p class="hero-sub">Forecasting, executive dashboards and automation for high-volume CX operations.</p>
+        <ul>
+          <li>+9 pp adherence and −18% overtime across LATAM programs.</li>
+          <li>Chat/voice SLA +3 pp using hourly walk-forward forecasting.</li>
+        </ul>
+      </div>
+      <div class="hero-proof card">5-minute dashboards: Regional Control Tower and predictive alerting for CX leaders.</div>
+      <a
+        class="hero-secondary"
+        href={cvUrl}
+        target="_blank"
+        rel="noopener"
+        data-analytics-event="Hero Download CV EN"
+      >
+        Download resume
+      </a>
+    </div>
+  </section>
+
+  <section id="about" class="section" data-aos="fade-up">
+    <h2 class="h2">About</h2>
+    <p>
+      I lead WFM analytics for Concentrix/Majorel, translating coverage, demand and staffing into fast operational decisions.
+      I ship forecasting models, executive dashboards and scheduling automation across multichannel teams.
+    </p>
+    <div class="about-highlights">
+      <div class="card">
+        <h3>Impact</h3>
+        <ul>
+          <li>Recovered USD 2.3M aligning capacity vs. demand with LTF/STF scenarios.</li>
+          <li>Reduced incident response from 45 to 12 minutes via proactive alerts.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How I work</h3>
+        <ul>
+          <li>Co-design KPI priorities with operations and finance stakeholders.</li>
+          <li>Iterative delivery with adoption metrics, training and governance.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section" data-aos="fade-up">
+    <h2 class="h2">Skills</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3>Languages</h3><p>Python, SQL, DAX, M (Power Query)</p></div>
+      <div class="card"><h3>BI & Data</h3><p>Power BI, Looker Studio, Excel/Sheets, ETL/Modeling</p></div>
+      <div class="card"><h3>WFM & Forecast</h3><p>Erlang, SARIMA/ARIMA, XGBoost, Walk-forward validation</p></div>
+    </div>
+  </section>
+
+  <ProjectGrid
+    projects={projectsEn}
+    heading="Featured work"
+    intro="Recent WFM & BI engagements with measurable business outcomes."
+  />
+
+  <section id="cv" class="section" data-aos="fade-up">
+    <h2 class="h2">Experience snapshot</h2>
+    <div class="card experience">
+      <article>
+        <h3>Workforce Lead — Concentrix (2023 – Present)</h3>
+        <ul>
+          <li>Regional forecast + scenario planning per client with ±2.1% MAPE.</li>
+          <li>Chaired WFM governance and the annual budget process across LATAM.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Senior CX Planner — Majorel (2021 – 2023)</h3>
+        <ul>
+          <li>Cut backlog 27% with automated reporting and daily executive dashboards.</li>
+          <li>Implemented hourly walk-forward forecasting with continuous validation.</li>
+        </ul>
+      </article>
+      <p class="experience-note">Education: Communications & Advertising (UPN) · Data/BI & WFM certifications.</p>
+      <p>
+        <a href={cvUrl} target="_blank" rel="noopener" data-analytics-event="Experience Download CV EN">Download full resume (PDF)</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+    <h2 class="h2">Contact</h2>
+    <p class="contact-intro">Need to strengthen WFM or BI? Let's jump on a 15-minute call.</p>
+    <ContactForm lang="en" formspreeId="mwkgjqgd" trackEvent="Contact Form EN" />
+  </section>
+</BaseLayout>
