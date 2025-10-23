@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { galleryImages } from "../data/gallery";
 
 const {
   title = "Jean Cruz — Data Analyst",
@@ -22,7 +23,8 @@ const {
 };
 
 const siteUrl = "https://jeancruzc.github.io";
-const ogImage = `${siteUrl}/profile.png`;
+const fallbackOgImage = `${siteUrl}/blue.png`;
+const ogImage = galleryImages.length > 0 ? `${siteUrl}${galleryImages[0]}` : fallbackOgImage;
 const resolvedCanonical = canonicalUrl ?? siteUrl;
 const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : "Contactar");
 ---
