@@ -9,6 +9,7 @@ import { reportsEs } from "../data/reports";
 import { galleryImages } from "../data/gallery";
 
 const cvUrl = "/cv/JeanCruz_CV.pdf";
+const cvFilename = "JeanCruz_CV.pdf";
 const siteUrl = "https://jeancruzc.github.io";
 ---
 <BaseLayout
@@ -54,7 +55,7 @@ const siteUrl = "https://jeancruzc.github.io";
             rel="noopener"
             data-analytics-event="Hero Download CV"
           >
-            Descargar CV
+            Ver / Descargar CV
           </a>
         </div>
       </div>
@@ -145,8 +146,127 @@ const siteUrl = "https://jeancruzc.github.io";
       </article>
       <p class="experience-note">Formación en Comunicación &amp; Publicidad · Certificaciones en Data/BI y WFM.</p>
       <p>
-        <a href={cvUrl} target="_blank" rel="noopener" data-analytics-event="Experience Download CV">Descargar CV completo (PDF)</a>
+        <a
+          class="link-button"
+          href={cvUrl}
+          target="_blank"
+          rel="noopener"
+          data-analytics-event="Experience Download CV"
+        >
+          Ver CV en PDF
+        </a>
       </p>
+    </div>
+  </section>
+
+  <section id="cv-detalle" class="section" data-aos="fade-up">
+    <h2 class="h2">CV completo</h2>
+    <div class="card cv-sheet">
+      <header class="cv-sheet__header">
+        <div>
+          <h3 class="cv-sheet__name">Jean Cruz</h3>
+          <p class="cv-sheet__role">WFM &amp; Business Intelligence Lead</p>
+        </div>
+        <div class="cv-sheet__meta">
+          <span>Lima, Perú · Remoto</span>
+          <span><a href="mailto:jc@jeancruzc.com">jc@jeancruzc.com</a></span>
+          <span><a href="https://linkedin.com/in/jeancruzc" target="_blank" rel="noopener">linkedin.com/in/jeancruzc</a></span>
+        </div>
+      </header>
+
+      <div class="cv-sheet__columns">
+        <div class="cv-sheet__column">
+          <section>
+            <h4>Resumen</h4>
+            <p>
+              Profesional de Workforce Management y analítica con 8+ años optimizando cobertura, calidad y costos en
+              operaciones de atención al cliente. Integro pronóstico, tableros ejecutivos y automatización para activar
+              decisiones rápidas en equipos globales.
+            </p>
+          </section>
+          <section>
+            <h4>Experiencia</h4>
+            <article class="cv-entry">
+              <header>
+                <h5>Líder de WFM &amp; BI · Operaciones regionales CX</h5>
+                <span>2021 — Presente</span>
+              </header>
+              <ul>
+                <li>Dirijo la estrategia de pronóstico y cobertura para 600+ agentes multicanal en LatAm.</li>
+                <li>Diseñé tableros ejecutivos con métricas de SLA, AHT y productividad en tiempo real.</li>
+                <li>Reduje en 15% la subcobertura horaria implementando modelos walk-forward y alertas proactivas.</li>
+              </ul>
+            </article>
+            <article class="cv-entry">
+              <header>
+                <h5>Especialista Senior de Planificación · Centro de excelencia CX</h5>
+                <span>2018 — 2021</span>
+              </header>
+              <ul>
+                <li>Automaticé reportes diarios en Python y SQL, liberando 12h semanales del equipo operativo.</li>
+                <li>Implementé un modelo de pronóstico por intervalo para voice, chat y back-office.</li>
+                <li>Mentoricé a analistas en storytelling con datos y gobernanza de tableros.</li>
+              </ul>
+            </article>
+            <article class="cv-entry">
+              <header>
+                <h5>Analista de Business Intelligence · Servicios digitales</h5>
+                <span>2015 — 2018</span>
+              </header>
+              <ul>
+                <li>Construí pipelines ETL para datos de soporte y satisfacción, consolidando 30+ fuentes.</li>
+                <li>Desarrollé tableros de NPS y VOC que guiaron iniciativas de mejora continua.</li>
+                <li>Implementé alertas basadas en umbrales para detectar desvíos de SLA en tiempo real.</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+        <div class="cv-sheet__column">
+          <section>
+            <h4>Habilidades clave</h4>
+            <ul class="cv-list">
+              <li>Pronóstico por intervalo &amp; planificación de capacidad</li>
+              <li>Modelado de datos con SQL, Python y DAX</li>
+              <li>Tableros ejecutivos en Power BI y Looker Studio</li>
+              <li>Automatización de reportes y orquestación</li>
+              <li>Diseño de rituales operativos basados en datos</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Logros destacados</h4>
+            <ul class="cv-list">
+              <li>Aumento del 12% en adherencia gracias a tableros de seguimiento horario.</li>
+              <li>Reducción del backlog multicanal en 20% mediante estrategias de staffing flexible.</li>
+              <li>Implementación de un playbook de gobernanza de datos adoptado en 5 países.</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Formación</h4>
+            <article class="cv-entry">
+              <header>
+                <h5>Licenciatura en Comunicación &amp; Publicidad</h5>
+                <span>Universidad Peruana de Ciencias Aplicadas</span>
+              </header>
+              <p>Especialización en analítica de marketing y gestión de proyectos.</p>
+            </article>
+            <article class="cv-entry">
+              <header>
+                <h5>Certificaciones</h5>
+              </header>
+              <ul>
+                <li>Microsoft Certified: Data Analyst Associate</li>
+                <li>Power BI Data Analyst (PL-300)</li>
+                <li>Certificación Workforce Management Profesional</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </div>
+
+      <footer class="cv-sheet__footer">
+        <a class="cv-sheet__button" href={cvUrl} target="_blank" rel="noopener">Ver versión PDF</a>
+        <a class="cv-sheet__button" href={cvUrl} download={cvFilename}>Descargar PDF</a>
+      </footer>
     </div>
   </section>
 
@@ -156,3 +276,4 @@ const siteUrl = "https://jeancruzc.github.io";
     <ContactForm lang="es" formspreeId="myznqoqj" trackEvent="Contact Form ES" />
   </section>
 </BaseLayout>
+
