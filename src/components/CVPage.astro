@@ -10,7 +10,7 @@ const downloadHint = isEnglish
   : "Usa la opción de imprimir del navegador para guardar una copia en PDF.";
 ---
 <section class="cv-page" data-cv lang={cv.meta.lang}>
-  <header class="cv-header">
+  <header class="cv-header cv-card">
     <div>
       <h1>{cv.profile.name}</h1>
       <p class="cv-headline">{cv.profile.headline}</p>
@@ -32,14 +32,14 @@ const downloadHint = isEnglish
 
   <div class="cv-layout">
     <main class="cv-main">
-      <section id={cv.summary.id} class="cv-section">
+      <section id={cv.summary.id} class="cv-section cv-card">
         <h2>{cv.summary.title}</h2>
         {cv.summary.paragraphs.map((paragraph) => (
           <p>{paragraph}</p>
         ))}
       </section>
 
-      <section id={cv.experience.id} class="cv-section">
+      <section id={cv.experience.id} class="cv-section cv-card">
         <h2>{cv.experience.title}</h2>
         {cv.experience.items.map((item) => (
           <article class="cv-experience">
@@ -60,7 +60,7 @@ const downloadHint = isEnglish
         ))}
       </section>
 
-      <section id={cv.leadership.id} class="cv-section">
+      <section id={cv.leadership.id} class="cv-section cv-card">
         <h2>{cv.leadership.title}</h2>
         {cv.leadership.paragraphs.map((paragraph) => (
           <p>{paragraph}</p>
@@ -69,7 +69,7 @@ const downloadHint = isEnglish
     </main>
 
     <aside class="cv-sidebar">
-      <section id={cv.education.id} class="cv-section">
+      <section id={cv.education.id} class="cv-section cv-card">
         <h2>{cv.education.title}</h2>
         <ul class="cv-education">
           {(cv.education.items as CVEducation[]).map((item) => (
@@ -82,7 +82,7 @@ const downloadHint = isEnglish
         </ul>
       </section>
 
-      <section id={cv.skills.id} class="cv-section">
+      <section id={cv.skills.id} class="cv-section cv-card">
         <h2>{cv.skills.title}</h2>
         <div class="cv-skills">
           {cv.skills.groups.map((group) => (
@@ -98,7 +98,7 @@ const downloadHint = isEnglish
         </div>
       </section>
 
-      <section id={cv.tools.id} class="cv-section">
+      <section id={cv.tools.id} class="cv-section cv-card">
         <h2>{cv.tools.title}</h2>
         <ul class="cv-tags">
           {cv.tools.items.map((tool) => (
@@ -107,7 +107,7 @@ const downloadHint = isEnglish
         </ul>
       </section>
 
-      <section id={cv.languages.id} class="cv-section">
+      <section id={cv.languages.id} class="cv-section cv-card">
         <h2>{cv.languages.title}</h2>
         <ul class="cv-tags">
           {cv.languages.items.map((lang) => (
