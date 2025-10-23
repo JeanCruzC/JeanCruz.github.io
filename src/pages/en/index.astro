@@ -8,7 +8,7 @@ import { projectsEn } from "../../data/projects";
 import { reportsEn } from "../../data/reports";
 import { galleryImages } from "../../data/gallery";
 
-const cvUrl = "/cv/JeanCruz_CV_EN.pdf";
+const cvUrl = "/en/cv/";
 const siteUrl = "https://jeancruzc.github.io";
 ---
 <BaseLayout
@@ -143,7 +143,23 @@ const siteUrl = "https://jeancruzc.github.io";
       </article>
       <p class="experience-note">Background in Communications & Advertising · Data/BI and WFM certifications.</p>
       <p>
-        <a href={cvUrl} target="_blank" rel="noopener" data-analytics-event="Experience Download CV EN">Download full resume (PDF)</a>
+        <a href={cvUrl} target="_blank" rel="noopener" data-analytics-event="Experience Download CV EN">
+          Open full resume online
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <div class="card cv-highlight">
+      <h2 class="h2">Interactive resume</h2>
+      <p>
+        Explore the latest version of my resume right on the site. Print it or save it as a PDF directly from your
+        browser.
+      </p>
+      <p class="cv-highlight__actions">
+        <a class="cta" href={cvUrl} target="_blank" rel="noopener">Open resume in English</a>
+        <a class="cta secondary" href="/cv/" target="_blank" rel="noopener">Abrir CV en español</a>
       </p>
     </div>
   </section>

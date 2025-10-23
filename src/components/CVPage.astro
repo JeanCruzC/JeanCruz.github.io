@@ -1,0 +1,120 @@
+---
+import type { CVContent, CVEducation } from "../data/cv";
+import "../styles/cv.css";
+
+const { cv } = Astro.props as { cv: CVContent };
+const isEnglish = cv.meta.lang === "en";
+const downloadLabel = isEnglish ? "Print / Save PDF" : "Imprimir / Guardar PDF";
+const downloadHint = isEnglish
+  ? "Use your browser's print option to save a PDF copy."
+  : "Usa la opción de imprimir del navegador para guardar una copia en PDF.";
+---
+<section class="cv-page" data-cv lang={cv.meta.lang}>
+  <header class="cv-header">
+    <div>
+      <h1>{cv.profile.name}</h1>
+      <p class="cv-headline">{cv.profile.headline}</p>
+      <p class="cv-location">{cv.profile.location}</p>
+    </div>
+    <div class="cv-contact">
+      <a href={`mailto:${cv.profile.email}`}>{cv.profile.email}</a>
+      <a href={`tel:${cv.profile.phone.replace(/[^+\d]/g, "")}`}>{cv.profile.phone}</a>
+      {cv.profile.website && <a href={`https://${cv.profile.website}`} target="_blank" rel="noopener">{cv.profile.website}</a>}
+      <a href={`https://${cv.profile.linkedin}`} target="_blank" rel="noopener">{cv.profile.linkedin}</a>
+      <a href={`https://${cv.profile.github}`} target="_blank" rel="noopener">{cv.profile.github}</a>
+    </div>
+  </header>
+
+  <div class="cv-actions" role="group" aria-label={isEnglish ? "Print or save resume" : "Imprimir o guardar CV"}>
+    <button type="button" class="cv-print" onclick="window.print()">{downloadLabel}</button>
+    <p>{downloadHint}</p>
+  </div>
+
+  <div class="cv-layout">
+    <main class="cv-main">
+      <section id={cv.summary.id} class="cv-section">
+        <h2>{cv.summary.title}</h2>
+        {cv.summary.paragraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </section>
+
+      <section id={cv.experience.id} class="cv-section">
+        <h2>{cv.experience.title}</h2>
+        {cv.experience.items.map((item) => (
+          <article class="cv-experience">
+            <header>
+              <h3>{item.role}</h3>
+              <div class="cv-experience-meta">
+                <span>{item.company}</span>
+                <span>{item.location}</span>
+                <span>{item.period}</span>
+              </div>
+            </header>
+            <ul>
+              {item.achievements.map((achievement) => (
+                <li>{achievement}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      <section id={cv.leadership.id} class="cv-section">
+        <h2>{cv.leadership.title}</h2>
+        {cv.leadership.paragraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </section>
+    </main>
+
+    <aside class="cv-sidebar">
+      <section id={cv.education.id} class="cv-section">
+        <h2>{cv.education.title}</h2>
+        <ul class="cv-education">
+          {(cv.education.items as CVEducation[]).map((item) => (
+            <li>
+              <p class="cv-education-degree">{item.degree}</p>
+              <p class="cv-education-institution">{item.institution}</p>
+              <p class="cv-education-year">{item.year}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id={cv.skills.id} class="cv-section">
+        <h2>{cv.skills.title}</h2>
+        <div class="cv-skills">
+          {cv.skills.groups.map((group) => (
+            <div>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id={cv.tools.id} class="cv-section">
+        <h2>{cv.tools.title}</h2>
+        <ul class="cv-tags">
+          {cv.tools.items.map((tool) => (
+            <li>{tool}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section id={cv.languages.id} class="cv-section">
+        <h2>{cv.languages.title}</h2>
+        <ul class="cv-tags">
+          {cv.languages.items.map((lang) => (
+            <li>{lang}</li>
+          ))}
+        </ul>
+      </section>
+    </aside>
+  </div>
+</section>
