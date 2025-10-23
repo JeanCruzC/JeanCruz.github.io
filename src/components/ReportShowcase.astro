@@ -34,29 +34,31 @@ const thumbnailLabel = lang === "en" ? "thumbnail" : "miniatura";
             loading="lazy"
           />
         )}
-        <div class="report-content">
+        <div class="report-body">
           <h3>{report.title}</h3>
           <p>{report.description}</p>
         </div>
-        <div class="report-meta">
-          <span class="report-platform">{report.platform}</span>
-          {report.tags.length > 0 && (
-            <ul class="tags">
-              {report.tags.map((tag) => (
-                <li class="tag">{tag}</li>
-              ))}
-            </ul>
-          )}
+        <div class="report-actions">
+          <div class="report-meta">
+            <span class="report-platform">{report.platform}</span>
+            {report.tags.length > 0 && (
+              <ul class="tags">
+                {report.tags.map((tag) => (
+                  <li class="tag">{tag}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <a
+            class="report-button"
+            href={report.url}
+            target="_blank"
+            rel="noopener"
+            data-analytics-event={`${analyticsLabel} ${report.title} ${report.platform}`}
+          >
+            {buttonCopy} {report.platform} ↗
+          </a>
         </div>
-        <a
-          class="report-button"
-          href={report.url}
-          target="_blank"
-          rel="noopener"
-          data-analytics-event={`${analyticsLabel} ${report.title} ${report.platform}`}
-        >
-          {buttonCopy} {report.platform} ↗
-        </a>
       </article>
     ))}
   </div>

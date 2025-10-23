@@ -16,39 +16,49 @@ const siteUrl = "https://jeancruzc.github.io";
   canonicalUrl={`${siteUrl}/`}
   alternateLocales={[{ lang: "en", href: `${siteUrl}/en/` }]}
   navItems={[
-    { href: "#about", label: "Sobre mí" },
-    { href: "#skills", label: "Habilidades" },
-    { href: "#projects", label: "Proyectos" },
+    { href: "#sobre-mi", label: "Sobre mí" },
+    { href: "#habilidades", label: "Habilidades" },
+    { href: "#proyectos", label: "Proyectos" },
     { href: "#cv", label: "CV" },
-    { href: "#contact", label: "Contacto", isCta: true }
+    { href: "#contacto", label: "Contacto", isCta: true }
   ]}
-  primaryCtaHref="#contact"
+  primaryCtaHref="#contacto"
   primaryCtaLabel="Contactar"
 >
   <section class="hero" data-aos="fade-up">
     <div class="hero-grid">
-      <div class="hero-brand">
-        <span class="brand-pill">Jean Cruz</span>
-        <span class="hero-role">WFM & BI Lead — Lima · Remoto</span>
-      </div>
-      <a class="cta hero-primary" href="#contact" data-analytics-event="Hero Contact CTA">Contactar</a>
-      <div class="hero-content">
-        <h1>Orquesto datos para convertir cobertura y demanda en decisiones operativas.</h1>
-        <p class="hero-sub">Experiencia en WFM, tableros ejecutivos y automatización con Python/SQL/Power BI.</p>
-        <ul>
-          <li>Forecasting que conecta escenarios de staffing con objetivos de servicio.</li>
-          <li>BI accionable con alertas proactivas y rituales de seguimiento para CX.</li>
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <span class="brand-pill">Jean Cruz</span>
+          <span class="hero-role">Analista de datos — Lima · Remoto</span>
+        </div>
+        <h1>Transformo datos en decisiones claras.</h1>
+        <p class="hero-sub">
+          Analista de datos con enfoque en CX y WFM. Diseño tableros ejecutivos y procesos de pronóstico,
+          integrando Python / SQL / Power BI / Looker Studio para responder preguntas del negocio y priorizar
+          acciones.
+        </p>
+        <ul class="hero-bullets">
+          <li><strong>Pronóstico por intervalo</strong> y planificación de capacidad para operaciones multicanal.</li>
+          <li><strong>Tableros ejecutivos</strong> con alertas simples y seguimiento periódico.</li>
+          <li><strong>Automatización</strong> de reportes y flujos de datos para ahorrar tiempo operativo.</li>
         </ul>
+        <div class="hero-actions">
+          <a class="cta hero-primary" href="#contacto" data-analytics-event="Hero Contact CTA">Contactar</a>
+          <a
+            class="hero-secondary"
+            href={cvUrl}
+            target="_blank"
+            rel="noopener"
+            data-analytics-event="Hero Download CV"
+          >
+            Descargar CV
+          </a>
+        </div>
       </div>
-      <a
-        class="hero-secondary"
-        href={cvUrl}
-        target="_blank"
-        rel="noopener"
-        data-analytics-event="Hero Download CV"
-      >
-        Descargar CV
-      </a>
+      <div class="hero-media">
+        <img class="hero-avatar" src="/profile.png" alt="Jean Cruz — Analista de datos" width="320" height="320" />
+      </div>
     </div>
   </section>
 
@@ -59,31 +69,24 @@ const siteUrl = "https://jeancruzc.github.io";
     lang="es"
   />
 
-  <section id="about" class="section" data-aos="fade-up">
+  <section id="sobre-mi" class="section" data-aos="fade-up">
     <h2 class="h2">Sobre mí</h2>
-    <p>
-      Lidero analítica WFM con foco en traducir cobertura, demanda y staffing en decisiones inmediatas.
-      Diseño modelos de forecasting, tableros ejecutivos y automatización de turnos para operaciones multicanal.
-    </p>
-    <div class="about-highlights">
-      <div class="card">
-        <h3>Impacto rápido</h3>
-        <ul>
-          <li>Escenarios de capacity planning conectados con metas de experiencia de cliente.</li>
-          <li>Alertas operativas que disparan ajustes antes de afectar al usuario final.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Cómo trabajo</h3>
-        <ul>
-          <li>Workshops con operaciones y finanzas para priorizar KPI y data sources.</li>
-          <li>Implementación iterativa con métricas de adopción, training y gobernanza.</li>
-        </ul>
-      </div>
+    <div class="about-content card">
+      <p>
+        Analista de datos orientado a negocio. Conecto pronóstico, tableros y automatización para que operaciones
+        tomen decisiones rápidas.
+      </p>
+      <p>
+        Trabajo con equipos de CX/WFM y áreas administrativas para alinear capacidad, demanda y seguimiento.
+      </p>
+      <ul>
+        <li>Integro Python/SQL/Power BI con fuentes internas en un flujo reproducible.</li>
+        <li>Diseño tableros simples con prioridades claras y reuniones de seguimiento.</li>
+      </ul>
     </div>
   </section>
 
-  <section id="skills" class="section" data-aos="fade-up">
+  <section id="habilidades" class="section" data-aos="fade-up">
     <h2 class="h2">Habilidades</h2>
     <div class="grid grid-3">
       <div class="card">
@@ -92,24 +95,22 @@ const siteUrl = "https://jeancruzc.github.io";
           <li>Python</li>
           <li>SQL</li>
           <li>DAX</li>
-          <li>M (Power Query)</li>
         </ul>
       </div>
       <div class="card">
-        <h3>BI &amp; Data</h3>
+        <h3>BI &amp; Datos</h3>
         <ul class="pill-list">
           <li>Power BI</li>
           <li>Looker Studio</li>
           <li>Excel/Sheets</li>
-          <li>Modelado &amp; ETL</li>
+          <li>ETL/Modelado</li>
         </ul>
       </div>
       <div class="card">
-        <h3>WFM &amp; Forecast</h3>
+        <h3>CX–WFM</h3>
         <ul class="pill-list">
           <li>Planificación de cobertura</li>
-          <li>Validación walk-forward</li>
-          <li>Modelos Erlang &amp; SARIMA</li>
+          <li>Pronóstico por intervalo</li>
           <li>Automatización con Python/SQL</li>
         </ul>
       </div>
@@ -119,7 +120,8 @@ const siteUrl = "https://jeancruzc.github.io";
   <ProjectGrid
     projects={projectsEs}
     heading="Proyectos estrella"
-    intro="Casos recientes que conectan forecasting, tableros y automatización en operaciones CX."
+    intro="Casos recientes que conectan pronóstico, tableros y automatización en operaciones CX."
+    anchor="proyectos"
   />
 
   <section id="cv" class="section" data-aos="fade-up">
@@ -146,7 +148,7 @@ const siteUrl = "https://jeancruzc.github.io";
     </div>
   </section>
 
-  <section id="contact" class="section" data-aos="fade-up">
+  <section id="contacto" class="section" data-aos="fade-up">
     <h2 class="h2">Contacto</h2>
     <p class="contact-intro">¿Buscas fortalecer WFM o BI? Agenda una llamada breve.</p>
     <ContactForm lang="es" formspreeId="mwkgjqgd" trackEvent="Contact Form ES" />

@@ -27,28 +27,37 @@ const siteUrl = "https://jeancruzc.github.io";
 >
   <section class="hero" data-aos="fade-up">
     <div class="hero-grid">
-      <div class="hero-brand">
-        <span class="brand-pill">Jean Cruz</span>
-        <span class="hero-role">WFM & BI Lead — Lima · Remote</span>
-      </div>
-      <a class="cta hero-primary" href="#contact" data-analytics-event="Hero Contact CTA EN">Contact</a>
-      <div class="hero-content">
-        <h1>I orchestrate data so coverage and demand power CX decisions.</h1>
-        <p class="hero-sub">Experience in WFM, executive dashboards and automation with Python/SQL/Power BI.</p>
-        <ul>
-          <li>Forecasting that links staffing scenarios with service goals.</li>
-          <li>Executive dashboards with proactive alerts for CX teams.</li>
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <span class="brand-pill">Jean Cruz</span>
+          <span class="hero-role">Data analyst — Lima · Remote</span>
+        </div>
+        <h1>I turn data into clear decisions.</h1>
+        <p class="hero-sub">
+          Data analyst focused on CX and WFM. I design executive dashboards and forecasting processes, integrating
+          Python / SQL / Power BI / Looker Studio to answer business questions and prioritize actions.
+        </p>
+        <ul class="hero-bullets">
+          <li><strong>Interval forecasting</strong> and capacity planning for multichannel operations.</li>
+          <li><strong>Executive dashboards</strong> with lightweight alerts and recurring reviews.</li>
+          <li><strong>Automation</strong> of reports and data flows to save operational time.</li>
         </ul>
+        <div class="hero-actions">
+          <a class="cta hero-primary" href="#contact" data-analytics-event="Hero Contact CTA EN">Contact</a>
+          <a
+            class="hero-secondary"
+            href={cvUrl}
+            target="_blank"
+            rel="noopener"
+            data-analytics-event="Hero Download CV EN"
+          >
+            Download resume
+          </a>
+        </div>
       </div>
-      <a
-        class="hero-secondary"
-        href={cvUrl}
-        target="_blank"
-        rel="noopener"
-        data-analytics-event="Hero Download CV EN"
-      >
-        Download resume
-      </a>
+      <div class="hero-media">
+        <img class="hero-avatar" src="/profile.png" alt="Jean Cruz — Data analyst" width="320" height="320" />
+      </div>
     </div>
   </section>
 
@@ -61,25 +70,18 @@ const siteUrl = "https://jeancruzc.github.io";
 
   <section id="about" class="section" data-aos="fade-up">
     <h2 class="h2">About</h2>
-    <p>
-      I lead WFM analytics focused on translating coverage, demand and staffing into immediate actions.
-      I ship forecasting models, executive dashboards and scheduling automation for multichannel teams.
-    </p>
-    <div class="about-highlights">
-      <div class="card">
-        <h3>Impact</h3>
-        <ul>
-          <li>Capacity planning scenarios connected with CX commitments and budgets.</li>
-          <li>Proactive alerting that prompts adjustments before impacting customers.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>How I work</h3>
-        <ul>
-          <li>Co-design KPI priorities with operations and finance stakeholders.</li>
-          <li>Iterative delivery with adoption metrics, enablement and governance.</li>
-        </ul>
-      </div>
+    <div class="about-content card">
+      <p>
+        Business-oriented data analyst. I connect forecasting, dashboards and automation so operations can decide
+        fast.
+      </p>
+      <p>
+        I partner with CX/WFM teams and business functions to align capacity, demand and follow-up.
+      </p>
+      <ul>
+        <li>I integrate Python/SQL/Power BI with internal sources into a reproducible flow.</li>
+        <li>I design simple dashboards with clear priorities and follow-up cadences.</li>
+      </ul>
     </div>
   </section>
 
@@ -92,7 +94,6 @@ const siteUrl = "https://jeancruzc.github.io";
           <li>Python</li>
           <li>SQL</li>
           <li>DAX</li>
-          <li>M (Power Query)</li>
         </ul>
       </div>
       <div class="card">
@@ -101,15 +102,14 @@ const siteUrl = "https://jeancruzc.github.io";
           <li>Power BI</li>
           <li>Looker Studio</li>
           <li>Excel/Sheets</li>
-          <li>Modeling &amp; ETL</li>
+          <li>ETL/Modeling</li>
         </ul>
       </div>
       <div class="card">
-        <h3>WFM &amp; Forecast</h3>
+        <h3>CX–WFM</h3>
         <ul class="pill-list">
           <li>Coverage planning</li>
-          <li>Walk-forward validation</li>
-          <li>Erlang &amp; SARIMA models</li>
+          <li>Interval forecasting</li>
           <li>Automation with Python/SQL</li>
         </ul>
       </div>
