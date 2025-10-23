@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CVPage from "../components/CVPage.astro";
+import { cvEs } from "../data/cv";
+
+const siteUrl = "https://jeancruzc.github.io";
+const navItems = [
+  { href: `#${cvEs.summary.id}`, label: "Perfil" },
+  { href: `#${cvEs.experience.id}`, label: "Experiencia" },
+  { href: `#${cvEs.skills.id}`, label: "Habilidades" },
+  { href: `#${cvEs.tools.id}`, label: "Herramientas" },
+  { href: `#${cvEs.languages.id}`, label: "Idiomas" },
+];
+---
+<BaseLayout
+  title={cvEs.meta.title}
+  description={cvEs.meta.description}
+  lang="es"
+  canonicalUrl={`${siteUrl}/cv/`}
+  alternateLocales={[{ lang: "en", href: `${siteUrl}/en/cv/` }]}
+  navItems={navItems}
+  primaryCtaHref={`mailto:${cvEs.profile.email}`}
+  primaryCtaLabel="Escríbeme"
+>
+  <CVPage cv={cvEs} />
+</BaseLayout>

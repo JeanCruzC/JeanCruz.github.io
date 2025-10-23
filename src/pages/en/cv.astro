@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CVPage from "../../components/CVPage.astro";
+import { cvEn } from "../../data/cv";
+
+const siteUrl = "https://jeancruzc.github.io";
+const navItems = [
+  { href: `#${cvEn.summary.id}`, label: "Summary" },
+  { href: `#${cvEn.experience.id}`, label: "Experience" },
+  { href: `#${cvEn.skills.id}`, label: "Skills" },
+  { href: `#${cvEn.tools.id}`, label: "Tools" },
+  { href: `#${cvEn.languages.id}`, label: "Languages" },
+];
+---
+<BaseLayout
+  title={cvEn.meta.title}
+  description={cvEn.meta.description}
+  lang="en"
+  canonicalUrl={`${siteUrl}/en/cv/`}
+  alternateLocales={[{ lang: "es", href: `${siteUrl}/cv/` }]}
+  navItems={navItems}
+  primaryCtaHref={`mailto:${cvEn.profile.email}`}
+  primaryCtaLabel="Email me"
+>
+  <CVPage cv={cvEn} />
+</BaseLayout>
