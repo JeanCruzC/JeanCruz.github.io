@@ -3,6 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectGrid from "../../components/ProjectGrid.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import ReportShowcase from "../../components/ReportShowcase.astro";
+import PhotoCarousel from "../../components/PhotoCarousel.astro";
+import { personalPhotosEn } from "../../data/personalPhotos";
 import { projectsEn } from "../../data/projects";
 import { reportsEn } from "../../data/reports";
 
@@ -84,6 +86,13 @@ const siteUrl = "https://jeancruzc.github.io";
       </ul>
     </div>
   </section>
+
+  <PhotoCarousel
+    heading="Photo highlights"
+    intro="A quick tour of the moments that energize my work: team rituals, operations workshops, and adventures that recharge me."
+    photos={personalPhotosEn}
+    lang="en"
+  />
 
   <section id="skills" class="section" data-aos="fade-up">
     <h2 class="h2">Skills</h2>
