@@ -1,8 +1,32 @@
 ---
 import "../styles/global.css";
-const { title = "Jean Cruz — Data Analyst", description = "Análisis de datos, BI y automatización orientados a impacto de negocio." } = Astro.props;
+
+const {
+  title = "Jean Cruz — Data Analyst",
+  description = "Análisis de datos, BI y automatización orientados a impacto de negocio.",
+  lang = "es",
+  canonicalUrl,
+  alternateLocales = [],
+  navItems = [],
+  primaryCtaHref = "#contact",
+  primaryCtaLabel
+} = Astro.props as {
+  title?: string;
+  description?: string;
+  lang?: string;
+  canonicalUrl?: string;
+  alternateLocales?: { lang: string; href: string }[];
+  navItems?: { href: string; label: string; isCta?: boolean }[];
+  primaryCtaHref?: string;
+  primaryCtaLabel?: string;
+};
+
+const siteUrl = "https://jeancruzc.github.io";
+const ogImage = `${siteUrl}/profile.png`;
+const resolvedCanonical = canonicalUrl ?? siteUrl;
+const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : "Contactar");
 ---
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -12,17 +36,50 @@ const { title = "Jean Cruz — Data Analyst", description = "Análisis de datos,
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="canonical" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="x-default" href={resolvedCanonical} />
+    {alternateLocales.map((alt) => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script defer data-domain="jeancruzc.github.io" src="https://plausible.io/js/script.js"></script>
   </head>
   <body>
-    <header class="nav">
-      <a class="brand" href="/">Jean Cruz</a>
-      <nav>
-        <a href="#about">Sobre mí</a>
-        <a href="#skills">Habilidades</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#cv">CV</a>
-        <a class="cta" href="#contact">Contactar</a>
+    <header class="nav" data-nav>
+      <a class="brand" href={lang === "en" ? "/en/" : "/"}>Jean Cruz</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="nav-menu" class="nav-links">
+        {navItems.map((item) => (
+          <a
+            class={item.isCta ? "cta" : ""}
+            href={item.href}
+            data-analytics-event={item.isCta ? "Nav Contact CTA" : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
+        {alternateLocales.length > 0 && (
+          <div class="nav-locales" role="group" aria-label="Cambiar idioma">
+            <span>{lang === "en" ? "EN" : "ES"}</span>
+            {alternateLocales.map((alt) => (
+              <a href={alt.href} hreflang={alt.lang}>{alt.lang.toUpperCase()}</a>
+            ))}
+          </div>
+        )}
       </nav>
+      <a class="nav-primary" href={primaryCtaHref} data-analytics-event="Nav Primary CTA">{resolvedPrimaryCtaLabel}</a>
     </header>
 
     <main><slot /></main>
@@ -30,8 +87,8 @@ const { title = "Jean Cruz — Data Analyst", description = "Análisis de datos,
     <footer class="footer">
       <p>© {new Date().getFullYear()} Jean Cruz — Disponible en Lima/Remoto</p>
       <div class="social">
-        <a href="mailto:tu_correo@ejemplo.com" aria-label="Email">Email</a>
-        <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:jean@cruzanalytics.com" aria-label="Email">Email</a>
+        <a href="https://www.linkedin.com/in/jeancruzc" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/JeanCruzC" target="_blank" rel="noopener">GitHub</a>
       </div>
     </footer>
@@ -39,7 +96,61 @@ const { title = "Jean Cruz — Data Analyst", description = "Análisis de datos,
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script is:inline>
       document.addEventListener('DOMContentLoaded', () => {
-        AOS.init({ once: true, duration: 600 });
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotion.matches) {
+          document.documentElement.style.setProperty('scroll-behavior', 'auto');
+          document.querySelectorAll('[data-aos]').forEach((el) => {
+            el.removeAttribute('data-aos');
+          });
+        } else if (window.AOS) {
+          window.AOS.init({ once: true, duration: 600 });
+        }
+
+        const nav = document.querySelector('[data-nav]');
+        const toggle = nav?.querySelector('.nav-toggle');
+        const menu = nav?.querySelector('.nav-links');
+
+        const closeMenu = () => {
+          if (!toggle || !menu) return;
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('is-open');
+        };
+
+        toggle?.addEventListener('click', () => {
+          if (!menu || !toggle) return;
+          const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          menu.classList.toggle('is-open', !isOpen);
+        });
+
+        menu?.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            if (window.innerWidth < 900) {
+              closeMenu();
+            }
+          });
+        });
+
+        const handleResize = () => {
+          if (!menu || !toggle) return;
+          if (window.innerWidth >= 900) {
+            menu.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        const trackables = document.querySelectorAll('[data-analytics-event]');
+        trackables.forEach((el) => {
+          el.addEventListener('click', () => {
+            const eventName = el.getAttribute('data-analytics-event');
+            if (!eventName) return;
+            if (window.plausible) {
+              window.plausible(eventName);
+            }
+          });
+        });
       });
     </script>
   </body>

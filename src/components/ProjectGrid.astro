@@ -1,21 +1,42 @@
 ---
 import type { Project } from "../data/projects";
-import { projects } from "../data/projects";
-const safe = (s:string) => s; // placeholder para sanitizado si lo necesitas
+const { projects = [], heading = "Proyectos", anchor = "projects", intro } = Astro.props as {
+  projects: Project[];
+  heading?: string;
+  anchor?: string;
+  intro?: string;
+};
 ---
-<section id="projects" class="section" data-aos="fade-up">
-  <h2 class="h2">Proyectos</h2>
-  <div class="grid grid-3">
+<section id={anchor} class="section" data-aos="fade-up">
+  <div class="section-heading">
+    <h2 class="h2">{heading}</h2>
+    {intro && <p class="section-intro">{intro}</p>}
+  </div>
+  <div class="grid grid-3 project-grid">
     {projects.map((p) => (
-      <article class="card">
-        {p.image && <img src={p.image} alt={p.title} loading="lazy" width="1280" height="720" style="border-radius:12px;margin-bottom:10px" />}
+      <article class="card project-card">
+        {p.image && (
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            width="960"
+            height="540"
+          />
+        )}
         <h3>{p.title}</h3>
-        <p>{safe(p.summary)}</p>
+        <p>{p.summary}</p>
         <ul class="tags">
-          {p.tags.map((t) => <li class="tag">{t}</li>)}
+          {p.tags.map((t) => (
+            <li class="tag">{t}</li>
+          ))}
         </ul>
         <div class="links">
-          {p.links.map((l) => <a href={l.href} target="_blank" rel="noopener">{l.label} ↗</a>)}
+          {p.links.map((l) => (
+            <a href={l.href} target="_blank" rel="noopener" data-analytics-event={`Project ${p.title} ${l.label}`}>
+              {l.label} ↗
+            </a>
+          ))}
         </div>
       </article>
     ))}

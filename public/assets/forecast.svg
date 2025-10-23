@@ -1,0 +1,14 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#67E8F9" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="36" fill="#101623" />
+  <rect x="80" y="112" width="800" height="320" rx="28" fill="#151C2A" stroke="#1F2A3C" />
+  <path d="M136 368C184 320 232 240 296 240C360 240 392 312 448 312C504 312 544 256 600 256C656 256 688 336 744 336C792 336 824 292 840 268" stroke="url(#grad3)" stroke-width="16" stroke-linecap="round" />
+  <path d="M136 344C176 296 216 216 272 216C328 216 360 288 416 288C472 288 520 232 576 232C632 232 664 312 720 312C768 312 808 268 840 244" stroke="#2DD4BF" stroke-width="4" stroke-dasharray="12 16" stroke-linecap="round" />
+  <text x="112" y="164" fill="#9AA4B2" font-family="Inter, Arial" font-size="26" font-weight="600">Walk-forward forecast</text>
+  <text x="112" y="200" fill="#5EEAD4" font-family="Inter, Arial" font-size="16">MAPE 11.3% · Confidence bands</text>
+</svg>

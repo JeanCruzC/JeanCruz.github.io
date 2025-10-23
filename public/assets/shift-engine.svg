@@ -1,0 +1,21 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#67E8F9" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="36" fill="#111625" />
+  <g opacity="0.9">
+    <rect x="96" y="120" width="768" height="72" rx="18" fill="#171E2F" />
+    <rect x="96" y="224" width="768" height="72" rx="18" fill="#171E2F" />
+    <rect x="96" y="328" width="768" height="72" rx="18" fill="#171E2F" />
+    <rect x="120" y="136" width="240" height="40" rx="12" fill="url(#grad2)" />
+    <rect x="120" y="240" width="360" height="40" rx="12" fill="url(#grad2)" />
+    <rect x="120" y="344" width="290" height="40" rx="12" fill="url(#grad2)" />
+  </g>
+  <circle cx="704" cy="260" r="72" stroke="url(#grad2)" stroke-width="12" />
+  <path d="M704 208L736 260L704 312L672 260Z" fill="#67E8F9" />
+  <text x="120" y="92" fill="#9AA4B2" font-family="Inter, Arial" font-size="28" font-weight="600">Shift generator</text>
+  <text x="120" y="420" fill="#5EEAD4" font-family="Inter, Arial" font-size="16">96% → 99% coverage · 12K scenarios</text>
+</svg>

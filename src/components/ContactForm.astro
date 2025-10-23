@@ -1,0 +1,110 @@
+---
+const {
+  lang = "es",
+  formspreeId = "mwkgjqgd",
+  successRedirect,
+  trackEvent = "Contact Form Submit"
+} = Astro.props;
+
+const messages = {
+  es: {
+    name: "Nombre",
+    email: "Correo",
+    message: "Mensaje",
+    submit: "Enviar",
+    success: "¡Gracias! Respondemos en menos de 24 h.",
+    error: "No pudimos enviar el mensaje. Intenta de nuevo o escríbenos a jean@cruzanalytics.com",
+    helper: "Agenda un diagnóstico rápido — responderé personalmente.",
+    privacy: "No comparto tu información y puedes adjuntar contexto del proyecto."
+  },
+  en: {
+    name: "Name",
+    email: "Email",
+    message: "Message",
+    submit: "Send",
+    success: "Thanks! I will get back within 24 hours.",
+    error: "Message could not be delivered. Try again or email jean@cruzanalytics.com",
+    helper: "Book a quick diagnostic — I'll reply personally.",
+    privacy: "I keep your information private. Feel free to add project context."
+  }
+} as const;
+
+const copy = messages[lang];
+const formId = `contact-form-${lang}`;
+const endpoint = `https://formspree.io/f/${formspreeId}`;
+---
+<form
+  id={formId}
+  class="contact-form"
+  method="POST"
+  action={endpoint}
+  data-endpoint={endpoint}
+  data-analytics-event={trackEvent}
+>
+  <p class="form-helper">{copy.helper}</p>
+  <div class="form-grid">
+    <label>
+      <span>{copy.name}</span>
+      <input type="text" name="name" autocomplete="name" required />
+    </label>
+    <label>
+      <span>{copy.email}</span>
+      <input type="email" name="email" autocomplete="email" required />
+    </label>
+  </div>
+  <label class="textarea">
+    <span>{copy.message}</span>
+    <textarea name="message" rows={5} required></textarea>
+  </label>
+  <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  {successRedirect && <input type="hidden" name="_redirect" value={successRedirect} />}
+  <button type="submit" class="cta" data-analytics-event={`${trackEvent} CTA`}>{copy.submit}</button>
+  <p class="form-footnote">{copy.privacy}</p>
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>
+<script is:inline>
+  (() => {
+    const form = document.getElementById("${formId}");
+    if (!form) return;
+    const statusEl = form.querySelector('.form-status');
+    const endpoint = form.dataset.endpoint;
+    const successMessage = ${JSON.stringify(copy.success)};
+    const errorMessage = ${JSON.stringify(copy.error)};
+    form.addEventListener('submit', async (event) => {
+      if (!endpoint) return;
+      event.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const formData = new FormData(form);
+      form.classList.remove('is-success', 'is-error');
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+      }
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+        if (response.ok) {
+          if (statusEl) statusEl.textContent = successMessage;
+          form.reset();
+          form.classList.add('is-success');
+          if (window.plausible) {
+            window.plausible(form.dataset.analyticsEvent || '${trackEvent}');
+          }
+        } else {
+          throw new Error('Request failed');
+        }
+      } catch (error) {
+        if (statusEl) statusEl.textContent = errorMessage;
+        form.classList.add('is-error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.removeAttribute('disabled');
+        }
+      }
+    });
+  })();
+</script>
