@@ -74,7 +74,7 @@ html.dark {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 120px;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -104,7 +104,7 @@ textarea:focus-visible {
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 104px 20px 120px;
+  padding: 20px 20px 120px;
 }
 
 .nav {
@@ -269,7 +269,7 @@ main {
 }
 
 .hero {
-  margin-top: 64px;
+  margin-top: 40px;
 }
 
 .hero-grid {
