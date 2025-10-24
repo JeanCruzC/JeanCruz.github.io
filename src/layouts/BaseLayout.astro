@@ -222,9 +222,10 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
         } else if (window.AOS) {
           window.AOS.init({ 
             once: true, 
-            duration: 800,
+            duration: 600,
             easing: 'ease-out-cubic',
-            offset: 100
+            offset: 50,
+            delay: 100
           });
         }
         
