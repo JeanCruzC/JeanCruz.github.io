@@ -74,7 +74,7 @@ html.dark {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 120px;
 }
 
 body {
@@ -336,7 +336,8 @@ main {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
+  align-items: center;
 }
 
 .hero-primary {
@@ -394,18 +395,23 @@ main {
 }
 
 .section {
-  margin: 120px 0 0;
+  margin: 100px 0 0;
+}
+
+.section:first-of-type {
+  margin-top: 80px;
 }
 
 .hero-metrics {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin: 32px 0;
-  padding: 24px;
+  padding: 28px 24px;
   background: var(--surface-muted);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
+  justify-items: center;
 }
 
 .metric-item {
@@ -645,16 +651,41 @@ main {
   transform: translateY(-1px);
 }
 
-.experience article {
-  margin-bottom: 20px;
+.experience-timeline {
+  display: grid;
+  gap: 20px;
 }
 
-.experience ul {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--muted);
+.timeline-item {
   display: grid;
-  gap: 6px;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.timeline-period {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  background: var(--surface-muted);
+  border-radius: 999px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.timeline-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .experience-note {
@@ -826,8 +857,9 @@ main {
   }
 
   .hero-grid {
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.6fr 1fr;
     grid-template-areas: "copy media";
+    align-items: center;
   }
 
   .hero-media {
@@ -898,6 +930,23 @@ main {
 
   .contact-form .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .timeline-period {
+    justify-self: center;
+    width: fit-content;
   }
 
   .nav {
