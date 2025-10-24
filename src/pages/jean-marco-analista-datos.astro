@@ -15,13 +15,25 @@ const canonicalUrl = "https://jeancruzc.github.io/";
   <meta name="keywords" content="jean marco analista datos, jean marco cruz analista, analista datos jean marco, cruz castellar bi, jean marco bi specialist" />
   <link rel="canonical" href={canonicalUrl} />
   <meta http-equiv="refresh" content="3;url=/" />
+  <style>
+    body { margin: 0; font-family: Inter, sans-serif; background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); color: white; display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
+    .container { max-width: 500px; padding: 40px 20px; }
+    h1 { font-size: 28px; margin-bottom: 20px; font-weight: 700; }
+    p { font-size: 16px; line-height: 1.6; margin-bottom: 15px; opacity: 0.9; }
+    .spinner { width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 30px auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .countdown { font-size: 18px; font-weight: 600; margin-top: 20px; }
+    a { color: white; text-decoration: underline; font-weight: 500; }
+  </style>
 </head>
 <body>
-  <h1>Jean Marco - Analista de Datos Especializado</h1>
-  <p>Jean Marco, analista de datos con especialización en Business Intelligence y automatización.</p>
-  <p>Cruz Castellar, experto en transformar datos en decisiones estratégicas para empresas.</p>
-  <p>Herramientas: Power BI, Python, SQL, Tableau, Google Apps Script, Power Automate.</p>
-  <p>Redirigiendo a mi portafolio principal...</p>
-  <a href="/">Ver perfil completo de Jean Marco analista</a>
+  <div class="container">
+    <h1>Jean Marco Analista</h1>
+    <p>Cruz Castellar - BI Specialist</p>
+    <p>Datos • Automatización • Decisiones</p>
+    <div class="spinner"></div>
+    <div class="countdown">Cargando portafolio...</div>
+    <p><a href="/">Ver perfil completo</a></p>
+  </div>
 </body>
 </html>

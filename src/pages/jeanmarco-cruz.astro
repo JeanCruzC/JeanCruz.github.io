@@ -15,12 +15,25 @@ const canonicalUrl = "https://jeancruzc.github.io/";
   <meta name="keywords" content="jeanmarco cruz, jean marco cruz, analista datos peru, bi specialist lima, jeanmarco analista" />
   <link rel="canonical" href={canonicalUrl} />
   <meta http-equiv="refresh" content="3;url=/" />
+  <style>
+    body { margin: 0; font-family: Inter, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
+    .container { max-width: 500px; padding: 40px 20px; }
+    h1 { font-size: 28px; margin-bottom: 20px; font-weight: 700; }
+    p { font-size: 16px; line-height: 1.6; margin-bottom: 15px; opacity: 0.9; }
+    .spinner { width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 30px auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .countdown { font-size: 18px; font-weight: 600; margin-top: 20px; }
+    a { color: white; text-decoration: underline; font-weight: 500; }
+  </style>
 </head>
 <body>
-  <h1>JeanMarco Cruz - Analista de Datos Peru</h1>
-  <p>JeanMarco Cruz, también conocido como Jean Marco Cruz, analista de datos en Peru.</p>
-  <p>Especialista en Business Intelligence, automatización y análisis predictivo.</p>
-  <p>Redirigiendo a mi portafolio principal...</p>
-  <a href="/">Ver portafolio completo de JeanMarco Cruz</a>
+  <div class="container">
+    <h1>JeanMarco Cruz</h1>
+    <p>Analista de Datos Peru</p>
+    <p>Business Intelligence & Automatización</p>
+    <div class="spinner"></div>
+    <div class="countdown">Cargando portafolio...</div>
+    <p><a href="/">Ir directamente al portafolio</a></p>
+  </div>
 </body>
 </html>
