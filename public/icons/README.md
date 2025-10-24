@@ -1,14 +1,15 @@
-# Icons Directory
+# Icons Directory - CCI Analytics
 
-Carpeta para organizar todos los archivos de iconos del sitio:
+Carpeta oficial para todos los archivos de iconos del sitio:
 
-## Estructura recomendada:
-- `favicon-32x32.png` - Favicon principal (32x32px)
-- `favicon-192x192.png` - Favicon Android (192x192px) 
-- `apple-touch-icon.png` - Icono iOS (180x180px)
-- `icon-512x512.png` - Icono PWA grande
-- `favicon.ico` - Favicon legacy
-- `favicon.svg` - Favicon vectorial (opcional)
+## Archivos disponibles:
+- `favicon-32x32.png` - Favicon visible en pestañas del navegador
+- `favicon-192x192.png` - Favicon para dispositivos móviles (Android, etc.)
+- `apple-touch-icon.png` - Icono para dispositivos Apple
+- `logo-horizontal.png` - Logo completo horizontal para el footer
+- `logo-stack.png` - Logo apilado vertical para otras secciones
+- `logo-isotipo.png` - Solo el ícono, sin texto, para favicons o badges pequeños
 
-## Uso:
-Actualizar referencias en `BaseLayout.astro` para apuntar a `/icons/` en lugar de `/gallery/`
+## Referencias actualizadas:
+- BaseLayout.astro: favicons y logo footer
+- index.astro: badge del hero
