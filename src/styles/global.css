@@ -323,18 +323,31 @@ main {
 .brand-pill {
   display: inline-flex;
   align-items: center;
-  width: fit-content;
-  gap: 10px;
-  padding: 6px 14px;
-  border-radius: 999px;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.95);
   color: var(--primary);
   font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  min-height: 40px;
+}
+
+.brand-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.brand-pill:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 :root[data-theme="dark"] .brand-pill,
@@ -344,9 +357,8 @@ html.dark .brand-pill {
 }
 
 .brand-logo {
-  width: 120px;
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 24px;
   opacity: 1;
   z-index: 2;
   position: relative;
@@ -367,21 +379,22 @@ html.dark .brand-logo {
   }
 }
 
-@media (max-width: 768px) {
-  .brand-logo {
-    width: 100px;
-  }
-}
-
 .hero-role {
   font-size: 14px;
   color: var(--muted);
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-size: clamp(28px, 5vw, 40px);
   line-height: 1.1;
   margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hero h1 {
+    text-align: left;
+  }
 }
 
 .hero-sub {
