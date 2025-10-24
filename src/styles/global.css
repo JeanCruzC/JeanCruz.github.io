@@ -23,6 +23,8 @@
   --px: clamp(12px, 1.6vw, 16px);
   --gap: clamp(8px, 1.5vw, 16px);
   --hero-fs: clamp(28px, 6vw, 56px);
+  --brand-logo-h: clamp(28px, 3.2vw, 44px);
+  --brand-gap: clamp(8px, 1.2vw, 16px);
 }
 
 :root[data-theme="dark"],
@@ -312,21 +314,27 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--gap);
+  gap: var(--brand-gap);
   flex-wrap: wrap;
 }
 
 .brand-logo {
-  display: block;
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
 
-.brand-logo img {
-  height: clamp(20px, 2.5vw, 28px);
+.brand-logo img,
+.brand-logo svg {
+  height: var(--brand-logo-h);
   width: auto;
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) contrast(1.2);
+}
+
+.hero .brand-logo img {
+  height: calc(var(--brand-logo-h) * 1.15);
 }
 
 :root[data-theme="dark"] .brand-logo img,
@@ -347,7 +355,7 @@ html.dark .brand-logo img {
   padding: var(--py) var(--px);
   border-radius: 9999px;
   line-height: 1;
-  min-height: 32px;
+  min-height: max(32px, calc(var(--brand-logo-h) * 0.9));
   height: auto;
   width: fit-content;
   max-width: 100%;
@@ -1007,9 +1015,9 @@ html.dark .name-pill {
 }
 
 .footer-logo {
-  width: 180px;
+  height: var(--brand-logo-h);
+  width: auto;
   max-width: 100%;
-  height: auto;
   opacity: 0.95;
   object-fit: contain;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
@@ -1062,6 +1070,14 @@ html.dark .footer-logo:hover {
 @media (min-width: 1024px) {
   .grid-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero {
+    text-align: left;
+  }
+
+  .hero .brand {
+    justify-content: flex-start;
   }
 
   .hero-grid {
