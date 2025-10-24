@@ -185,6 +185,33 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script is:inline>
+      // Animated counters
+      function animateCounters() {
+        const counters = document.querySelectorAll('.metric-number');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = parseInt(counter.getAttribute('data-target'));
+              let current = 0;
+              const increment = target / 30;
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  counter.textContent = target + '+';
+                  clearInterval(timer);
+                } else {
+                  counter.textContent = Math.floor(current);
+                }
+              }, 50);
+              observer.unobserve(counter);
+            }
+          });
+        });
+        counters.forEach(counter => observer.observe(counter));
+      }
+    </script>
+    <script is:inline>
       document.addEventListener('DOMContentLoaded', () => {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
         if (prefersReducedMotion.matches) {
@@ -193,8 +220,16 @@ const resolvedPrimaryCtaLabel = primaryCtaLabel ?? (lang === "en" ? "Contact" : 
             el.removeAttribute('data-aos');
           });
         } else if (window.AOS) {
-          window.AOS.init({ once: true, duration: 600 });
+          window.AOS.init({ 
+            once: true, 
+            duration: 800,
+            easing: 'ease-out-cubic',
+            offset: 100
+          });
         }
+        
+        // Initialize animated counters
+        animateCounters();
 
         const nav = document.querySelector('[data-nav]');
         const toggle = nav?.querySelector('.nav-toggle');

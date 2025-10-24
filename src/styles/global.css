@@ -343,25 +343,43 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 22px;
+  padding: 16px 32px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #0c0f14;
-  font-weight: 600;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
   text-decoration: none;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+  background: linear-gradient(135deg, #ff5722, #ff9800);
 }
 
 .hero-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 14px 24px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-weight: 500;
-  background: var(--surface-muted);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+  background: transparent;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-secondary:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .hero-media {
@@ -376,7 +394,40 @@ main {
 }
 
 .section {
-  margin: 96px 0 0;
+  margin: 120px 0 0;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--surface-muted);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.metric-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .h2 {
@@ -616,19 +667,25 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding: 10px 20px;
+  padding: 14px 28px;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 16px;
   text-decoration: none;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #0c0f14;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: #ffffff;
   border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .cta:hover,
 .cta:focus {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+  background: linear-gradient(135deg, #ff5722, #ff9800);
 }
 
 .contact-intro {
