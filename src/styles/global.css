@@ -334,7 +334,7 @@ main {
 }
 
 .hero .brand-logo img {
-  height: calc(var(--brand-logo-h) * 1.15);
+  height: calc(var(--brand-logo-h) * 1.2);
 }
 
 :root[data-theme="dark"] .brand-logo img,
@@ -1015,9 +1015,9 @@ html.dark .name-pill {
 }
 
 .footer-logo {
-  height: var(--brand-logo-h);
-  width: auto;
+  width: 180px;
   max-width: 100%;
+  height: auto;
   opacity: 0.95;
   object-fit: contain;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
