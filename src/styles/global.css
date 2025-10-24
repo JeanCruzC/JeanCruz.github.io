@@ -19,6 +19,10 @@
   --tag-border: #cbd5e1;
   --card-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
   --radius-lg: 18px;
+  --py: clamp(6px, 0.8vh, 10px);
+  --px: clamp(12px, 1.6vw, 16px);
+  --gap: clamp(8px, 1.5vw, 16px);
+  --hero-fs: clamp(28px, 6vw, 56px);
 }
 
 :root[data-theme="dark"],
@@ -295,7 +299,91 @@ main {
 }
 
 .hero {
-  margin-top: 40px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding-block: clamp(16px, 6vh, 56px);
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: clamp(12px, 2vh, 20px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+  flex-wrap: wrap;
+}
+
+.brand-logo {
+  display: block;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: clamp(20px, 2.5vw, 28px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) contrast(1.2);
+}
+
+:root[data-theme="dark"] .brand-logo img,
+html.dark .brand-logo img {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) contrast(1.3) brightness(1.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .brand-logo img {
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) contrast(1.3) brightness(1.1);
+  }
+}
+
+.name-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--py) var(--px);
+  border-radius: 9999px;
+  line-height: 1;
+  min-height: 32px;
+  height: auto;
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: visible;
+  background: #fff;
+  color: #1f2937;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.name-pill:hover,
+.name-pill:focus-visible {
+  filter: brightness(1.05);
+  transition: filter 180ms ease;
+  outline: 2px solid transparent;
+}
+
+:root[data-theme="dark"] .name-pill,
+html.dark .name-pill {
+  background: rgba(20, 25, 32, 0.95);
+  color: var(--primary);
+  border-color: var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .name-pill {
+    background: rgba(20, 25, 32, 0.95);
+    color: var(--primary);
+    border-color: var(--border);
+  }
 }
 
 .hero-grid {
@@ -306,6 +394,7 @@ main {
   grid-template-areas:
     "media"
     "copy";
+  width: 100%;
 }
 
 .hero-copy {
@@ -314,85 +403,20 @@ main {
   grid-area: copy;
 }
 
-.hero-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.brand-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--primary);
-  font-size: 13px;
-  line-height: 1;
-  white-space: nowrap;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-  min-height: 40px;
-}
-
-.brand-pill:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.brand-pill:focus-within {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-:root[data-theme="dark"] .brand-pill,
-html.dark .brand-pill {
-  background: rgba(20, 25, 32, 0.95);
-  border-color: var(--border);
-}
-
-.brand-logo {
-  width: auto;
-  height: 24px;
-  opacity: 1;
-  z-index: 2;
-  position: relative;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) contrast(1.2);
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-:root[data-theme="dark"] .brand-logo,
-html.dark .brand-logo {
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) contrast(1.3) brightness(1.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .brand-logo {
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) contrast(1.3) brightness(1.1);
-  }
-}
-
 .hero-role {
   font-size: 14px;
   color: var(--muted);
 }
 
-.hero h1 {
-  font-size: clamp(28px, 5vw, 40px);
+.hero-title {
+  font-size: var(--hero-fs);
   line-height: 1.1;
-  margin: 0;
+  margin: clamp(8px, 1.2vh, 12px) 0 0 0;
   text-align: center;
 }
 
 @media (min-width: 1024px) {
-  .hero h1 {
+  .hero-title {
     text-align: left;
   }
 }
@@ -1104,12 +1128,12 @@ html.dark .footer-logo:hover {
     text-align: left;
   }
 
-  .hero h1 {
-    font-size: 32px;
-  }
-
   .hero-media {
     justify-content: center;
+  }
+
+  .name-pill {
+    min-height: 36px;
   }
 
   .contact-form .form-grid {
