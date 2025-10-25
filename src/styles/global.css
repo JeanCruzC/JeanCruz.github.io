@@ -1013,9 +1013,9 @@ html.dark .name-pill {
 }
 
 .footer-logo {
-  width: 180px;
+  height: var(--brand-logo-h);
+  width: auto;
   max-width: 100%;
-  height: auto;
   opacity: 0.95;
   object-fit: contain;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
