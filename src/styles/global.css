@@ -326,8 +326,8 @@ main {
 
 .brand-logo img,
 .brand-logo svg {
-  height: var(--brand-logo-h);
-  width: auto;
+  width: 180px;
+  height: auto;
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) contrast(1.2);
@@ -1013,9 +1013,9 @@ html.dark .name-pill {
 }
 
 .footer-logo {
-  height: var(--brand-logo-h);
-  width: auto;
+  width: 180px;
   max-width: 100%;
+  height: auto;
   opacity: 0.95;
   object-fit: contain;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
