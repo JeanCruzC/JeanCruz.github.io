@@ -8,6 +8,19 @@ export type Project = {
 };
 
 export const projectsEs: Project[] = [
+  // ========== NUEVO: Tinka Analytics - Eliminar este bloque si no te gusta ==========
+  {
+    title: "Tinka Analytics",
+    summary:
+      "Dashboard interactivo con Snowflake + Streamlit para análisis histórico, generación de combinaciones y recomendaciones ML de la lotería Tinka.",
+    tags: ["Python", "Streamlit", "Snowflake", "ML"],
+    links: [
+      { label: "Demo en Vivo", href: "https://jeanmarcocruz207-tinka-analytics.hf.space" },
+      { label: "Código", href: "https://huggingface.co/spaces/jeanmarcocruz207/Tinka_Analytics" }
+    ],
+    image: "/assets/tinka-analytics.svg"
+  },
+  // ========== FIN NUEVO ==========
   {
     title: "Control Tower WFM",
     summary:
@@ -55,6 +68,19 @@ export const projectsEs: Project[] = [
 ];
 
 export const projectsEn: Project[] = [
+  // ========== NEW: Tinka Analytics - Delete this block if you don't like it ==========
+  {
+    title: "Tinka Analytics",
+    summary:
+      "Interactive dashboard with Snowflake + Streamlit for historical analysis, combination generation and ML recommendations for Tinka lottery.",
+    tags: ["Python", "Streamlit", "Snowflake", "ML"],
+    links: [
+      { label: "Live Demo", href: "https://jeanmarcocruz207-tinka-analytics.hf.space" },
+      { label: "Code", href: "https://huggingface.co/spaces/jeanmarcocruz207/Tinka_Analytics" }
+    ],
+    image: "/assets/tinka-analytics.svg"
+  },
+  // ========== END NEW ==========
   {
     title: "WFM Control Tower",
     summary:
