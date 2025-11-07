@@ -15,10 +15,9 @@ export const projectsEs: Project[] = [
       "Dashboard interactivo con Snowflake + Streamlit para análisis histórico, generación de combinaciones y recomendaciones ML de la lotería Tinka.",
     tags: ["Python", "Streamlit", "Snowflake", "ML"],
     links: [
-      { label: "Demo en Vivo", href: "https://jeanmarcocruz207-tinka-analytics.hf.space" },
-      { label: "Código", href: "https://huggingface.co/spaces/jeanmarcocruz207/Tinka_Analytics" }
+      { label: "Ver Demo Interactiva", href: "#tinka-modal" }
     ],
-    image: "/assets/tinka-analytics.svg"
+    image: "/assets/tinka-analytics.png"
   },
   // ========== FIN NUEVO ==========
   {
@@ -75,10 +74,9 @@ export const projectsEn: Project[] = [
       "Interactive dashboard with Snowflake + Streamlit for historical analysis, combination generation and ML recommendations for Tinka lottery.",
     tags: ["Python", "Streamlit", "Snowflake", "ML"],
     links: [
-      { label: "Live Demo", href: "https://jeanmarcocruz207-tinka-analytics.hf.space" },
-      { label: "Code", href: "https://huggingface.co/spaces/jeanmarcocruz207/Tinka_Analytics" }
+      { label: "View Interactive Demo", href: "#tinka-modal" }
     ],
-    image: "/assets/tinka-analytics.svg"
+    image: "/assets/tinka-analytics.png"
   },
   // ========== END NEW ==========
   {
