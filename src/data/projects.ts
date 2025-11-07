@@ -12,7 +12,7 @@ export const projectsEs: Project[] = [
   {
     title: "Tinka Analytics",
     summary:
-      "Dashboard interactivo con Snowflake + Streamlit para análisis histórico, generación de combinaciones y recomendaciones ML de la lotería Tinka.",
+      "Aplicación full-stack que integra Snowflake como data warehouse, Python para análisis estadístico y Streamlit para visualización interactiva. Incluye análisis de frecuencias históricas, generador de combinaciones optimizadas y motor de recomendaciones con Machine Learning para predicción de patrones.",
     tags: ["Python", "Streamlit", "Snowflake", "ML"],
     links: [
       { label: "Ver Demo Interactiva", href: "#tinka-modal" }
@@ -71,7 +71,7 @@ export const projectsEn: Project[] = [
   {
     title: "Tinka Analytics",
     summary:
-      "Interactive dashboard with Snowflake + Streamlit for historical analysis, combination generation and ML recommendations for Tinka lottery.",
+      "Full-stack application integrating Snowflake as data warehouse, Python for statistical analysis, and Streamlit for interactive visualization. Features historical frequency analysis, optimized combination generator, and ML-powered recommendation engine for pattern prediction.",
     tags: ["Python", "Streamlit", "Snowflake", "ML"],
     links: [
       { label: "View Interactive Demo", href: "#tinka-modal" }
