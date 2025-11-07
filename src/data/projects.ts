@@ -15,7 +15,7 @@ export const projectsEs: Project[] = [
       "Aplicación full-stack que integra Snowflake como data warehouse, Python para análisis estadístico y Streamlit para visualización interactiva. Incluye análisis de frecuencias históricas, generador de combinaciones optimizadas y motor de recomendaciones con Machine Learning para predicción de patrones.",
     tags: ["Python", "Streamlit", "Snowflake", "ML"],
     links: [
-      { label: "Ver Demo Interactiva", href: "#tinka-modal" }
+      { label: "Ver Proyecto Completo", href: "/proyectos/tinka-analytics/" }
     ],
     image: "/assets/tinka-analytics.png"
   },
@@ -74,7 +74,7 @@ export const projectsEn: Project[] = [
       "Full-stack application integrating Snowflake as data warehouse, Python for statistical analysis, and Streamlit for interactive visualization. Features historical frequency analysis, optimized combination generator, and ML-powered recommendation engine for pattern prediction.",
     tags: ["Python", "Streamlit", "Snowflake", "ML"],
     links: [
-      { label: "View Interactive Demo", href: "#tinka-modal" }
+      { label: "View Full Project", href: "/proyectos/tinka-analytics/" }
     ],
     image: "/assets/tinka-analytics.png"
   },
